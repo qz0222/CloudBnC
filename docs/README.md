@@ -20,11 +20,11 @@ CloundBnC is a web application based on AirBnB built using Ruby on Rails and Rea
 - [ ] Reviews
 
 ## Design Docs
-- [View Wireframes](./docs/wireframes)
-- [React Components](./docs/component-hierarchy.md)
-- [API endpoints](./docs/api-endpoints.md)
-- [DB schema](./docs/schema.md)
-- [Sample State](./docs/sample-state.md)
+- [View Wireframes](./wireframes)
+- [React Components](./component-hierarchy.md)
+- [API endpoints](./api-endpoints.md)
+- [DB schema](./schema.md)
+- [Sample State](./sample-state.md)
 
 ## Implementation Timeline
 
@@ -54,6 +54,6 @@ CloundBnC is a web application based on AirBnB built using Ruby on Rails and Rea
 
 
 ## Bonus Features in the Future
-- Bonus: Messaging
-- Bonus: User/host profiles
-- Bonus: Add Car sharing Features
+- [ ] Messaging
+- [ ] User/host profiles
+- [ ] Add Car sharing Features
