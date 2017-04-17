@@ -1,5 +1,3 @@
-component hierarchy
-
 ## Component Hierarchy
 
 **AuthFormContainer**

@@ -44,7 +44,7 @@ CloundBnC is a web application based on AirBnB built using Ruby on Rails and Rea
 
 **Objective:** Bookings form.
 
-### Phase IV: Spot search page with google map and homepage search bar (2 days)
+### Phase IV: Spot search page with google map and homepage search bar (2 day)
 
 **Objective:** Functioning search bar on homepage/search page. Interactive Google map mirrors search results.
 
