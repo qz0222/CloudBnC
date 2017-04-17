@@ -5,7 +5,7 @@
 
 [Heroku Link](https://heroku.com)
 
-[Trello link](www.trello.com)
+[Trello link](https://trello.com/b/k9OscXud/cloudbnc)
 
 ## Minimum Viable Product
 
