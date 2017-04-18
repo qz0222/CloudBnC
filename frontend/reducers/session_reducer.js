@@ -13,8 +13,10 @@ const sessionReducer = (oldState = _defaultState, action) => {
       return {currentUser:action.user, errors:[]};
 
     case RECEIVE_ERRORS:
-      const newState = merge({}, oldState);
-      newState.errors.push (action.errors.responseJSON);
+      let newState = merge({}, oldState);
+      let message = action.errors.responseJSON;
+      if (message === undefined){message=[];}
+      newState.errors = message;
       return newState;
     default:
       return oldState;

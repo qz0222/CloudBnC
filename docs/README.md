@@ -14,9 +14,9 @@ CloundBnC is a web application based on AirBnB built using Ruby on Rails and Rea
 - [ ] Hosting on Heroku
 - [ ] A production README
 - [ ] New account creation, login and guest/demo login
-- [ ] Spots/Destinations
+- [ ] Rooms/Destinations
 - [ ] Bookings
-- [ ] Spots search (by location & availability & budget)
+- [ ] Rooms search (by location & availability & budget)
 - [ ] Reviews
 
 ## Design Docs
@@ -38,19 +38,19 @@ CloundBnC is a web application based on AirBnB built using Ruby on Rails and Rea
 
 ### Phase III: Home Page (1 day)
 
-**Objective:** Finish Homepage and style, add most popular Spots to be featured on home page.
+**Objective:** Finish Homepage and style, add most popular Rooms to be featured on home page.
 
 ### Phase V: Bookings (2 day)
 
 **Objective:** Bookings form.
 
-### Phase IV: Spot search page with google map and homepage search bar (2 day)
+### Phase IV: Room search page with google map and homepage search bar (2 day)
 
 **Objective:** Functioning search bar on homepage/search page. Interactive Google map mirrors search results.
 
 ### Phase VI: Reviews (2 day)
 
-**Objective:** Users can leave reviews and rate spots. Reviews and ratings appear on spot detail page and can be created, read, updated, and destroyed.
+**Objective:** Users can leave reviews and rate rooms. Reviews and ratings appear on room detail page and can be created, read, updated, and destroyed.
 
 
 ## Bonus Features in the Future

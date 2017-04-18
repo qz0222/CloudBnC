@@ -1,0 +1,17 @@
+.session-input{
+  border:2px red solid;
+  width:300px;
+  height:auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.session-input label{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.session-input input{
+  width:200px;
+}

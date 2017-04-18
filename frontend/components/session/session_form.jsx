@@ -16,6 +16,22 @@ class SessionForm extends React.Component {
     this.redirectIfLoggedIn();
   }
 
+  componentWillReceiveProps(newProps) {
+  if (newProps.location.pathname!=this.props.location.pathname){
+    console.log(this.props.formType);
+    this.props.receiveErrors([]);
+    if (this.props.formType ==='login'){
+      this.setState({username:"",password:""});
+    }
+    // TODO: fix this later
+    if (this.props.formType === 'signup'){
+      this.setState({username:"",password:""});
+    }
+
+  }
+  }
+
+
   redirectIfLoggedIn(){
     if (this.props.loggedIn){
       this.props.router.push("/");
@@ -35,11 +51,55 @@ class SessionForm extends React.Component {
   }
 
   showErrors(){
-    if (this.props.errors){
-      return this.props.errors;
-    } else {
-      return null;
-    }
+    return(
+      <ul>
+        {this.props.errors.map((error,idx)=><li key={idx}>{error}</li>)}
+      </ul>
+    );
+  }
+
+  handleFormType(){
+    if (this.props.formType==='signup') {
+        return this.showSignUp();
+      }else{
+        return this.showLogIn();
+      }
+  }
+
+
+  showSignUp(){
+    return(
+      <div className='session-input'>
+        <label>Username:
+          <input onChange={this.update('username')} type="text" value={this.state.username}/>
+        </label>
+        <label>Firstname:
+          <input  type="text" value=''/>
+        </label>
+        <label>Lastname:
+          <input  type="text" value=''/>
+        </label>
+        <label>Password:
+          <input onChange={this.update('password')} type="password" value={this.state.password}/>
+        </label>
+        <label>Birthday:
+          <input  type="date" />
+        </label>
+      </div>
+    );
+  }
+
+  showLogIn(){
+    return(
+      <div className='session-input'>
+        <label>Username:
+          <input onChange={this.update('username')} type="text" value={this.state.username}/>
+        </label>
+        <label>Password:
+          <input onChange={this.update('password')} type="password" value={this.state.password}/>
+        </label>
+      </div>
+    );
   }
 
 
@@ -47,17 +107,13 @@ class SessionForm extends React.Component {
     const text = this.props.formType === "signup" ? 'Sign up' : 'Log in';
     const text2 = this.props.formType === "signup" ? 'Log in' : 'Sign up';
     const link_path = this.props.formType === "signup"? '/login' : '/signup';
+
     return(
-      <div>
+      <div className='session-box'>
         <h1>{text}</h1>
         <form onSubmit={this.handleSubmit}>
-          <h1>{this.showErrors()}</h1>
-          <label>Username:
-            <input onChange={this.update('username')} type="text" value={this.state.username}/>
-          </label>
-          <label>Password:
-            <input onChange={this.update('password')} type="password" value={this.state.password}/>
-          </label>
+          {this.showErrors()}
+          {this.handleFormType()}
           <input type="submit" value={text}/>
         </form>
         <Link to={link_path}>{text2}</Link>

@@ -28,11 +28,11 @@
 - `PATCH /api/cities/:id`
 - `DELETE /api/cities/:id`
 
-### Spots
+### Rooms
 
 - `GET /api/rooms`
   - rooms index/search
-  - accepts `price` and `start_time`, `end_time` query params to fetch available spots
+  - accepts `price` and `start_time`, `end_time` query params to fetch available rooms
 - `GET /api/rooms/:id`
 
 ### Bookings
