@@ -1,4 +1,4 @@
-# PostgreSQL. Versions 9.1 and up are supported.
+# PostgreSQL. Versions 8.2 and up are supported.
 #
 # Install the pg driver:
 #   gem install pg
@@ -19,17 +19,17 @@ default: &default
   encoding: unicode
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  pool: 5
 
 development:
   <<: *default
-  database: CloudBnC_development
+  database: benchbnb_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user that initialized the database.
-  #username: CloudBnC
+  #username: benchbnb
 
   # The password associated with the postgres role (username).
   #password:
@@ -57,7 +57,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: CloudBnC_test
+  database: benchbnb_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: CloudBnC_production
-  username: CloudBnC
-  password: <%= ENV['CLOUDBNC_DATABASE_PASSWORD'] %>
+  database: benchbnb_production
+  username: benchbnb
+  password: <%= ENV['BENCHBNB_DATABASE_PASSWORD'] %>
