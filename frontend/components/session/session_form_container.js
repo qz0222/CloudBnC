@@ -10,13 +10,11 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-  // debugger
   let processForm;
   const formType = ownProps.location.pathname.slice(1);
   if (formType === 'login') {
     processForm = login;
   } else {
-    // debugger
     processForm = signup;
   }
   return ({
