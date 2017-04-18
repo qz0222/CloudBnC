@@ -16,7 +16,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     processForm = login;
   } else {
     processForm = signup;
-  }
+  } 
   return ({
     processForm: (user) => (dispatch(processForm(user))),
     receiveErrors:(errors)=> dispatch(receiveErrors(errors)),
