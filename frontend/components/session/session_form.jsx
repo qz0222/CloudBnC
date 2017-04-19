@@ -16,6 +16,10 @@ class SessionForm extends React.Component {
     this.redirectIfLoggedIn();
   }
 
+  componentWillUnmount(){
+    this.props.receiveErrors([]);
+  }
+
   componentWillReceiveProps(newProps) {
   if (newProps.location.pathname!=this.props.location.pathname){
     console.log(this.props.formType);
@@ -40,6 +44,7 @@ class SessionForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    this.unhideErrors();
     const user = Object.assign({},this.state);
     this.props.processForm(user);
   }
@@ -51,8 +56,12 @@ class SessionForm extends React.Component {
   }
 
   showErrors(){
+    if (this.props.errors.length === 0){
+      return null;
+    }
+
     return(
-      <ul>
+      <ul className='session-errors'>
         {this.props.errors.map((error,idx)=><li key={idx}>{error}</li>)}
       </ul>
     );
@@ -79,27 +88,67 @@ class SessionForm extends React.Component {
   showSignUp(){
     return(
       <div className='session-input'>
-
+        <div className='container'
+          onFocus={this.addFocus}
+          onBlur={this.removeFocus}>
+          <input
+            onChange={this.update('username')}
+            type="text"
+            value={this.state.username}
+            placeholder="Username"/>
+          <div className='icon'>
+            <i className="fa fa-envelope-o" aria-hidden="true"></i>
+          </div>
+        </div>
+        <div className='container'
+          onFocus={this.addFocus}
+          onBlur={this.removeFocus}>
+          <input
+            type="text"
+            value=''
+            placeholder='Firstname'/>
+          <div className='icon'>
+            <i className="fa fa-user" aria-hidden="true"></i>
+          </div>
+        </div>
+        <div className='container'
+          onFocus={this.addFocus}
+          onBlur={this.removeFocus}>
+          <input
+            type="text"
+            value=''
+            placeholder='Lastname'/>
+          <div className='icon'>
+            <i className="fa fa-user" aria-hidden="true"></i>
+          </div>
+        </div>
+        <div className='container'
+          onFocus={this.addFocus}
+          onBlur={this.removeFocus}>
+          <input
+            onChange={this.update('password')}
+            type="password"
+            value={this.state.password}
+            placeholder='Password'/>
+          <div className='icon'>
+            <i className="fa fa-lock" aria-hidden="true"></i>
+          </div>
+        </div>
+        <label>Birthday</label>
+          <div className='container'
+            onFocus={this.addFocus}
+            onBlur={this.removeFocus}>
         <input
-          onChange={this.update('username')}
-          type="text"
-          value={this.state.username}
-          placeholder="Username"/>
+          type="date"
+          placeholder='Birthday'/>
+        </div>
 
-        <label>Firstname:
-          <input  type="text" value=''/>
-        </label>
-        <label>Lastname:
-          <input  type="text" value=''/>
-        </label>
-        <label>Password:
-          <input onChange={this.update('password')} type="password" value={this.state.password}/>
-        </label>
-        <label>Birthday:
-          <input  type="date" />
-        </label>
-        <input className='session-submit' type="submit" value='Log in'/>
-      </div>
+        <input className='session-submit' type="submit" value='Sign up'/>
+        <div className='session-bottom'>
+          <span>{'Already have a Cloudbnc account?'}</span>
+          <Link to='/login'>{'Log in'}</Link>
+        </div>
+    </div>
     );
   }
 
@@ -133,7 +182,7 @@ class SessionForm extends React.Component {
           </div>
         </div>
         <span>Forgot password?  LOL</span>
-        <input className='session-submit' type="submit" value='Sign up'/>
+        <input className='session-submit' type="submit" value='Log in'/>
         <div className='session-bottom'>
           <span>{'Don\'t have an account?'}</span>
           <Link to='/signup'>{'Sign up'}</Link>
@@ -147,6 +196,27 @@ class SessionForm extends React.Component {
     box.className = box.className === 'session-box' ? 'session-box2' : 'session-box';
   }
 
+  hideErrors(){
+    let errors = document.getElementsByClassName('session-errors');
+    if (errors.length>0){
+      // debugger
+      if (!errors[0].className.includes('hide')){
+        errors[0].className = errors[0].className + ' hide';
+      }
+    }
+  }
+  unhideErrors(){
+    let errors = document.getElementsByClassName('session-errors hide');
+    if (errors.length>0){
+      // debugger
+
+      errors[0].className = errors[0].className.replace(' hide',"");
+
+    }
+  }
+
+
+
   render(){
     const text = this.props.formType === "signup" ? 'Sign up' : 'Log in';
     const text_account = this.props.formType === "signup" ? 'Already have an Cloudbnc account?' : 'Don\'t have an account?';
@@ -154,7 +224,7 @@ class SessionForm extends React.Component {
     const link_path = this.props.formType === "signup"? '/login' : '/signup';
 
     return(
-      <div className='session'>
+      <div className='session' onClick={this.hideErrors}>
         <div className={`session-box ${this.props.formType}`}>
 
           <div>
@@ -168,7 +238,7 @@ class SessionForm extends React.Component {
           </form>
 
         </div>
-        <div className='session-background'>
+        <div className='session-background' >
         </div>
       </div>
     );

@@ -17,12 +17,13 @@
 transition: all 2s ease;
 }
 
+
 .signup {
 
   width:564px;
-  height:300px;
+  height:550px;
   left: 50%;
-  margin-left: -250px;
+  margin-left: -282px;
 
   /*animation-name: flipInY;
   animation-duration: 1s;*/
@@ -31,7 +32,7 @@ transition: all 2s ease;
 .login {
 
   width:564px;
-  height:355px;
+  height:375px;
   left: 50%;
 
   margin-left: -282px;
@@ -59,6 +60,7 @@ transition: all 2s ease;
   border-top: 1px solid lightgrey;
   padding-top: 12px;
   width:100%;
+  bottom:0;
 
   align-items: center;
 
