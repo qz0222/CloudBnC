@@ -3,7 +3,7 @@
 
 ## Heroku Link
 
-[Heroku Link](https://heroku.com)
+[Heroku Link](https://cloudbnc.herokuapp.com/)
 
 [Trello link](https://trello.com/b/k9OscXud/cloudbnc)
 

@@ -70,9 +70,13 @@ class SessionForm extends React.Component {
   showSignUp(){
     return(
       <div className='session-input'>
-        <label>Username:
-          <input onChange={this.update('username')} type="text" value={this.state.username}/>
-        </label>
+
+        <input
+          onChange={this.update('username')}
+          type="text"
+          value={this.state.username}
+          placeholder="Username"/>
+
         <label>Firstname:
           <input  type="text" value=''/>
         </label>
@@ -92,12 +96,19 @@ class SessionForm extends React.Component {
   showLogIn(){
     return(
       <div className='session-input'>
-        <label>Username:
-          <input onChange={this.update('username')} type="text" value={this.state.username}/>
-        </label>
-        <label>Password:
-          <input onChange={this.update('password')} type="password" value={this.state.password}/>
-        </label>
+
+        <input
+          onChange={this.update('username')}
+          type="text"
+          value={this.state.username}
+          placeholder="Username"/>
+
+        <input
+          onChange={this.update('password')}
+          type="password"
+          value={this.state.password}
+          placeholder="Password"/>
+
       </div>
     );
   }
@@ -114,7 +125,13 @@ class SessionForm extends React.Component {
     const cN= this.props.formType === "signup" ? 'test1' : 'test2';
     return(
       <div className='session'>
-        <div className={`session-box ${cN}`}>
+        <div className={`session-box ${this.props.formType}`}>
+
+          <div>
+            <a href="#" className="session-close"></a>
+          </div>
+
+
           <h1>{text}</h1>
           <form onSubmit={this.handleSubmit}>
             {this.showErrors()}

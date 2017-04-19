@@ -1,9 +1,11 @@
 .session-input{
   border:2px red solid;
-  width:300px;
+  width:calc(100%-64px);
+  padding: 32px;
   height:auto;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .session-input label{
@@ -13,5 +15,8 @@
 }
 
 .session-input input{
-  width:200px;
+  width:470px;
+  height:45px;
+  font-size: 19px;
+  line-height: 24px;
 }

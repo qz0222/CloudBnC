@@ -1,24 +1,53 @@
 .session-box{
-  width:350px;
   border: 2px blue solid;
   box-shadow: 0 2px 5px 2px rgba(0, 0, 0, 0.5);
   display: block;
   float: left;
   position: absolute;
   box-sizing: border-box;
-  left: 50%;
-  margin-left: -175px;
+
   top:100px;
   z-index: 200;
   background: white;
+
+  -webkit-transition: all 2s ease;
+-moz-transition: all 2s ease;
+-o-transition: all 2s ease;
+-ms-transition: all 2s ease;
+transition: all 2s ease;
 }
 
-.test1 {
-  animation-name: flipInY;
-  animation-duration: 1s;
+.signup {
+
+  width:500px;
+  height:300px;
+  left: 50%;
+  margin-left: -250px;
+
+  /*animation-name: flipInY;
+  animation-duration: 1s;*/
 }
 
-.test2 {
-  animation-name: flipInX;
-  animation-duration: 1s;
+.login {
+
+  width:564px;
+  height:540px;
+  left: 50%;
+
+  margin-left: -282px;
+  /*animation-name: flipInX;
+  animation-duration: 1s;*/
+}
+
+.session-close{
+  color: #777;
+  font: 14px/100% arial, sans-serif;
+  position: absolute;
+  right: 5px;
+  text-decoration: none;
+  text-shadow: 0 1px 0 #fff;
+  top: 5px;
+}
+.session-close:after {
+  content: '✖';
 }
