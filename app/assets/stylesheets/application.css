@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  *= require_animate
+ *= require_font-awesome
  *= require header
  *= require_session
  *= require_main
@@ -21,4 +22,11 @@
 * {
   margin:0;
   box-sizing: border-box;
+  font-style: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+}
+
+.end {
+  clear:both;
 }

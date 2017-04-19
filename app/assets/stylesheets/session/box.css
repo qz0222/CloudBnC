@@ -19,7 +19,7 @@ transition: all 2s ease;
 
 .signup {
 
-  width:500px;
+  width:564px;
   height:300px;
   left: 50%;
   margin-left: -250px;
@@ -31,7 +31,7 @@ transition: all 2s ease;
 .login {
 
   width:564px;
-  height:540px;
+  height:355px;
   left: 50%;
 
   margin-left: -282px;
@@ -41,13 +41,51 @@ transition: all 2s ease;
 
 .session-close{
   color: #777;
-  font: 14px/100% arial, sans-serif;
+  font: 30px/100% arial, sans-serif;
   position: absolute;
   right: 5px;
   text-decoration: none;
   text-shadow: 0 1px 0 #fff;
-  top: 5px;
+  top: 20px;
+  left: 32px;
 }
+
 .session-close:after {
-  content: '✖';
+  content: '×';
+}
+
+.session-bottom {
+  margin-top: 15px;
+  border-top: 1px solid lightgrey;
+  padding-top: 12px;
+  width:100%;
+
+  align-items: center;
+
+  font-size: 16px;
+  font-family: sans-serif;
+  word-wrap: break-word;
+  line-height: 24px;
+  font-weight: lighter;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.session-bottom a{
+  display: inline-block;
+  text-align: center;
+  font-weight: 500;
+  border: 2px solid #0084B9;
+  border-radius: 4px;
+  color: #0084B9;
+  font-size: 15px;
+  line-height: 15px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 16px;
+  padding-right: 16px;
+  text-decoration: none;
+  right:0;
+
 }

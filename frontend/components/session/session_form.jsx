@@ -66,6 +66,15 @@ class SessionForm extends React.Component {
       }
   }
 
+  addFocus(e){
+
+    e.currentTarget.className = e.currentTarget.className + " focus";
+  }
+  removeFocus(e){
+    e.currentTarget.className=e.currentTarget.className.replace(" focus","");
+    e.currentTarget.className=e.currentTarget.className.replace("focus ","");
+  }
+
 
   showSignUp(){
     return(
@@ -89,26 +98,46 @@ class SessionForm extends React.Component {
         <label>Birthday:
           <input  type="date" />
         </label>
+        <input className='session-submit' type="submit" value='Log in'/>
       </div>
     );
   }
 
+
+
   showLogIn(){
     return(
       <div className='session-input'>
-
-        <input
-          onChange={this.update('username')}
-          type="text"
-          value={this.state.username}
-          placeholder="Username"/>
-
-        <input
-          onChange={this.update('password')}
-          type="password"
-          value={this.state.password}
-          placeholder="Password"/>
-
+        <div className='container'
+          onFocus={this.addFocus}
+          onBlur={this.removeFocus}>
+          <input
+            onChange={this.update('username')}
+            type="text"
+            value={this.state.username}
+            placeholder="Username"/>
+          <div className='icon'>
+            <i className="fa fa-envelope-o" aria-hidden="true"></i>
+          </div>
+        </div>
+        <div className='container'
+          onFocus={this.addFocus}
+          onBlur={this.removeFocus}>
+          <input
+            onChange={this.update('password')}
+            type="password"
+            value={this.state.password}
+            placeholder="Password"/>
+          <div className='icon'>
+            <i className="fa fa-lock" aria-hidden="true"></i>
+          </div>
+        </div>
+        <span>Forgot password?  LOL</span>
+        <input className='session-submit' type="submit" value='Sign up'/>
+        <div className='session-bottom'>
+          <span>{'Don\'t have an account?'}</span>
+          <Link to='/signup'>{'Sign up'}</Link>
+        </div>
       </div>
     );
   }
@@ -120,9 +149,10 @@ class SessionForm extends React.Component {
 
   render(){
     const text = this.props.formType === "signup" ? 'Sign up' : 'Log in';
+    const text_account = this.props.formType === "signup" ? 'Already have an Cloudbnc account?' : 'Don\'t have an account?';
     const text2 = this.props.formType === "signup" ? 'Log in' : 'Sign up';
     const link_path = this.props.formType === "signup"? '/login' : '/signup';
-    const cN= this.props.formType === "signup" ? 'test1' : 'test2';
+
     return(
       <div className='session'>
         <div className={`session-box ${this.props.formType}`}>
@@ -131,14 +161,12 @@ class SessionForm extends React.Component {
             <a href="#" className="session-close"></a>
           </div>
 
-
-          <h1>{text}</h1>
-          <form onSubmit={this.handleSubmit}>
+          <form className='session-form' onSubmit={this.handleSubmit}>
             {this.showErrors()}
             {this.handleFormType()}
-            <input type="submit" value={text}/>
+             <div className='end'></div>
           </form>
-          <Link to={link_path}>{text2}</Link>
+
         </div>
         <div className='session-background'>
         </div>
