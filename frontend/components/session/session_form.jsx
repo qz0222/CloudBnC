@@ -10,6 +10,7 @@ class SessionForm extends React.Component {
     };
 
     this.handleSubmit=this.handleSubmit.bind(this);
+    this.handleGuest=this.handleGuest.bind(this);
   }
 
   componentDidUpdate(){
@@ -152,6 +153,44 @@ class SessionForm extends React.Component {
     );
   }
 
+  handleGuest(e){
+      e.preventDefault();
+      this.startUsernameAnimation();
+  }
+
+  startUsernameAnimation(){
+
+    const demoName = 'Guest';
+    let emailID = setInterval(() => {
+      document.getElementById('username').focus();
+      let currLength = this.state.username.length;
+
+      if(currLength < demoName.length){
+        this.setState({username: this.state.username + demoName.slice(currLength, currLength + 1)});
+      } else {
+        clearInterval(emailID);
+        this.startPasswordAnimation();
+      }
+    }, 100);
+  }
+
+ startPasswordAnimation(){
+  const demoPassword = "123456";
+  let passwordID = setInterval(() => {
+    document.getElementById('password').focus();
+    let currLength = this.state.password.length;
+
+    if(currLength < demoPassword.length){
+      this.setState({password: this.state.password + demoPassword.slice(currLength, currLength + 1)});
+    } else{
+      clearInterval(passwordID);
+      const user = this.state;
+      this.props.processForm(user);
+    }
+  }, 100);
+ }
+
+
 
 
   showLogIn(){
@@ -161,6 +200,7 @@ class SessionForm extends React.Component {
           onFocus={this.addFocus}
           onBlur={this.removeFocus}>
           <input
+            id='username'
             onChange={this.update('username')}
             type="text"
             value={this.state.username}
@@ -173,6 +213,7 @@ class SessionForm extends React.Component {
           onFocus={this.addFocus}
           onBlur={this.removeFocus}>
           <input
+            id='password'
             onChange={this.update('password')}
             type="password"
             value={this.state.password}
@@ -183,6 +224,8 @@ class SessionForm extends React.Component {
         </div>
         <span>Forgot password?  LOL</span>
         <input className='session-submit' type="submit" value='Log in'/>
+        <input onClick={this.handleGuest} className='session-submit' type="submit" value='Guest login'/>
+
         <div className='session-bottom'>
           <span>{'Don\'t have an account?'}</span>
           <Link to='/signup'>{'Sign up'}</Link>
