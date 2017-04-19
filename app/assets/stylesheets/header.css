@@ -3,6 +3,7 @@
   height: 105px;
   position: fixed;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  background: white;
 
   top: 0px;
   left: 0px;
@@ -16,6 +17,7 @@
 
   margin: 0;
   padding: 0;
+  z-index: 50;
 }
 
 

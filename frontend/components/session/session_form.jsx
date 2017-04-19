@@ -102,21 +102,29 @@ class SessionForm extends React.Component {
     );
   }
 
+  toggle(){
+    const box = document.getElementsByClassName('session-box');
+    box.className = box.className === 'session-box' ? 'session-box2' : 'session-box';
+  }
 
   render(){
     const text = this.props.formType === "signup" ? 'Sign up' : 'Log in';
     const text2 = this.props.formType === "signup" ? 'Log in' : 'Sign up';
     const link_path = this.props.formType === "signup"? '/login' : '/signup';
-
+    const cN= this.props.formType === "signup" ? 'test1' : 'test2';
     return(
-      <div className='session-box'>
-        <h1>{text}</h1>
-        <form onSubmit={this.handleSubmit}>
-          {this.showErrors()}
-          {this.handleFormType()}
-          <input type="submit" value={text}/>
-        </form>
-        <Link to={link_path}>{text2}</Link>
+      <div className='session'>
+        <div className={`session-box ${cN}`}>
+          <h1>{text}</h1>
+          <form onSubmit={this.handleSubmit}>
+            {this.showErrors()}
+            {this.handleFormType()}
+            <input type="submit" value={text}/>
+          </form>
+          <Link to={link_path}>{text2}</Link>
+        </div>
+        <div className='session-background'>
+        </div>
       </div>
     );
   }

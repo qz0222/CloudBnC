@@ -12,6 +12,12 @@
  *
  *= require_tree .
  *= require_self
+ *= require_animate
  *= require header
  *= require_session
+ *= require_main
  */
+
+* {
+  margin:0;
+}

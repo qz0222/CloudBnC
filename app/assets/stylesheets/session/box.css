@@ -9,4 +9,16 @@
   left: 50%;
   margin-left: -175px;
   top:100px;
+  z-index: 200;
+  background: white;
+}
+
+.test1 {
+  animation-name: flipInY;
+  animation-duration: 1s;
+}
+
+.test2 {
+  animation-name: flipInX;
+  animation-duration: 1s;
 }

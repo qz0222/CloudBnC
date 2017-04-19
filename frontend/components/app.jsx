@@ -2,6 +2,7 @@ import React from 'react';
 import GreetingContainer from "./greeting/greeting_container";
 
 const App = ({ children }) => (
+  <div>
   <div className='header'>
       <div className='upper'>
         <div className='image'><img src='/images/Logo.png'/></div>
@@ -23,6 +24,11 @@ const App = ({ children }) => (
       </div>
     { children }
   </div>
+  <div className='main'>
+    test test test
+  </div>
+
+</div>
 );
 
 export default App;

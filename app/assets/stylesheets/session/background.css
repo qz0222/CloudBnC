@@ -1,0 +1,26 @@
+.session{
+  position: relative;
+}
+
+
+.session-background{
+  background-color: black;
+  height: 100vh;
+  width: 100vw;
+  top:-105px;
+  opacity: 0.5;
+  float: left;
+  position: absolute;
+  z-index: 100;
+}
+
+/*.test1 {
+  animation-name: rollIn;
+  animation-duration: 1s;
+}
+
+.test2 {
+  width:10000px;
+  animation-name: rollIn;
+  animation-duration: 1s;
+}*/
