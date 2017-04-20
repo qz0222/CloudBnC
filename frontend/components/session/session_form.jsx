@@ -4,10 +4,21 @@ import {Link, withRouter} from 'react-router';
 class SessionForm extends React.Component {
   constructor(props){
     super(props);
-    this.state = {
-      username:"",
-      password:""
-    };
+
+    if (this.props.formType === 'login'){
+      this.state = {
+        email:"",
+        password:""
+      };
+    } else {
+      this.state = {
+        email:"",
+        f_name:"",
+        l_name:"",
+        password:"",
+        bitrhday:""
+      };
+    }
 
     this.handleSubmit=this.handleSubmit.bind(this);
     this.handleGuest=this.handleGuest.bind(this);
@@ -25,12 +36,17 @@ class SessionForm extends React.Component {
   if (newProps.location.pathname!=this.props.location.pathname){
     console.log(this.props.formType);
     this.props.receiveErrors([]);
-    if (this.props.formType ==='login'){
-      this.setState({username:"",password:""});
+    if (newProps.formType ==='login'){
+      this.setState({email:"",password:""});
     }
     // TODO: fix this later
-    if (this.props.formType === 'signup'){
-      this.setState({username:"",password:""});
+    if (newProps.formType === 'signup'){
+      this.setState({
+        email:"",
+        f_name:"",
+        l_name:"",
+        password:"",
+        bitrhday:""});
     }
 
   }
@@ -93,10 +109,10 @@ class SessionForm extends React.Component {
           onFocus={this.addFocus}
           onBlur={this.removeFocus}>
           <input
-            onChange={this.update('username')}
+            onChange={this.update('email')}
             type="text"
-            value={this.state.username}
-            placeholder="Username"/>
+            value={this.state.email}
+            placeholder="Email"/>
           <div className='icon'>
             <i className="fa fa-envelope-o" aria-hidden="true"></i>
           </div>
@@ -105,8 +121,9 @@ class SessionForm extends React.Component {
           onFocus={this.addFocus}
           onBlur={this.removeFocus}>
           <input
+            onChange={this.update('f_name')}
             type="text"
-            value=''
+            value={this.state.f_name}
             placeholder='Firstname'/>
           <div className='icon'>
             <i className="fa fa-user" aria-hidden="true"></i>
@@ -116,8 +133,9 @@ class SessionForm extends React.Component {
           onFocus={this.addFocus}
           onBlur={this.removeFocus}>
           <input
+            onChange={this.update('l_name')}
             type="text"
-            value=''
+            value={this.state.l_name}
             placeholder='Lastname'/>
           <div className='icon'>
             <i className="fa fa-user" aria-hidden="true"></i>
@@ -140,7 +158,9 @@ class SessionForm extends React.Component {
             onFocus={this.addFocus}
             onBlur={this.removeFocus}>
         <input
+          onChange={this.update('bitrhday')}
           type="date"
+          value={this.state.birthday}
           placeholder='Birthday'/>
         </div>
 
@@ -155,18 +175,18 @@ class SessionForm extends React.Component {
 
   handleGuest(e){
       e.preventDefault();
-      this.startUsernameAnimation();
+      this.startEmailAnimation();
   }
 
-  startUsernameAnimation(){
+  startEmailAnimation(){
 
-    const demoName = 'Guest';
+    const demoName = 'guest@sample.com';
     let emailID = setInterval(() => {
-      document.getElementById('username').focus();
-      let currLength = this.state.username.length;
+      document.getElementById('email').focus();
+      let currLength = this.state.email.length;
 
       if(currLength < demoName.length){
-        this.setState({username: this.state.username + demoName.slice(currLength, currLength + 1)});
+        this.setState({email: this.state.email + demoName.slice(currLength, currLength + 1)});
       } else {
         clearInterval(emailID);
         this.startPasswordAnimation();
@@ -175,7 +195,7 @@ class SessionForm extends React.Component {
   }
 
  startPasswordAnimation(){
-  const demoPassword = "123456";
+  const demoPassword = "password12345";
   let passwordID = setInterval(() => {
     document.getElementById('password').focus();
     let currLength = this.state.password.length;
@@ -200,11 +220,11 @@ class SessionForm extends React.Component {
           onFocus={this.addFocus}
           onBlur={this.removeFocus}>
           <input
-            id='username'
-            onChange={this.update('username')}
+            id='email'
+            onChange={this.update('email')}
             type="text"
-            value={this.state.username}
-            placeholder="Username"/>
+            value={this.state.email}
+            placeholder="Email"/>
           <div className='icon'>
             <i className="fa fa-envelope-o" aria-hidden="true"></i>
           </div>

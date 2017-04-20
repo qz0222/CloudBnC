@@ -23,7 +23,7 @@ class Greeting extends React.Component {
       return(
         <div className='header-top-right'>
           <h1>
-            Hello {currentUser.username}!
+            Hello {currentUser.email}!
           </h1>
           <button onClick={this.handleClick}>Logout</button>
         </div>

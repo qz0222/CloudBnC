@@ -28,7 +28,7 @@ CloundBnC is a web application based on AirBnB built using Ruby on Rails and Rea
 
 ## Implementation Timeline
 
-### Phase I: Backend setup and Front End User Authentication (1 day)
+### Phase I: Backend setup and Front End User Authentication (2 day)
 
 **Objective:** Auth, log in, sign up, sign out
 

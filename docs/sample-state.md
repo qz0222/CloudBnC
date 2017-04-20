@@ -3,7 +3,7 @@
   session: {
     currentUser: {
       id: 1,
-      username: "zheng"
+      email: "zheng@gmail.com"
     },
     errors: [],  
   },
