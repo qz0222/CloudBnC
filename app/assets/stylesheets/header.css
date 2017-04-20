@@ -68,9 +68,9 @@
 }
 
 .header .upper .time .header-top-input-container .header-top-search-container{
-  width: calc(100%/3);
+  /*width: calc(100%/3);*/
   box-sizing: border-box;
-  border-right: 2px solid grey;
+  border-right: 1.25px solid rgba(219,219,219,1);
   border-radius: 2px;
 }
 .header .upper .time .header-top-input-container div:last-of-type {
@@ -83,12 +83,38 @@
 }
 
 .header .lower .nav{
+  padding-left: 20px;
   height: 100%;
-  width: 300px;
+  width: 361px;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
 }
+
+.header .lower .nav li{
+  list-style: none;
+  padding-top: 12px;
+
+  margin-right: 16px;
+
+}
+.header .lower .nav li a{
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: bold;
+  letter-spacing: 0.4px;
+  white-space: nowrap;
+  color: rgba(72,72,72);
+  border-bottom: 2px solid transparent;
+
+  padding-bottom: 12px;
+}
+
+
+
+
+
 
 .header-top-right{
   height: 64px;
@@ -120,6 +146,8 @@
   border: 1.25px solid transparent;
 
 }
+
+
 .header-top-right a span{
   padding-bottom: 8px;
 }
@@ -134,12 +162,22 @@
   justify-content:space-between;
   display: block;
   width:100%;
+  border-bottom: 3px solid transparent;
+  transition: 0.8s;
 }
+
+.header-top-search-container.focus{
+  width:250%;
+  border-bottom: 3px solid rgb(0,190,120);
+  transition: 0.8s;
+}
+
 .header-top-search-container .head-icon{
   display: flex;
   justify-content: center;
   align-items: center;
   padding:12px;
+  padding-top: 15px;
   padding-left: 20px;
   width: 5%;
   float: left;
@@ -153,9 +191,19 @@
   font-size: 15px;
   line-height: 18px;
   background-color: transparent;
-  border: 4px solid transparent;
+  border: 3px solid transparent;
+  border-bottom: 0;
 }
 
 .header-top-search-container input:focus {
   outline: none;
+}
+
+.header .lower .nav li:hover{
+  cursor: pointer;
+}
+
+.header .lower .nav .currentNAV{
+  color: rgb(0,190,120);
+  border-bottom: 2px solid rgb(0,190,120);
 }
