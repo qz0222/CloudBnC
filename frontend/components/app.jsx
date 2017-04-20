@@ -5,17 +5,50 @@ const App = ({ children }) => (
   <div>
   <div className='header'>
       <div className='upper'>
-        <div className='image'><img src='/images/Logo.png'/></div>
-        <div className='time'>
-          <div>anywhere</div>
-          <div>start_date</div>
-          <div>end_date</div>
+        <div className='left'>
+          <div className='image'><img src='/images/real-logo.png'/></div>
+          <div className='time'>
+            <div className='header-top-input-container'>
+
+              <div className='header-top-search-container'>
+                <div className='head-icon'>
+                  <i className="fa fa-user" aria-hidden="true"></i>
+                </div>
+                <input
+                  type="text"
+                  value=''
+                  placeholder='Anywhere'/>
+              </div>
+
+              <div className='header-top-search-container'>
+                <div className='head-icon'>
+                  <i className="fa fa-user" aria-hidden="true"></i>
+                </div>
+                <input
+                  type="text"
+                  value=''
+                  placeholder='Anytime'/>
+              </div>
+              
+              <div className='header-top-search-container'>
+                <div className='head-icon'>
+                  <i className="fa fa-user" aria-hidden="true"></i>
+                </div>
+                <input
+                  type="text"
+                  value=''
+                  placeholder='1 guest'/>
+              </div>
+            </div>
+          </div>
         </div>
-        <GreetingContainer />
+          <GreetingContainer />
       </div>
       <div className='lower'>
         <ul className='nav'>
-          <li>nav1</li>
+          <li>
+            nav1
+          </li>
           <li>nav2</li>
           <li>nav3</li>
           <li>nav4</li>
@@ -25,7 +58,7 @@ const App = ({ children }) => (
     { children }
   </div>
   <div className='main'>
-    test test test
+    <img className='main-image' src='/images/index2.png'/>
   </div>
 
 </div>

@@ -1,6 +1,13 @@
 .main {
-  height: 3000px;
+  height: auto;
   background: lightgrey;
-  top:105px;
+  top:100px;
   display: block;
+  position: relative;
+  /*border: 3px red solid;*/
+}
+
+.main .main-image {
+  top:0;
+  width:100%;
 }

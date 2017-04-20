@@ -21,7 +21,7 @@ class Greeting extends React.Component {
     let status;
     if (currentUser) {
       return(
-        <div>
+        <div className='header-top-right'>
           <h1>
             Hello {currentUser.username}!
           </h1>
@@ -30,9 +30,9 @@ class Greeting extends React.Component {
         );
     } else {
       return(
-        <div>
-          <Link to="/login" >Login</Link>
-          <Link to="/signup" >Signup</Link>
+        <div className='header-top-right'>
+          <Link to="/signup" ><span>Sign Up</span></Link>
+          <Link to="/login" ><span>Log In</span></Link>
         </div>
       );
     }
