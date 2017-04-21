@@ -12,6 +12,7 @@ class App2 extends React.Component{
 
     this.currentNav=this.currentNav.bind(this);
     this.state={view: {showModal: false}}
+
   }
 
 
@@ -31,6 +32,17 @@ class App2 extends React.Component{
        this.props.router.push('/all');
      }
   };
+
+  componentDidMount(){
+    if(this.props.location.pathname){
+        let target = this.props.location.pathname.slice(1) || 'all'
+        let nav = document.getElementsByClassName(`nav-${target}`);
+        if (!nav[0].className.includes(" currentNAV")){
+          nav[0].className += " currentNAV"
+        }
+      }
+  }
+
 
 
   removeCurrentNav(e){
@@ -106,16 +118,16 @@ class App2 extends React.Component{
         <div className='lower'>
           <ul className='nav'>
             <li>
-              <Link onClick={this.currentNav(1)} className='clickable-nav'>FOR YOU</Link>
+              <Link onClick={this.currentNav(1)} className='clickable-nav nav-all'>FOR YOU</Link>
             </li>
             <li>
-              <Link onClick={this.currentNav(2)} className='clickable-nav'>HOMES</Link>
+              <Link onClick={this.currentNav(2)} className='clickable-nav nav-homes'>HOMES</Link>
             </li>
             <li>
-              <Link onClick={this.currentNav(3)} className='clickable-nav'>EXPERIENCES</Link>
+              <Link onClick={this.currentNav(3)} className='clickable-nav nav-experiences'>EXPERIENCES</Link>
             </li>
             <li>
-              <Link onClick={this.currentNav(4)} className='clickable-nav'>PLACES</Link>
+              <Link onClick={this.currentNav(4)} className='clickable-nav nav-places'>PLACES</Link>
             </li>
           </ul>
         </div>
