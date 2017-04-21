@@ -17,6 +17,7 @@
  *= require header
  *= require_session
  *= require_main
+ *= require_modal
  */
 
 * {

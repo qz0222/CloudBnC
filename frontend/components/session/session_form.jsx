@@ -291,7 +291,7 @@ class SessionForm extends React.Component {
         <div className={`session-box ${this.props.formType}`}>
 
           <div>
-            <a href="#" className="session-close"></a>
+            <a onClick={this.props.closeModal} className="session-close"></a>
           </div>
 
           <form className='session-form' onSubmit={this.handleSubmit}>
@@ -301,8 +301,7 @@ class SessionForm extends React.Component {
           </form>
 
         </div>
-        <div className='session-background' >
-        </div>
+
       </div>
     );
   }

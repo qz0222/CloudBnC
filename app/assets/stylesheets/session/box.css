@@ -6,9 +6,32 @@
   position: absolute;
   box-sizing: border-box;
 
-  top:100px;
+  top:0;
   z-index: 200;
   background: white;
+
+  overflow: 'scroll';
+
+  -webkit-transition: all 1s ease;
+-moz-transition: all 1s ease;
+-o-transition: all 1s ease;
+-ms-transition: all 1s ease;
+transition: all 1s ease;
+}
+
+.modal-box{
+  border: 2px blue solid;
+  box-shadow: 0 2px 5px 2px rgba(0, 0, 0, 0.5);
+  display: block;
+  float: left;
+  position: absolute;
+  box-sizing: border-box;
+
+  top:200px;
+  z-index: 200;
+  background: white;
+
+  overflow: 'scroll';
 
   -webkit-transition: all 1s ease;
 -moz-transition: all 1s ease;
