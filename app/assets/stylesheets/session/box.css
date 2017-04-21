@@ -67,11 +67,10 @@ transition: all 1s ease;
   overflow-x:hidden;
   left: 50%;
 
-  margin-left: -282px;
-
-  position: relative;
   top: 50%;
-  transform: translateY(-50%);
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 
   /*animation-name: flipInY;
   animation-duration: 1s;*/
@@ -86,14 +85,11 @@ transition: all 1s ease;
   overflow-x:hidden;
 
   left: 50%;
-  margin-left: -282px;
-
-
-  position: relative;
   top: 50%;
-  transform: translateY(-50%);
-  /*animation-name: flipInX;
-  animation-duration: 1s;*/
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+
 }
 
 .session-box.signup {
