@@ -1,12 +1,31 @@
+.ReactModalPortal {
+  position: absolute;
+  z-index: 2;
+}
+.ReactModal__Overlay.ReactModal__Overlay--after-open{
+  background-color:rgba(0, 0, 0, 0.8)!important;
+  transition: 1s;
+
+}
+
+.session{
+
+  width:100%;
+  height:100%;
+  left:0;
+  right:0;
+}
+
 .session-box{
   border: 2px blue solid;
   box-shadow: 0 2px 5px 2px rgba(0, 0, 0, 0.5);
   display: block;
   float: left;
-  position: absolute;
+  /*position: absolute;*/
   box-sizing: border-box;
 
   top:0;
+  position: absolute;
   z-index: 200;
   background: white;
 
@@ -20,18 +39,17 @@ transition: all 1s ease;
 }
 
 .modal-box{
-  border: 2px blue solid;
   box-shadow: 0 2px 5px 2px rgba(0, 0, 0, 0.5);
   display: block;
   float: left;
   position: absolute;
+  z-index: 100;
   box-sizing: border-box;
 
   top:200px;
   z-index: 200;
   background: white;
 
-  overflow: 'scroll';
 
   -webkit-transition: all 1s ease;
 -moz-transition: all 1s ease;
@@ -41,24 +59,55 @@ transition: all 1s ease;
 }
 
 
-.signup {
-
+.modal-box.signup {
   width:564px;
   height:550px;
+  max-height: calc(100vh - 0px);
+  overflow-y:auto;
+  overflow-x:hidden;
   left: 50%;
+
   margin-left: -282px;
+
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 
   /*animation-name: flipInY;
   animation-duration: 1s;*/
 }
 
-.login {
-
+.modal-box.login {
   width:564px;
   height:440px;
-  left: 50%;
 
+  max-height: calc(100vh - 0px);
+  overflow-y:auto;
+  overflow-x:hidden;
+
+  left: 50%;
   margin-left: -282px;
+
+
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  /*animation-name: flipInX;
+  animation-duration: 1s;*/
+}
+
+.session-box.signup {
+  width:564px;
+  height:550px;
+
+  /*animation-name: flipInY;
+  animation-duration: 1s;*/
+}
+
+.session-box.login {
+  width:564px;
+  height:440px;
+
   /*animation-name: flipInX;
   animation-duration: 1s;*/
 }
@@ -72,10 +121,14 @@ transition: all 1s ease;
   text-shadow: 0 1px 0 #fff;
   top: 20px;
   left: 32px;
+  width:20px;
 }
 
 .session-close:after {
   content: '×';
+}
+.session-close:hover {
+  cursor:pointer;
 }
 
 .session-bottom {
