@@ -22,6 +22,8 @@ class SessionForm extends React.Component {
 
     this.handleSubmit=this.handleSubmit.bind(this);
     this.handleGuest=this.handleGuest.bind(this);
+
+    this.toggleForm=this.toggleForm.bind(this);
   }
 
   componentDidUpdate(){
@@ -90,6 +92,10 @@ class SessionForm extends React.Component {
       }else{
         return this.showLogIn();
       }
+  }
+
+  toggleForm(){
+
   }
 
   addFocus(e){
@@ -167,7 +173,7 @@ class SessionForm extends React.Component {
         <input className='session-submit' type="submit" value='Sign up'/>
         <div className='session-bottom'>
           <span>{'Already have a Cloudbnc account?'}</span>
-          <Link to='/login'>{'Log in'}</Link>
+          <Link onClick={this.props.toggleForm}>{'Log in'}</Link>
         </div>
     </div>
     );
@@ -248,7 +254,7 @@ class SessionForm extends React.Component {
 
         <div className='session-bottom'>
           <span>{'Don\'t have an account?'}</span>
-          <Link to='/signup'>{'Sign up'}</Link>
+          <Link onClick={this.props.toggleForm}>{'Sign up'}</Link>
         </div>
       </div>
     );

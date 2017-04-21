@@ -63,3 +63,8 @@
   margin-top: 20px;
 
 }
+
+.session-input input.session-submit:hover {
+  background: rgb(200,0,0);
+  cursor: pointer;
+}

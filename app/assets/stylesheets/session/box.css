@@ -165,5 +165,9 @@ transition: all 1s ease;
   padding-right: 16px;
   text-decoration: none;
   right:0;
+  transition: 0.5s;
+}
 
+.session-bottom a:hover{
+  background: #79bbd5;
 }

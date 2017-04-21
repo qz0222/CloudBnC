@@ -20,6 +20,9 @@ class Greeting extends React.Component {
     this.openModalSignup=this.openModalSignup.bind(this);
     this.afterOpenModal=this.afterOpenModal.bind(this);
     this.closeModal=this.closeModal.bind(this);
+
+    this.toggleForm=this.toggleForm.bind(this);
+
   }
 
   openModalLogin() {
@@ -29,6 +32,14 @@ class Greeting extends React.Component {
   openModalSignup() {
     this.setState({modalType:"signup"});
     this.setState({modalIsOpen: true});
+  }
+
+  toggleForm(){
+    if (this.state.modalType === 'signup'){
+      this.openModalLogin();
+    }else{
+      this.openModalSignup();
+    }
   }
 
   afterOpenModal() {
@@ -52,21 +63,11 @@ class Greeting extends React.Component {
     });
   }
 
+
+
+
   render(){
 
-    const customStyles = {
-      content:{
-        top                   : '100px',
-        height:'600px',
-        width:'570px',
-        left                  : '40%',
-
-        right                 : 'auto',
-        bottom                : 'auto',
-        transform             : 'translate(-50%, -50%)',
-        background            : 'red'
-      }
-    };
     // debugger
     const {currentUser} = this.props;
     let status;
@@ -89,8 +90,9 @@ class Greeting extends React.Component {
                     onRequestClose={this.closeModal}
                     contentLabel="SessionForm Modal">
 
-                    {<SessionFormContainer type={this.state.modalType} closeModal={this.closeModal}/>}
+                    {<SessionFormContainer type={this.state.modalType} closeModal={this.closeModal} toggleForm={this.toggleForm}/>}
                   </Modal>
+          
           <Link onClick={this.openModalSignup} ><span>Sign Up</span></Link>
           <Link onClick={this.openModalLogin} ><span>Log In</span></Link>
         </div>

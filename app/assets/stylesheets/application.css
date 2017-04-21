@@ -30,6 +30,11 @@
   /*border:2px solid green;*/
 }
 
+a:hover,button:hover{
+  cursor: pointer;
+}
+
+
 .end {
   clear:both;
 }

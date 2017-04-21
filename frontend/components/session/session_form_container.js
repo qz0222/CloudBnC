@@ -21,7 +21,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     processForm: (user) => (dispatch(processForm(user))),
     receiveErrors:(errors)=> dispatch(receiveErrors(errors)),
     formType,
-    closeModal:ownProps.closeModal
+    closeModal:ownProps.closeModal,
+    toggleForm:ownProps.toggleForm
   });
 };
 
