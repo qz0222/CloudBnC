@@ -18,23 +18,42 @@ class App2 extends React.Component{
 
 
   currentNav(type){
-     if (type===1){
-       this.formType = "foryou";
-     }
+
+    let navpath;
+      switch (type) {
+        case 1:
+          this.formType = "foryou";
+          navpath = '/all';
+          break;
+        case 2:
+          this.formType = "homes";
+          navpath = '/homes';
+          break;
+        case 3:
+          this.formType = "experiences";
+          navpath = '/experiences';
+          break;
+        case 4:
+          this.formType = "places";
+          navpath = '/places';
+          break;
+        default:
+      }
+
 
      return(e)=>{
        let navs = document.getElementsByClassName('clickable-nav');
-       console.log(navs);
        for (var i = 0; i < navs.length; i++) {
          this.removeCurrentNav(navs[i]);
        }
        e.currentTarget.className=e.currentTarget.className + " currentNAV";
-       this.props.router.push('/all');
+
+       this.props.router.push(`${navpath}`);
      }
   };
 
   componentDidMount(){
-    if(this.props.location.pathname){
+    if(["/all","/homes","/experiences","/places","/"].includes(this.props.location.pathname)){
         let target = this.props.location.pathname.slice(1) || 'all'
         let nav = document.getElementsByClassName(`nav-${target}`);
         if (!nav[0].className.includes(" currentNAV")){

@@ -8,3 +8,7 @@
 
 
 User.create(email:"guest@sample.com",password:"password12345",f_name:"Tom",l_name:"Hanks",birthday:"2017-01-01")
+
+
+
+User.find_by_email("guest@sample.com").rooms.create(name:"small house",price:"8000", bedrooms:"10", beds:"11", room_type:"i dont know", property_type:"test test")

@@ -118,7 +118,7 @@ class SessionForm extends React.Component {
             onChange={this.update('email')}
             type="text"
             value={this.state.email}
-            placeholder="Email"/>
+            placeholder="Email address"/>
           <div className='icon'>
             <i className="fa fa-envelope-o" aria-hidden="true"></i>
           </div>
@@ -130,7 +130,7 @@ class SessionForm extends React.Component {
             onChange={this.update('f_name')}
             type="text"
             value={this.state.f_name}
-            placeholder='Firstname'/>
+            placeholder='First name'/>
           <div className='icon'>
             <i className="fa fa-user" aria-hidden="true"></i>
           </div>
@@ -142,7 +142,7 @@ class SessionForm extends React.Component {
             onChange={this.update('l_name')}
             type="text"
             value={this.state.l_name}
-            placeholder='Lastname'/>
+            placeholder='Last name'/>
           <div className='icon'>
             <i className="fa fa-user" aria-hidden="true"></i>
           </div>
@@ -154,7 +154,7 @@ class SessionForm extends React.Component {
             onChange={this.update('password')}
             type="password"
             value={this.state.password}
-            placeholder='Password'/>
+            placeholder='Create a Password'/>
           <div className='icon'>
             <i className="fa fa-lock" aria-hidden="true"></i>
           </div>

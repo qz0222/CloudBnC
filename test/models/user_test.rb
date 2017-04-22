@@ -8,7 +8,7 @@
 #  password_digest :string           not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
-#  bitrhday        :date
+#  birthday        :date
 #  f_name          :string
 #  l_name          :string
 #  description     :text

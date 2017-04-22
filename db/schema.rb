@@ -11,10 +11,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170420142255) do
+ActiveRecord::Schema.define(version: 20170421234616) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "rooms", force: :cascade do |t|
+    t.integer "user_id",       null: false
+    t.string  "city"
+    t.float   "lng"
+    t.float   "lat"
+    t.text    "description"
+    t.integer "price",         null: false
+    t.integer "bedrooms",      null: false
+    t.integer "beds",          null: false
+    t.string  "room_type",     null: false
+    t.string  "property_type", null: false
+    t.float   "star_rating"
+    t.string  "picture_url"
+    t.text    "amenities"
+    t.string  "name"
+  end
+
+  add_index "rooms", ["bedrooms"], name: "index_rooms_on_bedrooms", using: :btree
+  add_index "rooms", ["beds"], name: "index_rooms_on_beds", using: :btree
+  add_index "rooms", ["price"], name: "index_rooms_on_price", using: :btree
+  add_index "rooms", ["property_type"], name: "index_rooms_on_property_type", using: :btree
+  add_index "rooms", ["room_type"], name: "index_rooms_on_room_type", using: :btree
+  add_index "rooms", ["user_id"], name: "index_rooms_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",           null: false

@@ -8,7 +8,7 @@
 #  password_digest :string           not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
-#  bitrhday        :date
+#  birthday        :date
 #  f_name          :string
 #  l_name          :string
 #  description     :text
@@ -19,6 +19,11 @@ class User < ActiveRecord::Base
   validates :password, length: {minimum: 6, allow_nil: true}
   validates :email, uniqueness: true
   after_initialize :ensure_session_token
+
+  has_many :rooms,
+    primary_key: :id,
+    foreign_key: :user_id,
+    class_name: 'Room'
 
   attr_reader :password
 

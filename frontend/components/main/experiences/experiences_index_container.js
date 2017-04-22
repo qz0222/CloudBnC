@@ -1,4 +1,4 @@
-import homesIndex from './homes_index';
+import experiencesIndex from './experiences_index';
 import { connect } from 'react-redux';
 
 
@@ -12,4 +12,4 @@ const mapDispatchToProps = (dispatch) => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(homesIndex);
+)(experiencesIndex);
