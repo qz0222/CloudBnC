@@ -1,21 +1,37 @@
 .maptest{
-  height:1vh;
+  height:100%;
 
   .room-index{
-    width:50%;
+    width:60%;
     border:2px solid green;
     height:2000px;
     .room-list{
 
     }
   }
-  .map{
-    width:50%;
-    height:500px;
+
+  //
+  // .map{
+  //   width:40%;
+  //
+  //   position:fixed !important;
+  //   left:60%;
+  //   top:110px;
+  //   height: 100%;
+  // }
+  .map-container{
+    width:40%;
+
     position:fixed !important;
-    left:50%;
+    left:60%;
     top:110px;
-    height: calc(1vh-110px);
+    height: 100%;
+    padding-bottom: 110px;
+    .map{
+      height:100%;
+      width: 100%;
+    }
   }
+
 
 }

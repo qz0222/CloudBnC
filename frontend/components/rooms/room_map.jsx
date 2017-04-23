@@ -36,7 +36,8 @@ class RoomMap extends React.Component{
     const mapOptions = {
       // center: {lat: this.props.lat, lng: this.props.lng},
       center: {lat: 10, lng: 10},
-      zoom: 12
+      zoom: 12,
+      streetViewControl: false,
     };
 
     this.map = new google.maps.Map(mapDOMNode, mapOptions);
@@ -111,10 +112,10 @@ class RoomMap extends React.Component{
 
   render(){
     return(
-
+      <div className='map-container'>
         <div className='map' ref='map'>
         </div>
-
+      </div>
     );
   }
 }

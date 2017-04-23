@@ -5,6 +5,10 @@
   position: relative;
   /*border: 3px red solid;*/
 }
+/*.main div:first-child{
+  height:100%;
+  width:100%;
+}*/
 
 .main .main-image {
   top:0;
