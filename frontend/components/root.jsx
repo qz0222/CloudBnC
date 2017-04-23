@@ -9,6 +9,7 @@ import PlacesIndexContainer from './main/places/places_index_container';
 import ExperiencesIndexContainer from './main/experiences/experiences_index_container';
 
 import roomIndexContainer from './rooms/room_index_container';
+import RoomShowContainer from './rooms/room_show/room_show_container';
 
 
 import RoomMap from './rooms/room_map';
@@ -27,6 +28,7 @@ const Root = ({ store }) => {
         <Route path='experiences' component={ExperiencesIndexContainer}/>
         <Route path='places' component={PlacesIndexContainer}/>
         <Route path='rooms' component={roomIndexContainer}/>
+        <Route path='rooms/:roomId' component={RoomShowContainer}/>
 
       </Route>
       <Route path='/testmap' component={RoomMap}/>

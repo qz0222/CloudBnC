@@ -1,8 +1,14 @@
 class Api::RoomsController < ApplicationController
   def index
-    @rooms = Room.all
+    if (params && params[:room] && params[:room][:name])
+       @rooms = Room.all.where("name ILIKE ?", params[:room][:name])
+     else
+       @rooms = Room.all
+     end
+
     render :index
   end
+
 
   def create
     @room = current_user.rooms.new(room_params)

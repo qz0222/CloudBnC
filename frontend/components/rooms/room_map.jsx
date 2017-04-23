@@ -11,17 +11,6 @@ import {hashHistory} from 'react-router';
 import RoomIndexContainer from './room_index_container';
 
 
-
-
-
-
-
-
-
-
-
-
-
 class RoomMap extends React.Component{
   constructor(props){
     super(props);
@@ -58,12 +47,12 @@ class RoomMap extends React.Component{
   createMarkers(){
     const rooms = this.props.rooms;
     const rooms_arr = [];
-
     for (var index in rooms){
       rooms_arr.push(rooms[index]);
     }
 
     rooms_arr.forEach(room => {
+
       let marker = new google.maps.Marker({
         position: this.position(room.lat, room.lng),
         map: this.map,
