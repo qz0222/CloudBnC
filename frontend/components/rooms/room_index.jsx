@@ -1,6 +1,7 @@
 import React from 'react';
 // Components
 import RoomIndexItem from './room_index_item';
+import RoomMap from './room_map';
 
 class RoomIndex extends React.Component {
   componentDidMount() {
@@ -16,13 +17,32 @@ class RoomIndex extends React.Component {
           updateRoom={ updateRoom } />
       )
     );
-    return(
-      <div className="room-index">
-        <ul className="room-list">
-          { roomItems }
-        </ul>
-      </div>
-    );
+
+    if (rooms.length === 0 ){
+      return (
+        <div className="maptest">
+        loading...
+        loading...
+        loading...
+        loading...
+        loading...
+        </div>
+      );
+    }else{
+      return(
+        <div className="maptest">
+
+          <div className="room-index">
+
+            <ul className="room-list">
+              { roomItems }
+            </ul>
+          </div>
+            <RoomMap rooms= {rooms}/>
+        </div>
+      );
+    }
+
   }
 }
 

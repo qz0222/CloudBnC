@@ -1,0 +1,21 @@
+.maptest{
+  height:1vh;
+
+  .room-index{
+    width:50%;
+    border:2px solid green;
+    height:2000px;
+    .room-list{
+
+    }
+  }
+  .map{
+    width:50%;
+    height:500px;
+    position:fixed !important;
+    left:50%;
+    top:110px;
+    height: calc(1vh-110px);
+  }
+
+}

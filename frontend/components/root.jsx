@@ -10,6 +10,9 @@ import ExperiencesIndexContainer from './main/experiences/experiences_index_cont
 
 import roomIndexContainer from './rooms/room_index_container';
 
+
+import RoomMap from './rooms/room_map';
+
 const Root = ({ store }) => {
   console.log(hashHistory);
   return (
@@ -24,7 +27,9 @@ const Root = ({ store }) => {
         <Route path='experiences' component={ExperiencesIndexContainer}/>
         <Route path='places' component={PlacesIndexContainer}/>
         <Route path='rooms' component={roomIndexContainer}/>
+
       </Route>
+      <Route path='/testmap' component={RoomMap}/>
     </Router>
   </Provider>
 )};

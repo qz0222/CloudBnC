@@ -1,1 +1,5 @@
-json.array! @rooms, :id, :name, :price, :bedrooms, :beds, :room_type, :property_type, :picture_url, :amenities, :description, :lng, :lat
+@rooms.each do |room|
+  json.set! room.id do
+    json.partial! 'room', room: room
+  end
+end

@@ -86,7 +86,7 @@ class App2 extends React.Component{
   render (){
 
     return(
-    <div>
+    <div >
       <div className='header'>
         <div className='upper'>
           <div className='left'>
