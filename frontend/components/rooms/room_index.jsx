@@ -31,8 +31,14 @@ class RoomIndex extends React.Component {
     }else{
       return(
         <div className="maptest">
-
+          <div className="homes-nav">
+            <div>Room Type</div>
+            <div>Price range</div>
+            <div>Instant Book</div>
+            <div>More filters</div>
+          </div>
           <div className="room-index">
+
 
             <ul className="room-list">
               { roomItems }
