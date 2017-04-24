@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import {hashHistory} from 'react-router';
 
 import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
@@ -59,8 +60,13 @@ class Greeting extends React.Component {
     e.preventDefault();
     // debugger
     this.props.logout().then(()=>{
-      this.openModal();
+      this.openModal;
     });
+  }
+
+  goToNew(e) {
+    e.preventDefault();
+    hashHistory.push('/rooms/new');
   }
 
 
@@ -74,10 +80,9 @@ class Greeting extends React.Component {
     if (currentUser) {
       return(
         <div className='header-top-right'>
-          <h1>
-            Hello {currentUser.email}!
-          </h1>
-          <button onClick={this.handleClick}>Logout</button>
+          <Link onClick={()=>console.log('hello')}><span>{currentUser.email}</span></Link>
+          <Link onClick={this.goToNew}><span>Host</span></Link>
+          <Link onClick={this.handleClick}><span>Logout</span></Link>
         </div>
         );
     } else {
@@ -92,7 +97,7 @@ class Greeting extends React.Component {
 
                     {<SessionFormContainer type={this.state.modalType} closeModal={this.closeModal} toggleForm={this.toggleForm}/>}
                   </Modal>
-          
+
           <Link onClick={this.openModalSignup} ><span>Sign Up</span></Link>
           <Link onClick={this.openModalLogin} ><span>Log In</span></Link>
         </div>

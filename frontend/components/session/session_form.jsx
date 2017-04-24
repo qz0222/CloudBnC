@@ -197,7 +197,7 @@ class SessionForm extends React.Component {
         clearInterval(emailID);
         this.startPasswordAnimation();
       }
-    }, 100);
+    }, 60);
   }
 
  startPasswordAnimation(){
@@ -213,7 +213,7 @@ class SessionForm extends React.Component {
       const user = this.state;
       this.props.processForm(user);
     }
-  }, 100);
+  }, 60);
  }
 
 

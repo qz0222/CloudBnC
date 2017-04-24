@@ -1,0 +1,274 @@
+.roomForm.main{
+  // border: 2px solid green; ////// take out
+  padding:90px;
+  height:auto;
+
+  .title{
+    color: rgb(45,45,45);
+    font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .content{
+    color: rgb(118,118,118);
+    font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  label{
+    margin-left: 6px;
+    font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    color:#bbb;
+    font-size: 14px;
+    font-weight: normal;
+    margin-bottom: 6px;
+  }
+  .step{
+    margin-left: 6px;
+    font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    color:#bbb;
+    font-size: 14px;
+    font-weight: normal;
+    margin-bottom: 6px;
+  }
+
+  .question{
+    margin-left: 6px;
+    font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    color:rgb(72,72,72);
+    font-size: 24px;
+    font-weight: normal;
+    margin-bottom: 18px;
+  }
+  div.border-line{
+    margin-top: 15px;
+    border-bottom: 1px solid grey;
+    margin-bottom: 15px;
+  }
+
+  h1{
+    margin-left: 6px;
+    font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 32px;
+    font-weight: normal;
+    line-height: 1.1;
+    text-rendering: optimizeLegibility;
+    text-size-adjust:100%;
+    color:rgb(72,72,72);
+    margin-bottom: 20px;
+  }
+
+  form{
+    display:flex;
+    flex-direction: column;
+    font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+
+    .roomFormInput{
+      width:240px;
+      height:36px;
+      margin-bottom: 15px;
+      padding-top: 8px;
+      padding-bottom: 8px;
+      background-color: white;
+      border-radius: 0;
+      margin-left: 6px;
+      margin-right: 6px;
+      padding-left: 8px;
+
+    }
+    div .roomFormInput{
+      width:185px;
+    }
+
+    #room_address{
+      width: 383px;
+      margin-right: 100px;
+    }
+
+    .roomFormButton{
+      margin-left: 6px;
+      width:383px;
+      height:36px;
+      background-color: red;
+      color:white;
+      font-size: 14px;
+      line-height: 1.43;
+      border: none;
+      border-radius: 4px;
+    }
+
+    .roomFormButton:hover{
+      background: rgb(200,0,0);
+      cursor: pointer;
+    }
+  }
+
+  .step-1-1{
+    // border:1px solid red;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    .left{
+      // border:1px solid red;
+      width: 470px;
+    }
+    .right{
+      display: block;
+      // border:1px solid red;
+      width: 100%;
+      background-image: url('./images/step1.jpg');
+      background-repeat: no-repeat;
+      background-size: auto 100%;
+      background-position: center;
+      img{
+        opacity: 0;
+        position: absolute;
+        overflow: hidden;
+        width:auto;
+        height:100%;
+      }
+    }
+  }
+
+
+  .step-1-2{
+    // border:1px solid red;
+    display: flex;
+    flex-direction: row;
+    .left{
+      // border:1px solid red;
+      width: 470px;
+      display: flex;
+      flex-direction: column;
+      .roomFormInput{
+        width:383px;
+        margin-right: 100px;
+      }
+
+      .radio{
+        margin-left: 6px;
+        width:383px;
+        height:40px;
+        color:black;
+        margin-right: 100px;
+        border:1px solid grey;
+        text-align: center;
+
+        padding:10px;
+        padding-right: 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: center;
+        input{
+          margin-top: 2px;
+          border: 0px;
+          height:100%;
+          vertical-align: middle;
+          right:0;
+          text-align: center;
+
+
+
+        }
+      }
+      .radio:first-of-type{
+        border-bottom: none;
+      }
+    }
+    .right{
+      display: block;
+      border:1px solid rgb(72,72,72);
+      padding:26px;
+      width: 100%;
+
+    }
+  }
+
+  .step-1-3{
+    // border:1px solid red;
+    display: flex;
+    flex-direction: row;
+    .left{
+      // border:1px solid red;
+      width: 470px;
+      display: flex;
+      flex-direction: column;
+      .roomFormInput{
+        width:383px;
+        margin-right: 100px;
+      }
+
+    }
+    .right{
+      display: block;
+      border:1px solid rgb(72,72,72);
+      padding:26px;
+      width: 100%;
+
+    }
+  }
+
+
+  .step-1-4{
+    // border:1px solid red;
+    display: flex;
+    flex-direction: row;
+    .left{
+      // border:1px solid red;
+      width: 470px;
+      display: flex;
+      flex-direction: column;
+      .roomFormInput{
+        width:383px;
+        margin-right: 100px;
+      }
+
+    }
+    .right{
+      display: block;
+      border:1px solid rgb(72,72,72);
+      padding:26px;
+      width: 100%;
+
+    }
+  }
+
+  .step-1-5{
+    // border:1px solid red;
+    display: flex;
+    flex-direction: row;
+    .left{
+      // border:1px solid red;
+      width: 470px;
+      display: flex;
+      flex-direction: column;
+      .roomFormInput{
+        width:383px;
+        margin-right: 100px;
+      }
+
+    }
+    .right{
+      display: block;
+      border:1px solid rgb(72,72,72);
+      padding:26px;
+      width: 100%;
+
+      .upload{
+        padding-top: 50px;
+        border: 1px dashed grey;
+        width:100%;
+        height: 80%;
+        display: flex;
+        justify-content: center;
+        input{
+
+
+        }
+      }
+    }
+  }
+}
