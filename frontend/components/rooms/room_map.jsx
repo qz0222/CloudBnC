@@ -22,12 +22,17 @@ class RoomMap extends React.Component{
     this.markers = [];
 
     const mapDOMNode = ReactDOM.findDOMNode(this.refs.map);
+
     const mapOptions = {
-      // center: {lat: this.props.lat, lng: this.props.lng},
-      center: {lat: 10, lng: 10},
+      center: {lat: this.props.lat, lng: this.props.lng},
       zoom: 12,
       streetViewControl: false,
     };
+
+
+    
+
+
 
     this.map = new google.maps.Map(mapDOMNode, mapOptions);
 

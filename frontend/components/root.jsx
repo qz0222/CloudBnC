@@ -11,25 +11,33 @@ import ExperiencesIndexContainer from './main/experiences/experiences_index_cont
 import roomIndexContainer from './rooms/room_index_container';
 import RoomShowContainer from './rooms/room_show/room_show_container';
 
+import RoomFormContainer from './rooms/room_form/room_form_container';
+import RoomForm2Container from './rooms/room_form/room_form2_container';
+
 
 import RoomMap from './rooms/room_map';
 
 const Root = ({ store }) => {
-  console.log(hashHistory);
+
+  const _ensureLoggedIn = (nextState, replace) => {
+    const currentUser = store.getState().session.currentUser;
+    if (!currentUser) {
+      replace('/homes');
+    }
+  };
+
+
   return (
   <Provider store={ store }>
     <Router history={ hashHistory }>
       <Route path='/' component={ App }>
         <IndexRoute component={ForyouIndexContainer}/>
-        <Route path='signup' component={SessionFormContainer}/>
-        <Route path='login' component={SessionFormContainer}/>
         <Route path='all' component={ForyouIndexContainer}/>
         <Route path='homes' component={HomesIndexContainer}/>
         <Route path='experiences' component={ExperiencesIndexContainer}/>
         <Route path='places' component={PlacesIndexContainer}/>
-        <Route path='rooms' component={roomIndexContainer}/>
+        <Route path="/rooms/new" component={RoomForm2Container} onEnter={_ensureLoggedIn} />
         <Route path='rooms/:roomId' component={RoomShowContainer}/>
-
       </Route>
       <Route path='/testmap' component={RoomMap}/>
     </Router>

@@ -17,6 +17,7 @@
 #  picture_url   :string
 #  amenities     :text
 #  name          :string
+#  guests        :integer
 #
 
 require 'test_helper'

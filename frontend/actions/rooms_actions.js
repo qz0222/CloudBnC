@@ -1,7 +1,7 @@
 export const RECEIVE_ROOMS = "RECEIVE_ROOMS";
 export const RECEIVE_ROOM = "RECEIVE_ROOM";
 export const REMOVE_ROOM = "DELETE_ROOM";
-import * as RoomAPIUtill from '../util/rooms_api_util';
+import * as RoomAPIUtil from '../util/rooms_api_util';
 
 export const receiveRooms = (rooms) => {
   return {
@@ -29,7 +29,7 @@ export const removeRoom = (room) => {
 
 export const fetchRooms = () => {
   return (dispatch) => {
-    return RoomAPIUtill.fetchRooms().then(
+    return RoomAPIUtil.fetchRooms().then(
       (rooms) => (dispatch(receiveRooms(rooms)))
     );
   };
@@ -37,7 +37,7 @@ export const fetchRooms = () => {
 
 export const fetchRoom = (id) => {
   return (dispatch) => {
-    return RoomAPIUtill.fetchRoom(id).then(
+    return RoomAPIUtil.fetchRoom(id).then(
       (room) => (dispatch(receiveRoom(room)))
     );
   };

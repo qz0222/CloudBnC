@@ -39,6 +39,8 @@ class RoomShow extends React.Component{
               roomId={roomId}
               singleRoom={true}
               fetchRoom={fetchRoom}
+              lat={room.lat}
+              lng={room.lng}
               />
           </div>
         </div>

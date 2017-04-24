@@ -1,6 +1,6 @@
 .ReactModalPortal {
   position: absolute;
-  z-index: 2;
+  z-index: 1000;
 }
 .ReactModal__Overlay.ReactModal__Overlay--after-open{
   background-color:rgba(0, 0, 0, 0.8)!important;

@@ -17,6 +17,7 @@
 #  picture_url   :string
 #  amenities     :text
 #  name          :string
+#  guests        :integer
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

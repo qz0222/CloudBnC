@@ -44,7 +44,10 @@ class RoomIndex extends React.Component {
               { roomItems }
             </ul>
           </div>
-            <RoomMap rooms= {rooms}/>
+            <RoomMap
+              rooms= {rooms}
+              lat={10}
+              lng={10} />
         </div>
       );
     }
