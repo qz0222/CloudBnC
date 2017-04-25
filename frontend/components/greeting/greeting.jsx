@@ -68,6 +68,10 @@ class Greeting extends React.Component {
     e.preventDefault();
     hashHistory.push('/rooms/new');
   }
+  goToMy(e) {
+    e.preventDefault();
+    hashHistory.push('/rooms/my');
+  }
 
 
 
@@ -81,7 +85,8 @@ class Greeting extends React.Component {
       return(
         <div className='header-top-right'>
           <Link onClick={()=>console.log('hello')}><span>{currentUser.email}</span></Link>
-          <Link onClick={this.goToNew}><span>Host</span></Link>
+          <Link onClick={this.goToNew}><span>Add Room</span></Link>
+          <Link onClick={this.goToMy}><span>My Rooms</span></Link>
           <Link onClick={this.handleClick}><span>Logout</span></Link>
         </div>
         );

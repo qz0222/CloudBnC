@@ -1,27 +1,10 @@
 .maptest{
   height:100%;
 
-  .homes-nav{
-    padding-top: 16px;
-    padding-left: 16px;
-    width:100%;
-    height:64px;
-    background: aliceblue;
-    display: flex;
-    flex-direction: row;
-    position: fixed;
-    z-index: 10;
-    top:105px;
-    div{
-      width:118px;
-      border:1px solid green;
-      height:32.5px;
-    }
-  }
-
-  .room-index{
-    width:60%;
+  .my-room-index{
+    width:90%;
     border:2px solid green;
+    margin:0 auto;
 
     .room-list{
       padding-top: 70px;
@@ -30,7 +13,7 @@
 
       li.room-list-item {
         display: inline-block;
-        width:50%;
+        width:calc(100%/3);
         padding-left: 8px;
         padding-right: 8px;
         list-style: none;
@@ -113,32 +96,4 @@
       }
     }
   }
-
-
-
-  //
-  // .map{
-  //   width:40%;
-  //
-  //   position:fixed !important;
-  //   left:60%;
-  //   top:110px;
-  //   height: 100%;
-  // }
-  .map-container{
-    width:40%;
-
-    position:fixed !important;
-    z-index: 500;
-    left:60%;
-    top:110px;
-    height: 100%;
-    padding-bottom: 110px;
-    .map{
-      height:100%;
-      width: 100%;
-    }
-  }
-
-
 }

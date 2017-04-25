@@ -11,27 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170424003333) do
+ActiveRecord::Schema.define(version: 20170424205450) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "rooms", force: :cascade do |t|
-    t.integer "user_id",       null: false
-    t.string  "city"
-    t.float   "lng"
-    t.float   "lat"
-    t.text    "description"
-    t.integer "price",         null: false
-    t.integer "bedrooms",      null: false
-    t.integer "beds",          null: false
-    t.string  "room_type",     null: false
-    t.string  "property_type", null: false
-    t.float   "star_rating"
-    t.string  "picture_url"
-    t.text    "amenities"
-    t.string  "name"
-    t.integer "guests"
+    t.integer  "user_id",       null: false
+    t.string   "city"
+    t.float    "lng"
+    t.float    "lat"
+    t.text     "description"
+    t.integer  "price",         null: false
+    t.integer  "bedrooms",      null: false
+    t.integer  "beds",          null: false
+    t.string   "room_type",     null: false
+    t.string   "property_type", null: false
+    t.float    "star_rating"
+    t.string   "picture_url"
+    t.text     "amenities"
+    t.string   "name"
+    t.integer  "guests"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "rooms", ["bedrooms"], name: "index_rooms_on_bedrooms", using: :btree

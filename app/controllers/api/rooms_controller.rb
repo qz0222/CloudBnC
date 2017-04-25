@@ -1,11 +1,19 @@
 class Api::RoomsController < ApplicationController
   def index
-    if (params && params[:room] && params[:room][:name])
-       @rooms = Room.all.where("name ILIKE ?", params[:room][:name])
-     else
-       @rooms = Room.all
-     end
+    if(params[:filters] && params[:filters][:bounds])
+      @rooms = Room.in_bounds(bounds)
+    else
+      @rooms=Room.all
+    end
+    if (params[:minPrice] && params[:maxPrice])
+      @rooms = @rooms.where(price: price_range)
+    end
 
+    render :index
+  end
+
+  def my
+    @rooms = current_user.rooms
     render :index
   end
 
@@ -40,6 +48,7 @@ class Api::RoomsController < ApplicationController
   def destroy
     @room = current_user.rooms.find(params[:id])
     if @room.destroy
+      @rooms = current_user.rooms
       render :index
     else
       render json: @room.errors.full_messages, status: 404
@@ -49,5 +58,13 @@ class Api::RoomsController < ApplicationController
   private
   def room_params
     params.require(:room).permit(:price, :bedrooms, :name, :guests, :city, :beds, :room_type, :property_type, :picture_url, :amenities, :description, :lng, :lat)
+  end
+
+  def bounds
+    params[:filters][:bounds]
+  end
+
+  def price_range
+    (params[:minPrice]..params[:maxPrice])
   end
 end

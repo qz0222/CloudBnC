@@ -61,9 +61,11 @@
   }
 
   form{
+    width:900px;
     display:flex;
     flex-direction: column;
     font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    margin:0 auto;
 
     .roomFormInput{
       width:240px;
@@ -270,5 +272,10 @@
         }
       }
     }
+  }
+
+  .right{
+    width:500px !important;
+    overflow: hidden;
   }
 }

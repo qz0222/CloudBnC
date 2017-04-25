@@ -27,9 +27,17 @@ export const removeRoom = (room) => {
 
 
 
-export const fetchRooms = () => {
+export const fetchRooms = (filters) => {
   return (dispatch) => {
-    return RoomAPIUtil.fetchRooms().then(
+    return RoomAPIUtil.fetchRooms(filters).then(
+      (rooms) => (dispatch(receiveRooms(rooms)))
+    );
+  };
+};
+
+export const fetchMyRooms = () => {
+  return (dispatch) => {
+    return RoomAPIUtil.fetchMyRooms().then(
       (rooms) => (dispatch(receiveRooms(rooms)))
     );
   };
@@ -53,5 +61,5 @@ export const updateRoom = room => dispatch => (
 );
 
 export const destroyRoom = room => dispatch => (
-  RoomAPIUtil.destroyRoom(room).then(room => dispatch(removeRoom(room)))
+  RoomAPIUtil.deleteRoom(room).then(room => dispatch(removeRoom(room)))
 );

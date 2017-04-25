@@ -18,6 +18,8 @@
 #  amenities     :text
 #  name          :string
 #  guests        :integer
+#  created_at    :datetime
+#  updated_at    :datetime
 #
 
 require 'test_helper'

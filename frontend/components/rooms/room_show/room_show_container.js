@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { fetchRoom } from '../../../actions/rooms_actions';
+import { fetchRoom } from '../../../actions/room_actions';
 import { selectRoom } from '../../../reducers/selectors';
 
 import RoomShow from './room_show';

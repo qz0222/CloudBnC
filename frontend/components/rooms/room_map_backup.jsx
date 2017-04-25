@@ -12,7 +12,10 @@ import RoomIndexContainer from './room_index_container';
 
 
 class RoomMap extends React.Component{
-
+  constructor(props){
+    super(props);
+    this.state = { bounds: null };
+  }
 
   componentDidMount(){
     this.infowindow = new google.maps.InfoWindow();
@@ -27,38 +30,76 @@ class RoomMap extends React.Component{
     };
 
 
-    this.map = new google.maps.Map(mapDOMNode, mapOptions);
-    if (this.props.rooms.length > 1){
-      //////todo
-    }
-    this._registerListeners();
-    this.updateMarkers(this.props.rooms);
 
+
+
+
+    this.map = new google.maps.Map(mapDOMNode, mapOptions);
+
+    this.createMarkers();
     // this._searchLocationListener();
 
     let map = this.map;
     let center = {lat: this.props.lat, lng: this.props.lng};
     let latlng = new google.maps.LatLng(center);
 
-
+    google.maps.event.addListener(map, 'bounds_changed', function () {
+      this.setState({bounds: map.getBounds()});
+    }.bind(this));
   }
 
-  componentDidUpdate() {
-    this.updateMarkers(this.props.rooms);
+  componentWillReceiveProps(newProps) {
+  if (newProps.rooms.length!=this.props.rooms.length){
+    this.setMapOnAll(null);
+    this.createMarkers();
+    }
   }
 
+  setMapOnAll(map) {
+        for (var i = 0; i < this.markers.length; i++) {
+          this.markers[i].setMap(map);
+        }
+  }
+
+  createMarkers(){
+    const rooms = this.props.rooms;
+    const rooms_arr = [];
+    for (var index in rooms){
+      rooms_arr.push(rooms[index]);
+    }
+
+    rooms_arr.forEach(room => {
+
+      let marker = new google.maps.Marker({
+        position: this.position(room.lat, room.lng),
+        map: this.map,
+        roomId: room.id
+      });
+
+      const content = `<div className='iw-container' id='iw-pic-container'>
+                        <img id='iw-pic' src=${room.picture_url} className='iw-pic'/>
+                          <div >
+                              <li id='iw-title'>${room.name} ${room.room_type} ${room.property_type}</li>
+                              <li id='iw-price'>$${room.price} / day</li>
+                          </div>
+                      </div>`;
+
+      marker.addListener('click', () => {
+        const markerRoom = marker.roomId;
+        this.infowindow.setContent(content);
+        this.infowindow.open(this.map, marker);
+
+        google.maps.event.addDomListener(document.getElementById('iw-pic'), 'click', () => {
+          hashHistory.push('/rooms/' + markerRoom);
+        });
+      });
 
 
-  _registerListeners() {
-   google.maps.event.addListener(this.map, 'idle', () => {
-     const { north, south, east, west } = this.map.getBounds().toJSON();
-     const bounds = {
-       northEast: { lat:north, lng: east },
-       southWest: { lat: south, lng: west } };
-     this.props.updateFilter('bounds', bounds);
-   });
 
- }
+
+      this.markers.push(marker);
+    });
+  }
 
 
   updateMarkers(rooms){
@@ -68,14 +109,14 @@ class RoomMap extends React.Component{
 
     rooms
       .filter(room => !this.markers[room.id])
-      .forEach(newRoom => this.createMarkerFromRoom(newRoom));
+      .forEach(newBench => this.createMarkerFromBench(newBench));
 
     Object.keys(this.markers)
       .filter(roomId => !roomsObj[roomId])
       .forEach((roomId) => this.removeMarker(this.markers[roomId]));
   }
 
-  createMarkerFromRoom(room) {
+  createMarkerFromBench(room) {
     const position = new google.maps.LatLng(room.lat, room.lng);
     const marker = new google.maps.Marker({
       position,

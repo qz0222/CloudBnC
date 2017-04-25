@@ -1,7 +1,7 @@
 import {
   RECEIVE_ROOM,
   RECEIVE_ROOMS,
-  REMOVE_ROOM } from '../actions/rooms_actions';
+  REMOVE_ROOM } from '../actions/room_actions';
 import merge from 'lodash/merge';
 
 const RoomsReducer = (state = {}, action) => {

@@ -18,6 +18,8 @@
 #  amenities     :text
 #  name          :string
 #  guests        :integer
+#  created_at    :datetime
+#  updated_at    :datetime
 #
 
 class Room < ActiveRecord::Base
@@ -28,5 +30,11 @@ class Room < ActiveRecord::Base
     foreign_key: :user_id,
     class_name: 'User'
 
+  def self.in_bounds(bounds)
+    self.where("lat < ?", bounds[:northEast][:lat])
+        .where("lat > ?", bounds[:southWest][:lat])
+        .where("lng > ?", bounds[:southWest][:lng])
+        .where("lng < ?", bounds[:northEast][:lng])
+  end
 
 end

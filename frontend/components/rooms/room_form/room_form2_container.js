@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { createRoom } from '../../../actions/rooms_actions';
+import { createRoom } from '../../../actions/room_actions';
 import RoomForm2 from './room_form2';
 
 const mapStateToProps = (state, { location }) => ({

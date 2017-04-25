@@ -6,4 +6,6 @@ Rails.application.routes.draw do
     resources :rooms, only: [:index, :create, :show, :update, :destroy]
     resource :session, only: [:create, :destroy]
   end
+
+  get 'api/myrooms', :to => 'api/rooms#my',:defaults => { :format => 'json' }
 end

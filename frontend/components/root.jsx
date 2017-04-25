@@ -37,6 +37,7 @@ const Root = ({ store }) => {
         <Route path='experiences' component={ExperiencesIndexContainer}/>
         <Route path='places' component={PlacesIndexContainer}/>
         <Route path="/rooms/new" component={RoomForm2Container} onEnter={_ensureLoggedIn} />
+        <Route path="/rooms/my" component={HomesIndexContainer} onEnter={_ensureLoggedIn} />
         <Route path='rooms/:roomId' component={RoomShowContainer}/>
       </Route>
       <Route path='/testmap' component={RoomMap}/>
