@@ -14,12 +14,13 @@ class RoomIndexItem extends React.Component {
     const { name, price, beds, room_type, property_type, id } = room;
     const detailPath =`/rooms/${id}`;
 
+
     if (this.props.type==='admin'){
       return(
         <li className="room-list-item">
           <div  className="room-list-item-container">
             <div className="index-image-container">
-              <div className="index-image">image place holder</div>
+                <img src={room.picture_url}/>
             </div>
             <div className="index-info">
               <div className="left">
@@ -48,7 +49,7 @@ class RoomIndexItem extends React.Component {
       <li className="room-list-item">
         <div onClick={()=>{hashHistory.push(detailPath);}} className="room-list-item-container">
           <div className="index-image-container">
-            <div className="index-image">image place holder</div>
+              <img src={room.picture_url}/>
           </div>
           <div className="index-info">
             <div className="line1">

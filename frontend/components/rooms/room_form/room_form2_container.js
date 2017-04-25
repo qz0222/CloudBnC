@@ -5,10 +5,13 @@ import RoomForm2 from './room_form2';
 const mapStateToProps = (state, ownProps) => {
   if (ownProps.params.roomId){
     return({
-        room:state.rooms[ownProps.params.roomId]
+        room:state.rooms[ownProps.params.roomId],
+        currentUser:state.session.currentUser
     });
   } else {
-    return({});
+    return({
+      currentUser:state.session.currentUser
+    });
   }
 
 

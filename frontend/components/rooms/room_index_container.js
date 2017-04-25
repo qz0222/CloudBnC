@@ -10,23 +10,14 @@ import { allRooms } from '../../reducers/selectors';
 
 const mapStateToProps = function(state, ownProps){
 
-  if (ownProps.map){
-    return ({
-      rooms: allRooms(state),
-      errors: state.errors,
-      bounds: ownProps.bounds,
-      map: ownProps.map
-    });
-
-
-  } else {
     return(
       {
         rooms: allRooms(state),
-        errors: state.errors
+        errors: state.errors,
+        currentUser:state.session.currentUser,
       }
     );
-  }
+
 
 };
 

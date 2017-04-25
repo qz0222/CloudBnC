@@ -1,5 +1,6 @@
 import React from 'react';
 import {hashHistory} from 'react-router';
+import UploadButton from "../../UploadButton";
 // import UploadButton from './upload_button';
 
 class RoomForm2 extends React.Component{
@@ -20,7 +21,7 @@ class RoomForm2 extends React.Component{
       personal_belongings:"true"
     };
 
-
+    this.postImage=this.postImage.bind(this);
     this._handleSubmit=this._handleSubmit.bind(this);
   }
 
@@ -43,6 +44,14 @@ class RoomForm2 extends React.Component{
       hashHistory.push('/rooms/my');
     }
   }
+
+  componentWillReceiveProps(newProps){
+    if (!newProps.currentUser){
+      hashHistory.push('/homes');
+    }
+  }
+
+
 
 
 
@@ -83,6 +92,11 @@ class RoomForm2 extends React.Component{
   //   }
   // }
 
+  postImage(image) {
+    this.setState({ picture_url: image.url });
+  }
+
+
   render(){
     return(
       <div className="roomForm main">
@@ -91,7 +105,7 @@ class RoomForm2 extends React.Component{
 
           <div className="step-1-1">
             <div className="left">
-            <h1>Hi, {window.currentUser.f_name}! Let’s get you ready to become a host.</h1>
+            <h1>Hi, {this.props.currentUser.f_name}! Let’s get you ready to become a host.</h1>
             <h3 className="step">STEP 1</h3>
             <h2 className="question">What kind of place do you have?</h2>
 
@@ -282,7 +296,7 @@ class RoomForm2 extends React.Component{
           <div className='right'>
             <div className='title'>Show travelers what your space looks like</div>
             <div className="upload">
-              <input type='file' className='picUploadButton' onChange={()=>console.log('test')}></input>
+              <UploadButton postImage={this.postImage}/>
             </div>
           </div>
 
@@ -320,3 +334,7 @@ export default RoomForm2;
 //   onChange={this._handleUpdate('description')}
 //   className='roomFormInput'
 //   />
+
+
+
+// <input type='file' className='picUploadButton' onChange={()=>console.log('test')}></input>

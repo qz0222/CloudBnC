@@ -38,19 +38,26 @@
         padding-bottom: 12px;
 
         div.room-list-item-container{
-
+          div.index-image-container:hover{
+            cursor: pointer;
+          }
           div.index-image-container{
             width:100%;
             padding: calc(100%/3);
             border: 2px solid red;
             position: relative;
             z-index: 5;
-            div.index-image{
-              position: absolute;
-              z-index: 5;
-              top: 0;
-              left:0;
-            }
+            overflow: hidden;
+            text-align: center;
+              img{
+                position: absolute;
+                width: 100%;
+                height:100%;
+                left:0;
+                top:0;
+
+              }
+
           }
 
           div.index-info{
@@ -137,8 +144,56 @@
     .map{
       height:100%;
       width: 100%;
+
+
+
     }
   }
+}
 
+.gm-style-iw{
+  div:first-child {
 
+    width:200px;
+    height:180px;
+    margin:0 auto;
+  }
+  .iw-container{
+    position: absolute;
+    left:7.5px;
+    width: 200px;
+    height:200px;
+
+    // border: 1px solid red;
+    overflow: hidden;
+    .image-container:hover{
+      cursor: pointer;
+    }
+    .image-container{
+      position: relative;
+      width:200px;
+      height:120px;
+      // border: 1px solid green;
+      overflow: hidden;
+      img{
+        position: absolute;
+        width: 100%;
+        left:0;
+        top:5px;
+      }
+    }
+
+    .text-container{
+      // border:1px solid pink;
+      height:58px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      text-align: center;
+      li{
+        list-style: none;
+
+      }
+    }
+  }
 }

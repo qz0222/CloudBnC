@@ -14,13 +14,21 @@ class RoomIndex extends React.Component {
       this.props.requestMyRooms();
     }else{
 
-      this.props.requestRooms();
+      // this.props.requestRooms();
     }
   }
 
   handleDelete(room){
     if (confirm(`Please confirm to remove ${room.name}`) === true) {
         this.props.destroyRoom(room.id).then(this.props.requestMyRooms());
+    }
+  }
+
+  componentDidUpdate(){
+    if (!this.props.location.pathname.includes('homes')){
+      if(!this.props.currentUser){
+        hashHistory.push('/homes');
+      }
     }
   }
 

@@ -15,4 +15,5 @@ json.extract! room,
 :bathrooms,
 :listing_type,
 :bathrooms,
-:personal_belongings
+:personal_belongings,
+:picture_url

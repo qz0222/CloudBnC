@@ -84,10 +84,14 @@ class RoomMap extends React.Component{
       roomId: room.id
     });
 
-    const content = `<div className='iw-container' id='iw-pic-container'>
-                      <img id='iw-pic' src=${room.picture_url} className='iw-pic'/>
-                        <div >
-                            <li id='iw-title'>${room.name} ${room.room_type} ${room.property_type}</li>
+    const content = `<div class='iw-container' id='iw-pic-container'>
+                        <div class='image-container'>
+                      <img id='iw-pic' src=${room.picture_url} class='iw-pic'/>
+                      </div>
+                        <div class='text-container'>
+                            <li id='iw-title'>${room.name}, ${room.property_type}</li>
+                            <li id='iw-num'>${room.bedrooms} ${room.bedrooms>1? 'bedrooms':'bedroom'},
+                              ${room.bathrooms} ${room.bathrooms>1? 'bathrooms':'bathroom'}</li>
                             <li id='iw-price'>$${room.price} / day</li>
                         </div>
                     </div>`;
