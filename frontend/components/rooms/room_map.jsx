@@ -31,7 +31,9 @@ class RoomMap extends React.Component{
     if (this.props.rooms.length > 1){
       //////todo
     }
+
     this._registerListeners();
+
     this.updateMarkers(this.props.rooms);
 
     // this._searchLocationListener();
@@ -62,7 +64,6 @@ class RoomMap extends React.Component{
 
 
   updateMarkers(rooms){
-
     const roomsObj = {};
     rooms.forEach(room => roomsObj[room.id] = room);
 
