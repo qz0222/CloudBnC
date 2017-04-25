@@ -17,8 +17,7 @@ class RoomForm2 extends React.Component{
       picture_url: "",
       beds:undefined,
       city:"",
-      personal_belongings:true
-
+      personal_belongings:"true"
     };
 
 
@@ -30,37 +29,39 @@ class RoomForm2 extends React.Component{
     this.geocoder = new google.maps.Geocoder();
     const input = document.getElementById('room_address');
     const autocomplete = new google.maps.places.Autocomplete(input);
+
     this.autocompleteListener = google.maps.event.addListener(autocomplete, 'place_changed', () => {
       const address = autocomplete.getPlace();
       this.setState({ lat: address.geometry.location.lat(), lng: address.geometry.location.lng()});
     });
+
+    if (this.props.room){
+      this.setState(this.props.room);
+    }
+
+    if (this.props.location.pathname.includes('edit') && !this.props.room){
+      hashHistory.push('/rooms/my');
+    }
   }
 
-  _success(){
-    alert('Success! Your room has been uploaded');
-  }
+
 
   _handleSubmit(e){
     e.preventDefault();
-
-    // var formData = new FormData();
-    // formData.append("room[lat]", this.state.lat);
-    // formData.append("room[lng]", this.state.lng);
-    // formData.append("room[room_type]", this.state.room_type);
-    // formData.append("room[property_type]", this.state.property_type);
-    // formData.append("room[guests]", this.state.guests);
-    // formData.append("room[price]", this.state.price);
-    // formData.append("room[bedrooms]", this.state.bedrooms);
-    // formData.append("room[name]", this.state.name);
-    // formData.append("room[beds]", this.state.beds);
-    // formData.append("room[picture_url]", this.state.imageFile);
-
-    this.props.createRoom(this.state).then(
-      ()=>{
-        hashHistory.push('/homes');
-        alert('Success! Your room has been uploaded');
-      }
-    );
+    if (this.props.location.pathname.includes('edit')){
+      this.props.updateRoom(this.state).then(
+        ()=>{
+          hashHistory.push('/rooms/my');
+          alert('Success! Your room has been updated');
+        });
+    } else {
+      this.props.createRoom(this.state).then(
+        ()=>{
+          hashHistory.push('/rooms/my');
+          alert('Success! Your room has been uploaded');
+        }
+      );
+    }
 
   }
 
@@ -95,38 +96,39 @@ class RoomForm2 extends React.Component{
             <h2 className="question">What kind of place do you have?</h2>
 
             <div>
-            <select onChange={this._handleUpdate('room_type')} className="roomFormInput">
-              <option value="Entire place">Entire place</option>
-              <option value="Private room">Private room</option>
-              <option value="Shared rooms">Shared room</option>
+            <select defaultValue={this.props.room_type} onChange={this._handleUpdate('room_type')} className="roomFormInput">
+              <option value="Entire place" >Entire place</option>
+              <option value="Private room" >Private room</option>
+              <option value="Shared rooms" >Shared room</option>
             </select>
 
           <select onChange={this._handleUpdate("guests")} className="roomFormInput">
-            <option value={1}>for 1 guest</option>
-            <option value={2}>for 2 guest</option>
-            <option value={3}>for 3 guest</option>
-            <option value={4}>for 4 guest</option>
-            <option value={5}>for 5 guest</option>
-            <option value={6}>for 6 guest</option>
-            <option value={7}>for 7 guest</option>
-            <option value={8}>for 8 guest</option>
-            <option value={9}>for 9 guest</option>
-            <option value={10}>for 10 guest</option>
-            <option value={11}>for 11 guest</option>
-            <option value={12}>for 12 guest</option>
-            <option value={13}>for 13 guest</option>
-            <option value={14}>for 14 guest</option>
-            <option value={15}>for 15 guest</option>
-            <option value={16}>for 16 guest</option>
+            <option value={1} selected={this.state.guests===1 ? true:false}>for 1 guest</option>
+            <option value={2} selected={this.state.guests===2 ? true:false}>for 2 guest</option>
+            <option value={3} selected={this.state.guests===3 ? true:false}>for 3 guest</option>
+            <option value={4} selected={this.state.guests===4 ? true:false}>for 4 guest</option>
+            <option value={5} selected={this.state.guests===5 ? true:false}>for 5 guest</option>
+            <option value={6} selected={this.state.guests===6 ? true:false}>for 6 guest</option>
+            <option value={7} selected={this.state.guests===7 ? true:false}>for 7 guest</option>
+            <option value={8} selected={this.state.guests===8 ? true:false}>for 8 guest</option>
+            <option value={9} selected={this.state.guests===9 ? true:false}>for 9 guest</option>
+            <option value={10} selected={this.state.guests===10 ? true:false}>for 10 guest</option>
+            <option value={11} selected={this.state.guests===11 ? true:false}>for 11 guest</option>
+            <option value={12} selected={this.state.guests===12 ? true:false}>for 12 guest</option>
+            <option value={13} selected={this.state.guests===13 ? true:false}>for 13 guest</option>
+            <option value={14} selected={this.state.guests===14 ? true:false}>for 14 guest</option>
+            <option value={15} selected={this.state.guests===15 ? true:false}>for 15 guest</option>
+            <option value={16} selected={this.state.guests===16 ? true:false}>for 16 guest</option>
           </select>
         </div>
 
 
           <input
             type='text'
-            placeholder='Your full address'
+            placeholder={this.props.location.pathname.includes('edit')?  'Change of address is not allowed':'Your full address'}
             id='room_address'
             className='roomFormInput'
+            disabled={this.props.location.pathname.includes('edit')? true : false}
           />
       </div>
         <div className='right'>
@@ -142,16 +144,16 @@ class RoomForm2 extends React.Component{
 
             <label>What type of property is this?</label>
             <select onChange={this._handleUpdate('property_type')} className="roomFormInput">
-              <option value="Apartment">Apartment</option>
-              <option value="Bed and Breakfast">Bed and Breakfast</option>
-              <option value="Cave">Cave</option>
+              <option value="Apartment"  selected={this.state.property_type==="Apartment" ? true:false}>Apartment</option>
+              <option value="Bed and Breakfast" selected={this.state.property_type==="Bed and Breakfast" ? true:false}>Bed and Breakfast</option>
+              <option value="Cave"  selected={this.state.property_type==="Cave" ? true:false}>Cave</option>
             </select>
 
-            <label>What type of property is this?</label>
+            <label>What type of listing is this?</label>
             <select onChange={this._handleUpdate('listing_type')} className="roomFormInput">
-              <option value="Home">Home</option>
-              <option value="Hotel">Hotel</option>
-              <option value="Something else">Something else</option>
+              <option value="Home"  selected={this.state.listing_type==="Home" ? true:false}>Home</option>
+              <option value="Hotel"  selected={this.state.listing_type==="Hotel" ? true:false}>Hotel</option>
+              <option value="Something else"  selected={this.state.listing_type==="Something else" ? true:false}>Something else</option>
             </select>
 
             <label>Do you keep personal belongings here?</label>
@@ -161,7 +163,7 @@ class RoomForm2 extends React.Component{
                 onChange={this._handleUpdate('personal_belongings')}
                 type="radio"
                 name="personal"
-                value={true} defaultChecked/>
+                value="true"  checked={this.state.personal_belongings==="true" ? true:false}/>
             </label>
             <label className='radio'>
               No
@@ -169,7 +171,7 @@ class RoomForm2 extends React.Component{
                 onChange={this._handleUpdate('personal_belongings')}
                 type="radio"
                 name="personal"
-                value={false} />
+                value="false" checked={this.state.personal_belongings==="false" ? true:false}/>
             </label>
 
           </div>
@@ -197,6 +199,7 @@ class RoomForm2 extends React.Component{
             <h2 className="question">How many guests can your place accommodate?</h2>
             <input
               type='number'
+              min="0"
               placeholder='bedrooms'
               value={this.state.bedrooms}
               onChange={this._handleUpdate('bedrooms')}
@@ -205,6 +208,7 @@ class RoomForm2 extends React.Component{
 
             <input
               type='number'
+              min="0"
               placeholder='beds'
               value={this.state.beds}
               onChange={this._handleUpdate('beds')}
@@ -232,6 +236,8 @@ class RoomForm2 extends React.Component{
             <input
               type='number'
               placeholder='bathrooms'
+              min="0"
+              step="0.5"
               value={this.state.bathrooms}
               onChange={this._handleUpdate('bathrooms')}
               className='roomFormInput'
@@ -295,7 +301,9 @@ class RoomForm2 extends React.Component{
 
 
         <img src={this.state.imageUrl}></img>
-        <button className='roomFormButton' type='submit'>Add Your Room</button>
+        <button className='roomFormButton' type='submit'>
+          {this.props.location.pathname.includes('edit')? 'Update Your Room': 'Add Your Room'}
+        </button>
         </form>
       </div>
     );

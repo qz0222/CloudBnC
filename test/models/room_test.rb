@@ -20,6 +20,8 @@
 #  guests        :integer
 #  created_at    :datetime
 #  updated_at    :datetime
+#  bathrooms     :float
+#  listing_type  :string
 #
 
 require 'test_helper'

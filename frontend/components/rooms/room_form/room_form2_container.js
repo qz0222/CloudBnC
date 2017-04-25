@@ -1,13 +1,22 @@
 import { connect } from 'react-redux';
-import { createRoom } from '../../../actions/room_actions';
+import { createRoom, updateRoom } from '../../../actions/room_actions';
 import RoomForm2 from './room_form2';
 
-const mapStateToProps = (state, { location }) => ({
+const mapStateToProps = (state, ownProps) => {
+  if (ownProps.params.roomId){
+    return({
+        room:state.rooms[ownProps.params.roomId]
+    });
+  } else {
+    return({});
+  }
 
-});
+
+};
 
 const mapDispatchToProps = dispatch => ({
-  createRoom: room => dispatch(createRoom(room))
+  createRoom: room => dispatch(createRoom(room)),
+  updateRoom: room => dispatch(updateRoom(room))
 });
 
 export default connect(

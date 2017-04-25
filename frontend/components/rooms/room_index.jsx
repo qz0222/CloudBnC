@@ -24,34 +24,23 @@ class RoomIndex extends React.Component {
     }
   }
 
-  componentDidUpdate(){
+  componentWillReceiveProps(newProps){
+
+    if(newProps.location.pathname != this.props.location.pathname){
+      if (newProps.location.pathname.includes('my')){
+        this.props.requestMyRooms();
+      } else {
+        this.props.requestRooms();
+      }
+
+    }
+
   }
 
   render() {
     const { rooms, createRoom, updateRoom, errors } = this.props;
 
-    if (rooms.length === 0 ){
-      return (
-        <div className="maptest">
-          <div className="homes-nav">
-            <div>Room Type</div>
-            <div>Price range</div>
-            <div>Instant Book</div>
-            <div>More filters</div>
-          </div>
-          <div className="room-index">
 
-
-            {'no room found'}
-          </div>
-            <RoomMap
-              updateFilter={this.props.updateFilter}
-              rooms= {rooms}
-              lat={10}
-              lng={10} />
-        </div>
-      );
-    }
 
     let roomItems;
     let current_map;
@@ -75,7 +64,28 @@ class RoomIndex extends React.Component {
           </div>
         </div>
       );
-    }else{
+    }else if (rooms.length === 0 ){
+      return (
+        <div className="maptest">
+          <div className="homes-nav">
+            <div>Room Type</div>
+            <div>Price range</div>
+            <div>Instant Book</div>
+            <div>More filters</div>
+          </div>
+          <div className="room-index">
+
+
+            {'no room found'}
+          </div>
+            <RoomMap
+              updateFilter={this.props.updateFilter}
+              rooms= {rooms}
+              lat={10}
+              lng={10} />
+        </div>
+      );
+    }else {
       roomItems = rooms.map(room => (
           <RoomIndexItem
 

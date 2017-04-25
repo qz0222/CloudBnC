@@ -36,7 +36,7 @@ class RoomIndexItem extends React.Component {
               </div>
               <div className="right">
                 <Link onClick={()=>{hashHistory.push(detailPath);}}>View</Link>
-                <Link>Edit</Link>
+                <Link to={`/rooms/${room.id}/edit`}>Edit</Link>
                 <Link onClick={()=>this.props.handleDelete(room)}>Delete</Link>
               </div>
             </div>
