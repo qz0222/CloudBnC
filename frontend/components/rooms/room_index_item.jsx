@@ -25,8 +25,8 @@ class RoomIndexItem extends React.Component {
             <div className="index-info">
               <div className="left">
                 <div className="line1">
-                  <span>${room.price}</span>
-                  <span>{room.name}</span>
+                  <div className='showtext'><span>${room.price}</span></div>
+                  <span className='hidetext'>{room.name}</span>
                 </div>
                 <div className="line2">
                   <span>{room.room_type} · {room.beds} {room.beds===1? 'bed':'beds'}</span>
@@ -53,8 +53,8 @@ class RoomIndexItem extends React.Component {
           </div>
           <div className="index-info">
             <div className="line1">
-              <span>${room.price}</span>
-              <span>{room.name}</span>
+              <div className='showtext'><span>${room.price}</span></div>
+              <span className='hidetext'>{room.name}</span>
             </div>
             <div className="line2">
               <span>{room.room_type} · {room.beds} {room.beds===1? 'bed':'beds'}</span>

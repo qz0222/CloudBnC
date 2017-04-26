@@ -21,7 +21,7 @@
 
   .room-index{
     width:60%;
-    border:2px solid green;
+    // border:2px solid green;
 
     .room-list{
       padding-top: 70px;
@@ -34,7 +34,7 @@
         padding-left: 8px;
         padding-right: 8px;
         list-style: none;
-        border: 2px solid blue;
+        // border: 2px solid blue;
         padding-bottom: 12px;
 
         div.room-list-item-container{
@@ -44,7 +44,8 @@
           div.index-image-container{
             width:100%;
             padding: calc(100%/3);
-            border: 2px solid red;
+            min-width: 300px;
+            // border: 2px solid red;
             position: relative;
             z-index: 5;
             overflow: hidden;
@@ -62,7 +63,13 @@
 
           div.index-info{
             .line1{
+              display: flex;
+
               span{
+
+                display: inline-block;
+                overflow:hidden;
+                text-overflow:ellipsis;
                 font-size: 15px;
                 font-weight: bold;
                 letter-spacing: 0.2px;
@@ -75,10 +82,27 @@
 
                 font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
               }
-
               span:first-of-type{
                 margin-right: 8px;
               }
+
+              // div.show-text{
+              //   font-size: 15px;
+              //   font-weight: bold;
+              //   letter-spacing: 0.2px;
+              //   color:rgb(72,72,72);
+              //   line-height: 18px;
+              //   white-space: nowrap;
+              //   word-wrap: break-word;
+              //   -webkit-font-smoothing:antialiased;
+              //   -webkit-tap-highlight-color:rgba(0,0,0,0);
+              //
+              //   font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+              //   display: block;
+              //   overflow: none;
+              //   text-overflow: none !important;
+              //   margin-right: 8px;
+              // }
             }
 
             .line2{
@@ -114,7 +138,7 @@
             }
 
           }
-          border:2px solid blue;
+          // border:2px solid blue;
         }
 
       }

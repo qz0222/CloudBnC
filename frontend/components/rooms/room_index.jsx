@@ -89,8 +89,8 @@ class RoomIndex extends React.Component {
             <RoomMap
               updateFilter={this.props.updateFilter}
               rooms= {rooms}
-              lat={10}
-              lng={10} />
+              lat={40.7128}
+              lng={-74.0059} />
         </div>
       );
     }else {
@@ -121,8 +121,8 @@ class RoomIndex extends React.Component {
             <RoomMap
               updateFilter={this.props.updateFilter}
               rooms= {rooms}
-              lat={10}
-              lng={10} />
+              lat={40.7128}
+              lng={-74.0059} />
         </div>
       );
     }

@@ -12,18 +12,51 @@ User.create(email:"guest@sample.com",password:"password12345",f_name:"Tom",l_nam
 
 
 User.find_by_email("guest@sample.com").rooms.create(
+room_type:"Private room",
+guests:1,
+property_type:"Apartment",
+listing_type:"Home",
+personal_belongings:"false",
+bedrooms:1,
+beds:1,
+bathrooms:1,
+name:"A Roomy Room in Times Square",
+price:"85",
+lat:40.7589,
+lng:-73.9851,
+picture_url:"http://res.cloudinary.com/qz0222/image/upload/v1493158026/Times-Square-Day-Time_kcr4jg.jpg"
+)
+
+User.find_by_email("guest@sample.com").rooms.create(
 room_type:"Entire place",
 guests:1,
 property_type:"Apartment",
 listing_type:"Home",
 personal_belongings:"false",
-bedrooms:10,
-beds:11,
-bathrooms:0.5,
-name:"small house1",
-price:"8000",
-lat:10,
-lng:10,
+bedrooms:1,
+beds:2,
+bathrooms:1,
+name:"Modern Columbus Circle BunkBed Room (Washer Dryer)",
+price:"89",
+lat:40.7829,
+lng:-73.9654,
+picture_url:"http://res.cloudinary.com/qz0222/image/upload/v1493160047/2558_200_z_beziy5.jpg"
+)
+
+User.find_by_email("guest@sample.com").rooms.create(
+room_type:"Entire place",
+guests:1,
+property_type:"Apartment",
+listing_type:"Home",
+personal_belongings:"false",
+bedrooms:1,
+beds:2,
+bathrooms:1,
+name:"Stylish 1 Bedroom w/terrace perfect location",
+price:"199",
+lat:41,
+lng:-72,
+picture_url:"http://res.cloudinary.com/qz0222/image/upload/v1493160046/Corner_room_rirr8b.jpg"
 )
 
 User.find_by_email("guest@sample.com").rooms.create(
@@ -33,40 +66,11 @@ property_type:"Apartment",
 listing_type:"Home",
 personal_belongings:"false",
 bedrooms:10,
-beds:11,
+beds:3,
 bathrooms:0.5,
-name:"small house2",
-price:"8000",
-lat:10.1,
-lng:10.1,
-)
-
-User.find_by_email("guest@sample.com").rooms.create(
-room_type:"Entire place",
-guests:1,
-property_type:"Apartment",
-listing_type:"Home",
-personal_belongings:"false",
-bedrooms:10,
-beds:11,
-bathrooms:0.5,
-name:"small house3",
-price:"8000",
-lat:10.2,
-lng:10.2,
-)
-
-User.find_by_email("guest@sample.com").rooms.create(
-room_type:"Entire place",
-guests:1,
-property_type:"Apartment",
-listing_type:"Home",
-personal_belongings:"false",
-bedrooms:10,
-beds:11,
-bathrooms:0.5,
-name:"small house4",
-price:"8000",
-lat:10.3,
-lng:10.3,
+name:"Comfortable 2 Bedroom APT",
+price:"190",
+lat:42,
+lng:-72,
+picture_url:"http://res.cloudinary.com/qz0222/image/upload/v1493160048/hotel-majestic-prague-double-room-01_m0epm4.jpg"
 )
