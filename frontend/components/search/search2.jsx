@@ -2,6 +2,9 @@ import React from 'react';
 import { DateRange } from 'react-date-range';
 import {hashHistory,Link} from 'react-router';
 
+import DateRangePickerWrapper from './DateRangePickerWrapper';
+import 'react-dates/lib/css/_datepicker.css';
+
 class Search extends React.Component{
   constructor(props) {
     super(props);
@@ -34,17 +37,7 @@ class Search extends React.Component{
     );
   }
 
-  search(e) {
-    e.preventDefault();
-    const startDate = this.state.startDate ? this.state.startDate._d : '';
-    const endDate = this.state.endDate ? this.state.endDate._d : '';
-    this.props.searchOffice({
-      location: this.state.location,
-      guests: this.state.guests,
-      startDate: startDate,
-      endDate: endDate
-    }).then(hashHistory.push('/search'));
-  }
+
 
   handleFocusChange(e){
     e.preventDefault();
@@ -105,12 +98,12 @@ class Search extends React.Component{
 
   showGuests(){
     if (this.state.searchguests===1){
-      return(`1   Guest`);
+      return(`1   guest`);
     }
     if (this.state.searchguests===6){
-      return(`5+  Guests`);
+      return(`5+ guests`);
     }
-    return(`${this.state.searchguests}   Guests`);
+    return(`${this.state.searchguests}   guests`);
   }
 
   render(){
@@ -148,14 +141,7 @@ class Search extends React.Component{
                 onBlur={this.handleFocusChange}
                 placeholder='Anytime'/></span>
               <div className='datetest'>
-              <DateRange
-                       startDate={this.state.startDate}
-                       endDate={this.state.endDate}
-                       onChange={({startDate, endDate}) => {
-                         this.setState({ startDate, endDate });
-                         window.startDate=startDate;
-                         window.endDate=endDate;
-                       }}
+              <DateRangePickerWrapper
                        />
               </div>
             </div>
@@ -172,12 +158,12 @@ class Search extends React.Component{
                 value={this.showGuests()}
                 placeholder='1 guest'/></span>
               <div className='head-dropdown-content'>
-                <Link onClick={this.handleGuests(1)} ><span>1</span><span>Guest</span></Link>
-                <Link onClick={this.handleGuests(2)} ><span>2</span><span>Guests</span></Link>
-                <Link onClick={this.handleGuests(3)} ><span>3</span><span>Guests</span></Link>
-                <Link onClick={this.handleGuests(4)} ><span>4</span><span>Guests</span></Link>
-                <Link onClick={this.handleGuests(5)} ><span>5</span><span>Guests</span></Link>
-                <Link onClick={this.handleGuests(6)} ><span>5+</span><span>Guests</span></Link>
+                <Link onClick={this.handleGuests(1)} ><span>1</span><span>guest</span></Link>
+                <Link onClick={this.handleGuests(2)} ><span>2</span><span>guests</span></Link>
+                <Link onClick={this.handleGuests(3)} ><span>3</span><span>guests</span></Link>
+                <Link onClick={this.handleGuests(4)} ><span>4</span><span>guests</span></Link>
+                <Link onClick={this.handleGuests(5)} ><span>5</span><span>guests</span></Link>
+                <Link onClick={this.handleGuests(6)} ><span>5+</span><span>guests</span></Link>
               </div>
             </div>
           </div>
@@ -187,7 +173,7 @@ class Search extends React.Component{
   }
 }
 
-export default Search;
+export default Search2;
 
 
 // <div>

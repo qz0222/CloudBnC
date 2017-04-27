@@ -28,7 +28,7 @@ class RoomForm2 extends React.Component{
 
   componentDidMount(){
     this.geocoder = new google.maps.Geocoder();
-    const input = document.getElementById('room_address');
+    const input = document.getElementById('room_address2');
     const autocomplete = new google.maps.places.Autocomplete(input);
 
     this.autocompleteListener = google.maps.event.addListener(autocomplete, 'place_changed', () => {
@@ -140,7 +140,7 @@ class RoomForm2 extends React.Component{
           <input
             type='text'
             placeholder={this.props.location.pathname.includes('edit')?  'Change of address is not allowed':'Your full address'}
-            id='room_address'
+            id='room_address2'
             className='roomFormInput'
             disabled={this.props.location.pathname.includes('edit')? true : false}
           />

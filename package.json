@@ -31,7 +31,7 @@
     "babel-loader": "^6.4.1",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
-    "moment": "^2.17.1",
+    "moment": "^2.14.1",
     "react": "^15.5.4",
     "react-addons-shallow-compare": "^15.5.2",
     "react-date-range": "^0.9.3",

@@ -10,3 +10,22 @@
   animation-name: rotateInUpLeft;
   animation-duration: 0.5s;
 }
+
+div.pac-container{
+  margin-top: 5px;
+  .pac-item{
+    font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+    font-weight: 350;
+    color: black;
+    font-size: 14px;
+    line-height: 40px;
+
+    text-decoration: none;
+
+
+    .pac-icon{
+      // display: none;
+      vertical-align: middle;
+    }
+  }
+}
