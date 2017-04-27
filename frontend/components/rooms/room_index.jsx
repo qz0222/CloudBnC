@@ -8,6 +8,9 @@ class RoomIndex extends React.Component {
   constructor(props){
     super(props);
     this.handleDelete=this.handleDelete.bind(this);
+    this.state={
+      currentguests:1
+    };
   }
   componentDidMount() {
     if (this.props.location.pathname.includes('my')){
@@ -25,21 +28,32 @@ class RoomIndex extends React.Component {
   }
 
   componentDidUpdate(){
+    // if(window.searchguests && window.searchguests!=this.state.currentguests){
+    //   this.setState({currentguests:window.searchguests});
+    //   this.props.updateFilter('guests',window.searchguests);
+    //
+    //   debugger
+    //   this.props.updateFilter('guests',window.searchguests);
+    // }
+
     if (!this.props.location.pathname.includes('homes')){
       if(!this.props.currentUser){
         hashHistory.push('/homes');
       }
+    } else {
+
     }
   }
 
   componentWillReceiveProps(newProps){
-
     if(newProps.location.pathname != this.props.location.pathname){
       if (newProps.location.pathname.includes('my')){
         this.props.requestMyRooms();
       } else {
         this.props.requestRooms();
       }
+
+    } else {
 
     }
 
@@ -89,8 +103,8 @@ class RoomIndex extends React.Component {
             <RoomMap
               updateFilter={this.props.updateFilter}
               rooms= {rooms}
-              lat={40.7128}
-              lng={-74.0059} />
+              lat={window.searchlat? window.searchlat : 40.7128}
+              lng={window.searchlng? window.searchlng : -74.0059} />
         </div>
       );
     }else {
@@ -121,8 +135,8 @@ class RoomIndex extends React.Component {
             <RoomMap
               updateFilter={this.props.updateFilter}
               rooms= {rooms}
-              lat={40.7128}
-              lng={-74.0059} />
+              lat={window.searchlat? window.searchlat : 40.7128}
+              lng={window.searchlng? window.searchlng : -74.0059} />
         </div>
       );
     }

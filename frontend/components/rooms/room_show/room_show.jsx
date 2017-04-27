@@ -27,11 +27,11 @@ class RoomShow extends React.Component{
     return(
       <div className="main">
         <div className="maptest2">
-          <div className="right-half room-details">
+          <div className="top-room-details">
             <RoomDetail room={room} />
           </div>
+          <Link to="/homes">Back to Roomes Index</Link>
           <div className="single-room-map">
-            <Link to="/homes">Back to Roomes Index</Link>
             <RoomMap
               rooms={rooms}
               roomId={roomId}
@@ -41,6 +41,8 @@ class RoomShow extends React.Component{
               lng={room.lng}
               />
           </div>
+
+          <div>reviews</div>
         </div>
       </div>
     );

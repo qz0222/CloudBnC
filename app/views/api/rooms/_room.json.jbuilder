@@ -17,3 +17,6 @@ json.extract! room,
 :bathrooms,
 :personal_belongings,
 :picture_url
+
+
+json.extract! room.user, :f_name

@@ -19,7 +19,17 @@
  *= require_main
  *= require_modal
  *= require_homes
+ *= require_search
+ s
  */
+
+/*@media (max-width:632px){
+  *{
+    display: none!important;
+  }
+}*/
+
+
 
 * {
   margin:0;
@@ -52,4 +62,9 @@ a:hover,button:hover{
 
 .end {
   clear:both;
+}
+
+#marker{
+  animation-name: bounceIn;
+  animation-duration: 1s;
 }

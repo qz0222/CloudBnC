@@ -13,6 +13,13 @@ import RoomIndexContainer from './room_index_container';
 
 class RoomMap extends React.Component{
 
+  constructor(props){
+    super(props);
+    this.state={
+      currentlat:this.props.lat,
+      currentlng:this.props.lng,
+    };
+  }
 
   componentDidMount(){
     this.infowindow = new google.maps.InfoWindow();
@@ -21,9 +28,10 @@ class RoomMap extends React.Component{
     const mapDOMNode = ReactDOM.findDOMNode(this.refs.map);
 
     const mapOptions = {
-      center: {lat: this.props.lat, lng: this.props.lng},
+      center: {lat: this.state.currentlat, lng: this.state.currentlng},
       zoom: 12,
       streetViewControl: false,
+      clickableIcons: false
     };
 
 
@@ -47,6 +55,21 @@ class RoomMap extends React.Component{
 
   componentDidUpdate() {
     this.updateMarkers(this.props.rooms);
+
+    if (window.searchlng && window.searchlat){
+      if (this.state.currentlat != window.searchlat || this.state.currentlng != window.searchlng){
+        this.setState({
+          currentlat:window.searchlat,
+          currentlng:window.searchlng,
+        });
+        let map = this.map;
+        let center = {lat: window.searchlat, lng: window.searchlng};
+        let latlng = new google.maps.LatLng(center);
+        map.setCenter(latlng);
+        map.setZoom(12);
+      }
+    }
+
   }
 
 
@@ -78,10 +101,15 @@ class RoomMap extends React.Component{
 
   createMarkerFromRoom(room) {
     const position = new google.maps.LatLng(room.lat, room.lng);
+    var image = {
+      url:'./images/download.png',
+      scaledSize : new google.maps.Size(50, 50)
+    };
     const marker = new google.maps.Marker({
       position,
       map: this.map,
-      roomId: room.id
+      icon:image,
+      roomId: room.id,
     });
 
     const content = `<div class='iw-container' id='iw-pic-container'>

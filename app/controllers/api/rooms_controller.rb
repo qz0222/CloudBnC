@@ -1,9 +1,13 @@
 class Api::RoomsController < ApplicationController
   def index
+    @rooms=Room.all
     if(params[:filters] && params[:filters][:bounds])
       @rooms = Room.in_bounds(bounds)
+    end
+    if(params[:filters] && params[:filters][:guests])
+      @rooms = @rooms.where(guests: params[:filters][:guests])
     else
-      @rooms=Room.all
+      @rooms = @rooms.where(guests:1)
     end
     if (params[:minPrice] && params[:maxPrice])
       @rooms = @rooms.where(price: price_range)

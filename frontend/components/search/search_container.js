@@ -6,9 +6,7 @@ import { asArray } from '../../reducers/selectors';
 import Search from './search';
 
 const mapStateToProps = state => ({
-  benches: asArray(state),
-  minPrice: state.filters.minPrice,
-  maxPrice: state.filters.maxPrice
+
 });
 
 const mapDispatchToProps = dispatch => ({

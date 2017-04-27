@@ -15,15 +15,36 @@ class RoomDetail extends React.Component{
 
     return (
       <div className="room-detail">
-        <ul className="room-detail-list">
-          <img className="room-detail-image" src={room.picture_url}/>
-          <li>Rating: {room.rating || "No reviews yet"}</li>
-          <li>Description: {room.description}</li>
-          <li>Price: {room.price}</li>
-          <li>Latitude: {room.lat}</li>
-          <li>Longitude: {room.lng}</li>
-        </ul>
-        <br/>
+        <div className='top-image-container'>
+        <img className="room-detail-image" src={room.picture_url}/>
+        </div>
+        <div className='middle-part'>
+
+
+          <div className='left'>
+            <div className='left-top-nav'></div>
+            <ul className="room-detail-list">
+              <li>Rating: {room.rating || "No reviews yet"}</li>
+              <li>Description: {room.description}</li>
+              <li>Price: {room.price}</li>
+              <li>Latitude: {room.lat}</li>
+              <li>Longitude: {room.lng}</li>
+            </ul>
+          </div>
+          <div className="right">
+
+            <div className='right-booking-form '></div>
+          </div>
+
+
+
+        </div>
+
+
+
+
+
+
       </div>
     );
   }

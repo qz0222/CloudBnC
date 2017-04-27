@@ -2,11 +2,13 @@ import React from 'react';
 import GreetingContainer from "./greeting/greeting_container";
 import {Link} from 'react-router';
 import foryouIndex from "./main/foryou/foryou_index";
+import SearchContainer from "./search/search_container";
 
 
 
 class App2 extends React.Component{
   constructor(props){
+
     super(props);
     this.formType="";
 
@@ -62,19 +64,26 @@ class App2 extends React.Component{
       }
   }
 
+  componentDidUpdate(){
+    if(["/all","/homes","/experiences","/places","/"].includes(this.props.location.pathname)){
+        let target = this.props.location.pathname.slice(1) || 'all'
+        let navs = document.getElementsByClassName('clickable-nav');
+        for (var i = 0; i < navs.length; i++) {
+          this.removeCurrentNav(navs[i]);
+        }
+        let nav = document.getElementsByClassName(`nav-${target}`);
+        if (!nav[0].className.includes(" currentNAV")){
+          nav[0].className += " currentNAV"
+        }
+      }
+  }
+
 
 
   removeCurrentNav(e){
     e.className=e.className.replace(" currentNAV","");
   };
 
-  addFocus(e){
-    e.currentTarget.className = e.currentTarget.className + " focus";
-  };
-  removeFocus(e){
-    e.currentTarget.className=e.currentTarget.className.replace(" focus","");
-    e.currentTarget.className=e.currentTarget.className.replace("focus ","");
-  };
 
   renderMain(type){
     if (this.formType === "foryou"){
@@ -89,50 +98,8 @@ class App2 extends React.Component{
     <div className="app">
       <div className='header'>
         <div className='upper'>
-          <div className='left'>
-            <div className='image'><img src='/images/real-logo.png'/></div>
-            <div className='time'>
-              <div className='header-top-input-container'>
-
-                <div className='header-top-search-container'
-                  onFocus={this.addFocus}
-                  onBlur={this.removeFocus}>
-                  <div className='head-icon'>
-                    <i className="fa fa-search" aria-hidden="true"></i>
-                  </div>
-                  <input
-                    type="text"
-                    value=''
-                    placeholder='Anywhere'/>
-                </div>
-
-                <div className='header-top-search-container'
-                  onFocus={this.addFocus}
-                  onBlur={this.removeFocus}>
-                  <div className='head-icon'>
-                    <i className="fa fa-calendar-o" aria-hidden="true"></i>
-                  </div>
-                  <input
-                    type="text"
-                    value=''
-                    placeholder='Anytime'/>
-                </div>
-
-                <div className='header-top-search-container'
-                  onFocus={this.addFocus}
-                  onBlur={this.removeFocus}>
-                  <div className='head-icon'>
-                    <i className="fa fa-users" aria-hidden="true"></i>
-                  </div>
-                  <input
-                    type="text"
-                    value=''
-                    placeholder='1 guest'/>
-                </div>
-              </div>
-            </div>
-          </div>
-            <GreetingContainer />
+          <SearchContainer />
+          <GreetingContainer />
         </div>
         <div className='lower'>
           <ul className='nav'>

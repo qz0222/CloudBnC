@@ -39,4 +39,5 @@ class Room < ActiveRecord::Base
         .where("lng < ?", bounds[:northEast][:lng])
   end
 
+
 end

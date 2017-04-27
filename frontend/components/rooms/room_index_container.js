@@ -15,6 +15,7 @@ const mapStateToProps = function(state, ownProps){
         rooms: allRooms(state),
         errors: state.errors,
         currentUser:state.session.currentUser,
+        currentguests:window.searchguests
       }
     );
 

@@ -4,6 +4,8 @@
   display: block;
   position: relative;
   /*border: 3px red solid;*/
+  animation-name: fadeIn;
+  animation-duration: 0.5s;
 }
 /*.main div:first-child{
   height:100%;

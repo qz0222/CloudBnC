@@ -1,0 +1,12 @@
+.header-top-search-container .datetest{
+  display: none;
+  top:60px;
+  position: absolute;
+}
+.header-top-search-container.focus .datetest{
+  display: block;
+  top:60px;
+  position: absolute;
+  animation-name: rotateInUpLeft;
+  animation-duration: 0.5s;
+}
