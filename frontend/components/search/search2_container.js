@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { updateFilter } from '../../actions/filter_actions';
 import { asArray } from '../../reducers/selectors';
 
-import Search2 from './search';
+import Search2 from './search2';
 
 const mapStateToProps = state => ({
 

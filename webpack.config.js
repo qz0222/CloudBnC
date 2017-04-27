@@ -10,6 +10,7 @@ module.exports = {
     extensions: ['.js', '.jsx', '*']
   },
   module: {
+
     loaders: [
       {
         test: /\.jsx?$/,
@@ -18,8 +19,13 @@ module.exports = {
         query: {
           presets: ['react', 'es2015']
         }
-      }
-    ]
+      },
+
+
+    ],
+
   },
+
+
   devtool: 'source-maps'
 };

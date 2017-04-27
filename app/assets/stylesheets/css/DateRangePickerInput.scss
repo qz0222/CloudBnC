@@ -1,0 +1,77 @@
+@import "variables";
+
+.DateRangePickerInput {
+  background-color: #fff;
+  border: 1px solid lighten(#565a5c, 45%);
+  display: inline-block;
+}
+
+.DateRangePickerInput--disabled {
+  background: lighten(#565a5c, 45%);
+}
+
+.DateRangePickerInput__arrow {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.DateRangePickerInput__arrow svg {
+  vertical-align: middle;
+  fill: #484848;
+  height: 20px;
+  width: 20px;
+}
+
+.DateRangePickerInput__clear-dates {
+  background: none;
+  border: 0;
+  color: inherit;
+  font: inherit;
+  line-height: normal;
+  overflow: visible;
+
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: middle;
+  padding: 10px;
+  margin: 0 10px 0 5px;
+}
+
+.DateRangePickerInput__clear-dates svg {
+  fill: lighten(#565a5c, 17.8%);
+  height: 12px;
+  width: 15px;
+  vertical-align: middle;
+}
+
+.DateRangePickerInput__clear-dates--hide {
+  visibility: hidden;
+}
+
+.DateRangePickerInput__clear-dates:focus,
+.DateRangePickerInput__clear-dates--hover {
+  background: #dbdbdb ;
+  border-radius: 50%;
+}
+
+.DateRangePickerInput__calendar-icon {
+  background: none;
+  border: 0;
+  color: inherit;
+  font: inherit;
+  line-height: normal;
+  overflow: visible;
+
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: middle;
+  padding: 10px;
+  margin: 0 5px 0 10px;
+
+  svg {
+    fill: lighten(#565a5c, 17.8%);
+    height: 15px;
+    width: 14px;
+    vertical-align: middle;
+  }
+}

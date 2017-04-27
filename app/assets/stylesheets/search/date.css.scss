@@ -1,3 +1,4 @@
+
 .header-top-search-container .datetest{
   display: none;
   top:60px;
@@ -19,7 +20,6 @@ div.pac-container{
     color: black;
     font-size: 14px;
     line-height: 40px;
-
     text-decoration: none;
 
 
@@ -28,4 +28,146 @@ div.pac-container{
       vertical-align: middle;
     }
   }
+}
+
+.DateRangePicker{
+  transition: 1s;
+  display: none!important;
+  position: absolute!important;
+  z-index: 0;
+  top:9px;
+  .DateRangePickerInput__arrow{
+    width:15px;
+    margin-left: 3px;
+  }
+  .DateRangePickerInput{
+    width:149px;
+    background: transparent;
+    border:0;
+  }
+  .DateInput{
+    width:60px;
+    background: transparent;
+
+    .DateInput__input{
+
+    }
+  }
+  input#startDate{
+    width:100px;
+  }
+  input#endDate{
+    width:100px;
+  }
+  .DateInput__display-text{
+    text-align: center;
+    font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+    font-weight: 400;
+    color: black;
+    font-size: 15px;
+    line-height: 25px;
+    text-decoration: none;
+    width:60px;
+    padding-left: 0;
+    margin-right: 5px!important;
+    transition: 0.5s;
+  }
+}
+.header-top-search-container.focus, .header-top-search-container.focus.have-data{
+  .Anytime{
+    display: none;
+  }
+
+  .DateRangePicker{
+    display: block!important;
+  position: absolute!important;
+  z-index: 10000;
+  background: transparent;
+  .DateRangePickerInput{
+    width:250px;
+    background: transparent!important;
+    border:0;
+  }
+  .DateInput{
+    width:100px;
+    background: transparent!important;
+  }
+  input#startDate{
+    width:100px;
+  }
+  input#endDate{
+    width:100px;
+  }
+  .DateInput__display-text{
+
+    text-align: center;
+    width:90px;
+    margin-right: 5px!important;
+  }
+}
+}
+
+.header-top-search-container.have-data{
+  z-index: 0;
+  overflow: hidden;
+  .Anytime{
+    display: none;
+  }
+  .DateRangePicker{
+    display: block!important;
+    position: absolute!important;
+    z-index: 0;
+    top:9px;
+    .DateRangePickerInput__arrow{
+      width:15px;
+      margin-left: 3px;
+    }
+    .DateRangePickerInput{
+      width:149px;
+      background: transparent;
+      border:0;
+    }
+    .DateInput{
+      width:60px;
+      background: transparent;
+
+      .DateInput__input{
+
+      }
+    }
+    input#startDate{
+      width:100px;
+    }
+    input#endDate{
+      width:100px;
+    }
+    .DateInput__display-text{
+      width:60px;
+      padding-left: 0;
+      margin-right: 5px!important;
+    }
+  }
+}
+
+.header-top-search-container.small{
+  .DateInput:last-of-type{
+    .DateInput__display-text.DateInput__display-text--has-input:last-child{
+      display: none;
+    }
+  }
+}
+
+.header-top-search-container{
+  .DateInput:last-of-type{
+    .DateInput__display-text.DateInput__display-text--has-input:last-child{
+      display: block;
+    }
+  }
+}
+
+botton.Anytime{
+  padding-top: 12px;
+  font-size: 15px;
+  display: block;
+
 }

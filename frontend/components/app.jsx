@@ -2,7 +2,8 @@ import React from 'react';
 import GreetingContainer from "./greeting/greeting_container";
 import {Link} from 'react-router';
 import foryouIndex from "./main/foryou/foryou_index";
-import SearchContainer from "./search/search_container";
+import Search2Container from "./search/search2_container";
+
 
 
 
@@ -98,7 +99,7 @@ class App2 extends React.Component{
     <div className="app">
       <div className='header'>
         <div className='upper'>
-          <SearchContainer />
+          <Search2Container />
           <GreetingContainer />
         </div>
         <div className='lower'>
