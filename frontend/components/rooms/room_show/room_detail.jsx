@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+
 // import ReviewShow from './review_show.jsx';
 
 // const reviewList = (reviews = []) => (
@@ -12,6 +13,7 @@ class RoomDetail extends React.Component{
 
   render(){
     const {room}=this.props;
+
 
     return (
       <div className="room-detail">
@@ -35,11 +37,7 @@ class RoomDetail extends React.Component{
 
             <div className='right-booking-form '></div>
           </div>
-
-
-
         </div>
-
 
 
 
@@ -50,9 +48,5 @@ class RoomDetail extends React.Component{
   }
 
 }
-// <div className="reviews">
-//   <h3>Reviews</h3>
-//   {reviewList(room.reviews)}
-// </div>
 
 export default RoomDetail;

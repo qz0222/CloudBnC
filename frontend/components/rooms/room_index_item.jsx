@@ -3,6 +3,9 @@ import React from 'react';
 import merge from 'lodash/merge';
 import {hashHistory, Link} from 'react-router';
 
+
+
+
 class RoomIndexItem extends React.Component {
   constructor(props) {
     super(props);
@@ -14,7 +17,7 @@ class RoomIndexItem extends React.Component {
     const { name, price, beds, room_type, property_type, id } = room;
     const detailPath =`/rooms/${id}`;
 
-
+  
     if (this.props.type==='admin'){
       return(
         <li className="room-list-item">

@@ -19,6 +19,7 @@ class RoomMap extends React.Component{
       currentlat:this.props.lat,
       currentlng:this.props.lng,
     };
+
   }
 
   componentDidMount(){
@@ -36,11 +37,12 @@ class RoomMap extends React.Component{
 
 
     this.map = new google.maps.Map(mapDOMNode, mapOptions);
-    if (this.props.rooms.length > 1){
+
+    if (!this.props.singleRoom){
       //////todo
+      this._registerListeners();
     }
 
-    this._registerListeners();
 
     this.updateMarkers(this.props.rooms);
 

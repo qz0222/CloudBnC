@@ -7,6 +7,7 @@ const rootReducer = combineReducers({
   session: sessionReducer,
   rooms: roomsReducer,
   filters: FiltersReducer,
+
 });
 
 export default rootReducer;

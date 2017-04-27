@@ -20,3 +20,12 @@ json.extract! room,
 
 
 json.extract! room.user, :f_name
+
+
+
+json.reviews room.reviews do |review|
+
+    json.extract! review.author, :f_name
+    json.extract! review, :id, :body, :created_at, :rating, :room_id
+
+end

@@ -25,6 +25,11 @@ class User < ActiveRecord::Base
     foreign_key: :user_id,
     class_name: 'Room'
 
+  has_many :reviews,
+    primary_key: :id,
+    foreign_key: :user_id,
+    class_name: "Review"
+
   attr_reader :password
 
   def self.find_by_credentials(email, password)
