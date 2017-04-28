@@ -12,7 +12,8 @@ class RoomIndex extends React.Component {
       currentguests:1
     };
   }
-  componentDidMount() {
+  componentWillMount() {
+    // debugger
     if (this.props.location.pathname.includes('my')){
       this.props.requestMyRooms();
     }else{
@@ -20,6 +21,14 @@ class RoomIndex extends React.Component {
       // this.props.requestRooms();
     }
   }
+  // componentDidMount() {
+  //   if (this.props.location.pathname.includes('my')){
+  //     this.props.requestMyRooms();
+  //   }else{
+  //
+  //     this.props.requestRooms();
+  //   }
+  // }
 
   handleDelete(room){
     if (confirm(`Please confirm to remove ${room.name}`) === true) {
@@ -78,6 +87,7 @@ class RoomIndex extends React.Component {
       );
 
       return(
+        <div className='main'>
         <div className="maptest">
           <div className="my-room-index">
             <ul className="room-list">
@@ -85,9 +95,11 @@ class RoomIndex extends React.Component {
             </ul>
           </div>
         </div>
+      </div>
       );
     }else if (rooms.length === 0 ){
       return (
+        <div className='main'>
         <div className="maptest">
           <div className="homes-nav">
             <div>Room Type</div>
@@ -106,6 +118,7 @@ class RoomIndex extends React.Component {
               lat={window.searchlat? window.searchlat : 40.7128}
               lng={window.searchlng? window.searchlng : -74.0059} />
         </div>
+      </div>
       );
     }else {
       roomItems = rooms.map(room => (
@@ -118,6 +131,7 @@ class RoomIndex extends React.Component {
       );
 
       return(
+        <div className='main'>
         <div className="maptest">
           <div className="homes-nav">
             <div>Room Type</div>
@@ -138,6 +152,7 @@ class RoomIndex extends React.Component {
               lat={window.searchlat? window.searchlat : 40.7128}
               lng={window.searchlng? window.searchlng : -74.0059} />
         </div>
+      </div>
       );
     }
 

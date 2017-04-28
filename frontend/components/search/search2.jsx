@@ -157,7 +157,10 @@ handleNewFocusedInput(newFocusedInput){
         if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
             this.wrapperRef.className=this.wrapperRef.className.replace(' focus','');
             let middleone = document.getElementsByClassName('middleone')[0]
-            middleone.className = middleone.className.replace(' small','');
+            let focus = document.getElementsByClassName('focus')
+            if (focus.length === 0){
+              middleone.className = middleone.className.replace(' small','');
+            }
         }
         if (this.wrapperRef2 && !this.wrapperRef2.parentElement.parentElement.contains(event.target)) {
             this.wrapperRef2.parentElement.parentElement.className=this.wrapperRef2.parentElement.parentElement.className.replace(' focus','');

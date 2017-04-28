@@ -72,7 +72,9 @@ div.pac-container{
         width:60px;
         padding-left: 0;
         margin-right: 5px!important;
-        transition: 0.5s;
+        transition: 1s;
+        animation-name: fadeIn;
+        animation-duration: 1s;
       }
     }
     .header-top-search-container.focus, .header-top-search-container.focus.have-data{

@@ -57,8 +57,6 @@ handleConflict(date){
 }
 
 
-
-
   handleSubmit(e) {
     e.preventDefault();
     const paramstate={
@@ -122,6 +120,7 @@ import { fetchRoom } from '../../actions/room_actions';
 
 
 const mapStateToProps = ( state, ownProps ) => {
+
   let checkCurrentUser = 0;
   if (state.session.currentUser === null) {
     checkCurrentUser = 0;
@@ -129,7 +128,7 @@ const mapStateToProps = ( state, ownProps ) => {
     checkCurrentUser = state.session.currentUser.id;
   }
   return ({
-    room_id:Object.values(state.rooms)[0].id,
+    room_id: ownProps.roomId,
     current_bookings:Object.values(Object.values(state.rooms)[0].bookings),
     // currentParkId: state.parks.park.id,
     user_id: checkCurrentUser

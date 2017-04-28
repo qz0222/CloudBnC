@@ -50,7 +50,7 @@ class RoomDetail extends React.Component{
 
             <div className='right-booking-form '>
 
-              <BookingForm />
+              <BookingForm roomId={room.id}/>
             </div>
           </div>
         </div>

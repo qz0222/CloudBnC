@@ -4,11 +4,12 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import App from './app';
 import SessionFormContainer from './session/session_form_container';
 import ForyouIndexContainer from './main/foryou/foryou_index_container';
-import HomesIndexContainer from './main/homes/homes_index_container';
+// import HomesIndexContainer from './main/homes/homes_index_container';
 import PlacesIndexContainer from './main/places/places_index_container';
 import ExperiencesIndexContainer from './main/experiences/experiences_index_container';
 
 import roomIndexContainer from './rooms/room_index_container';
+import bookingIndexContainer from './bookings/booking_index_container.js';
 import RoomShowContainer from './rooms/room_show/room_show_container';
 
 import RoomFormContainer from './rooms/room_form/room_form_container';
@@ -33,11 +34,12 @@ const Root = ({ store }) => {
       <Route path='/' component={ App }>
         <IndexRoute component={ForyouIndexContainer}/>
         <Route path='all' component={ForyouIndexContainer}/>
-        <Route path='homes' component={HomesIndexContainer}/>
+        <Route path='homes' component={roomIndexContainer}/>
         <Route path='experiences' component={ExperiencesIndexContainer}/>
         <Route path='places' component={PlacesIndexContainer}/>
         <Route path="/rooms/new" component={RoomForm2Container} onEnter={_ensureLoggedIn} />
-        <Route path="/rooms/my" component={HomesIndexContainer} onEnter={_ensureLoggedIn} />
+        <Route path="/rooms/my" component={roomIndexContainer} onEnter={_ensureLoggedIn} />
+        <Route path="/bookings" component={bookingIndexContainer} onEnter={_ensureLoggedIn} />
         <Route path='rooms/:roomId/edit' component={RoomForm2Container} onEnter={_ensureLoggedIn}/>
         <Route path='rooms/:roomId' component={RoomShowContainer}/>
       </Route>

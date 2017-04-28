@@ -3,9 +3,11 @@ import ReactDOM from 'react-dom';
 import { fetchRooms, createRoom, updateRoom, destroyRoom } from '../../actions/room_actions';
 
 import {Link} from 'react-router';
-
+// import ErrorStore from'../stores/error_store');
 import {hashHistory} from 'react-router';
 
+// import CarActions from'../actions/car_actions')
+// import CarStore from'../stores/car_store')
 import RoomIndexContainer from './room_index_container';
 
 
@@ -30,18 +32,15 @@ class RoomMap extends React.Component{
       center: {lat: this.state.currentlat, lng: this.state.currentlng},
       zoom: 12,
       streetViewControl: false,
-      clickableIcons: false
+      clickableIcons: false,
+      disableDefaultUI: true,
     };
 
 
     this.map = new google.maps.Map(mapDOMNode, mapOptions);
 
-    if (!this.props.singleRoom){
-      //////todo
-    }
-    this._registerListeners();
 
-
+this.props.updateFilter('bounds', null);
     this.updateMarkers(this.props.rooms);
 
     // this._searchLocationListener();
@@ -74,19 +73,7 @@ class RoomMap extends React.Component{
 
 
 
-  _registerListeners() {
-   google.maps.event.addListener(this.map, 'idle', () => {
-     const { north, south, east, west } = this.map.getBounds().toJSON();
-     const bounds = {
-       northEast: { lat:north, lng: east },
-       southWest: { lat: south, lng: west } };
-       if( !this.props.singleRoom){
 
-         this.props.updateFilter('bounds', bounds);
-       }
-   });
-
- }
 
 
   updateMarkers(rooms){
@@ -152,19 +139,7 @@ class RoomMap extends React.Component{
     return {lat: x, lng: y};
   }
 
-  _searchLocationListener(){
-    let map = this.map;
 
-    window.autocomplete.addListener('place_changed', () => {
-      const address = window.autocomplete.getPlace().geometry.location;
-      const coords = {
-        lat: address.lat(),
-        lng: address.lng()
-      };
-      map.setCenter(coords);
-      map.setZoom(12);
-    });
-  }
 
 
   render(){

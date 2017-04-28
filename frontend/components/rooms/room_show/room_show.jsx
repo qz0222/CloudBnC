@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 
 import RoomDetail from './room_detail';
-import RoomMap from '../room_map';
+import RoomMap from '../room_map2';
 import ReviewItem from '../room_review_item';
 import ReviewForm from '../room_review_form';
 // import ReviewButton from './review_button';
@@ -15,6 +15,8 @@ class RoomShow extends React.Component{
   componentDidMount(){
     this.props.fetchRoom(this.props.roomId);
   }
+
+
 
   render(){
     const { room, roomId, fetchRoom, children } = this.props;

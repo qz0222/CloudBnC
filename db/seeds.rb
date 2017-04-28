@@ -32,7 +32,7 @@ picture_url:"http://res.cloudinary.com/qz0222/image/upload/v1493158026/Times-Squ
 
 User.find_by_email("guest@sample.com").rooms.create(
 room_type:"Entire place",
-guests:1,
+guests:2,
 property_type:"Apartment",
 
 listing_type:"Home",
@@ -51,7 +51,7 @@ picture_url:"http://res.cloudinary.com/qz0222/image/upload/v1493160047/2558_200_
 
 User.find_by_email("guest@sample.com").rooms.create(
 room_type:"Entire place",
-guests:1,
+guests:2,
 property_type:"Apartment",
 
 listing_type:"Home",
@@ -70,7 +70,7 @@ picture_url:"http://res.cloudinary.com/qz0222/image/upload/v1493160046/Corner_ro
 
 User.find_by_email("guest@sample.com").rooms.create(
 room_type:"Entire place",
-guests:1,
+guests:3,
 property_type:"Apartment",
 
 listing_type:"Home",

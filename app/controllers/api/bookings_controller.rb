@@ -8,7 +8,8 @@ class Api::BookingsController < ApplicationController
     @booking = current_user.bookings.new(booking_params)
 
     if @booking.save
-      render :show
+      @bookings = current_user.bookings
+      render :index
     else
       render json: @booking.errors.full_messages, status: 422
     end
@@ -23,7 +24,8 @@ class Api::BookingsController < ApplicationController
     @booking = current_user.bookings.find(params[:id])
 
     if @booking.destroy
-      render :show
+      @bookings=current_user.bookings
+      render :index
     else
       render json: @booking.errors.full_messages, status: 404
     end

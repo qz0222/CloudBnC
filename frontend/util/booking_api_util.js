@@ -12,3 +12,10 @@ export const createBooking = (booking) => {
     data: {booking}
   });
 };
+
+export const fetchMyBookings = () => {
+  return $.ajax({
+    method:'get',
+    url:'/api/bookings'
+  });
+};
