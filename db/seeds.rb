@@ -8,7 +8,8 @@
 
 
 User.create(email:"guest@sample.com",password:"password12345",f_name:"Tom",l_name:"Hanks",birthday:"2017-01-01")
-User.create(email:"test@sample.com",password:"password12345",f_name:"哈哈",l_name:"嘿嘿",birthday:"2017-01-01")
+User.create(email:"test@sample.com",password:"password12345",f_name:"Mimi",l_name:"Mi",birthday:"2017-01-01")
+User.create(email:"third@sample.com",password:"password12345",f_name:"Rodrigo",l_name:"Go",birthday:"2017-01-01")
 
 
 User.find_by_email("guest@sample.com").rooms.create(
@@ -88,8 +89,21 @@ picture_url:"http://res.cloudinary.com/qz0222/image/upload/v1493160048/hotel-maj
 )
 
 
-User.find_by_email("test@sample.com").bookings.create(
-room_id:1,
-booking_start:'2017-05-02',
-booking_end:'2017-05-10'
+User.find_by_email("test@sample.com").rooms.create(
+room_type:"Private room",
+
+guests:2,
+property_type:"Apartment",
+listing_type:"Home",
+personal_belongings:"false",
+bedrooms:2,
+beds:2,
+bathrooms:2,
+name:"Clean cozy room :-)",
+price:"33",
+lat:40.8589,
+lng:-74.0851,
+start_date:'2017-05-01',
+end_date:'2017-06-01',
+picture_url:"http://res.cloudinary.com/qz0222/image/upload/v1493401825/9985d114-0467-44be-90b9-b5390ec4217f_itlnrb.webp"
 )

@@ -17,7 +17,7 @@
 }
 
 .session-box{
-  border: 2px blue solid;
+  /*border: 2px blue solid;*/
   box-shadow: 0 2px 5px 2px rgba(0, 0, 0, 0.5);
   display: block;
   float: left;
@@ -150,7 +150,7 @@ transition: all 1s ease;
   display: inline-block;
   text-align: center;
   font-weight: 500;
-  border: 2px solid #0084B9;
+  /*border: 2px solid #0084B9;*/
   border-radius: 4px;
   color: #0084B9;
   font-size: 15px;

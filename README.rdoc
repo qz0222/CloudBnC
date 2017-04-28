@@ -1,28 +1,49 @@
-== README
+# CloudBnC
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+CloudBnC is an Airbnb inspired web application created by Zheng Qian.
 
-Things you may want to cover:
+[Live Here][live]
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+[live]: http://cloudbnc.herokuapp.com
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+
+## Features
+
+* Authentication
+  * Session is authenticated in the backend. All queries return data that corresponds to the proper user.
+  * User can sign up and log in from any page in the app.
+* Create Listing
+  * User can create listings to rent out their rooms/apartments.
+* Book Listings
+  * User can book rooms/apartments in different cities.
+* Reviews on listings
+  * User can post reviews for different listings.
+* Search Listings
+  * User can search for rooms/apartments according to their needs.
+* Google map Integration
+  * Search process includes google map interaction which can create and remove markers based on search parameters.
+
+
+## Code Guide
+
+If you'd like to take a closer look at the code behind the CloudBnC App, the best folders to look in are:
+
+
+
+## Languages, Frameworks, Libraries, Etc.
+
+* Ruby on Rails
+* Javascript
+* PostgreSQL
+* React
+* Redux
+* jquery
+* Google Map API
+* Gems
+  * Paperclip
+  * Geocoder
+  * Jbuilder
+  * BCrypt
+
+## Screenshots
