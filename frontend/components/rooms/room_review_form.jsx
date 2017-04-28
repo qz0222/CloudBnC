@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
 import Rating from 'react-rating';
+import merge from 'lodash/merge';
 
 
 //need to pass down current user and check if they are logged in
@@ -15,7 +16,8 @@ class ReviewForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    let currentReview = this.state;
+    let currentReview = merge({},this.state);
+    this.setState({rating:0,body:""});
     this.props.createReview(currentReview);
               // .then(() => this.props.fetchPark(this.props.currentParkId))
               // .then(() => this.props.fetchReviews(this.props.currentParkId));
