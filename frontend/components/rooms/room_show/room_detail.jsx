@@ -112,7 +112,7 @@ class RoomDetail extends React.Component{
               </div>
               <div className='Amen'>
                 <i className="fa fa-laptop" aria-hidden="true"></i>
-                <span>Laptop friendly workspace</span>
+                <span>Laptop friendly</span>
               </div>
 
             </div>

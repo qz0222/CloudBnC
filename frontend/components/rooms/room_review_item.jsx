@@ -2,6 +2,7 @@ import React from 'react';
 // Components
 import RoomMap from './room_map';
 import {hashHistory, withRouter} from 'react-router';
+import Rating from 'react-rating';
 
 class ReviewItem extends React.Component{
   constructor(props){
@@ -22,10 +23,22 @@ class ReviewItem extends React.Component{
     return(
 
         <li className='review-item'>
-          <div>{currentReview.f_name}</div>
-          <div>{currentReview.body}</div>
-          <div>{currentReview.rating}</div>
-          <div>{currentReview.created_at}</div>
+          <div className='first-line'>
+            <div className='name'>{currentReview.f_name}</div>
+            <div className='time'>{new Date(currentReview.created_at).toString().slice(0,16)}</div>
+              <Rating
+                className="review-form-stars"
+                empty={<img height="18" width="18" src="images/star_empty.png"/>}
+                full={<img height="18" width="18" src="images/star_full.png"/>}
+                start={0}
+                stop={5}
+                fractions={10}
+                initialRate={currentReview.rating}
+                readonly={true}
+              />
+            <div>{currentReview.rating}</div>
+          </div>
+          <div className='second-line'><p>{currentReview.body}</p></div>
           <button onClick={this.handleDelete}>delete</button>
         </li>
 

@@ -263,3 +263,19 @@
   text-decoration: none;
 
 }
+.header .upper .DateRangePicker__picker.DateRangePicker__picker--direction-left.DateRangePicker__picker--horizontal{
+  top:50px;
+}
+.header .upper .DayPicker.DayPicker--horizontal{
+  left:-32px;
+}
+
+.header-top-search-container.middleone:hover{
+  cursor: pointer;
+}
+.DateInput__input:hover{
+  cursor: pointer;
+}
+.header-top-search-container:last-of-type input:hover{
+  cursor: pointer;
+}
