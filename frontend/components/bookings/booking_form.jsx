@@ -45,7 +45,6 @@ handleNewFocusedInput(newFocusedInput){
 }
 
 handleConflict(date){
-  debugger
   if(!this.props.current_bookings){
     return false;
   }
@@ -123,7 +122,6 @@ import { fetchRoom } from '../../actions/room_actions';
 
 
 const mapStateToProps = ( state, ownProps ) => {
-  debugger
   let checkCurrentUser = 0;
   if (state.session.currentUser === null) {
     checkCurrentUser = 0;

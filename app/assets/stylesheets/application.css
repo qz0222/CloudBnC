@@ -18,8 +18,11 @@
  *= require_session
  *= require_main
  *= require_modal
+ *= require_rooms
+ *= require_reviews
  *= require_homes
  *= require_search
+ *= require_css
  s
  */
 
@@ -28,19 +31,6 @@
     display: none!important;
   }
 }*/
-
-@import './css/CalendarDay';
- @import './css/CalendarMonth';
- @import './css/CalendarMonthGrid';
- @import './css/DayPicker';
- @import './css/DayPickerNavigation';
- @import './css/DayPickerKeyboardShortcuts';
- @import './css/DateInput';
- @import './css/DateRangePicker';
- @import './css/DateRangePickerInput';
- @import './css/SingleDatePicker';
- @import './css/SingleDatePickerInput';
- @import './css/variables';
 
 
 
