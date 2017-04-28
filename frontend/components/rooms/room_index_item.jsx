@@ -2,6 +2,7 @@ import React from 'react';
 
 import merge from 'lodash/merge';
 import {hashHistory, Link} from 'react-router';
+import Rating from 'react-rating';
 
 
 
@@ -17,7 +18,7 @@ class RoomIndexItem extends React.Component {
     const { name, price, beds, room_type, property_type, id } = room;
     const detailPath =`/rooms/${id}`;
 
-  
+
     if (this.props.type==='admin'){
       return(
         <li className="room-list-item">
@@ -35,7 +36,16 @@ class RoomIndexItem extends React.Component {
                   <span>{room.room_type} · {room.beds} {room.beds===1? 'bed':'beds'}</span>
                 </div>
                 <div className="line3">
-                  <span>review place holder</span>
+                  <span><Rating
+                    className="review-form-stars"
+                    empty={<img height="12" width="12" src="images/star_empty.png"/>}
+                    full={<img height="12" width="12" src="images/star_full.png"/>}
+                    start={0}
+                    stop={5}
+                    fractions={10}
+                    initialRate={room.total_rating/room.reviews.length}
+                    readonly={true}
+                  />   {room.reviews.length? (room.total_rating/room.reviews.length).toFixed(2) : "No review yet"}</span>
                 </div>
               </div>
               <div className="right">
@@ -63,7 +73,16 @@ class RoomIndexItem extends React.Component {
               <span>{room.room_type} · {room.beds} {room.beds===1? 'bed':'beds'}</span>
             </div>
             <div className="line3">
-              <span>review place holder</span>
+              <span><Rating
+                className="review-form-stars"
+                empty={<img height="12" width="12" src="images/star_empty.png"/>}
+                full={<img height="12" width="12" src="images/star_full.png"/>}
+                start={0}
+                stop={5}
+                fractions={10}
+                initialRate={room.total_rating/room.reviews.length}
+                readonly={true}
+              />   {room.reviews.length? (room.total_rating/room.reviews.length).toFixed(2) : "No review yet"}</span>
             </div>
           </div>
         </div>

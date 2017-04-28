@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router';
+import Rating from 'react-rating';
 
 import RoomDetail from './room_detail';
-import RoomMap from '../room_map2';
+import RoomMap2 from '../room_map2';
 import ReviewItem from '../room_review_item';
 import ReviewForm from '../room_review_form';
 // import ReviewButton from './review_button';
@@ -12,8 +13,14 @@ class RoomShow extends React.Component{
     super(props);
   }
 
-  componentDidMount(){
+  componentWillMount(){
     this.props.fetchRoom(this.props.roomId);
+  }
+
+  componentDidUpdate(){
+    if(!this.props.room.id){
+      this.props.fetchRoom(this.props.roomId);
+    }
   }
 
 
@@ -39,7 +46,7 @@ class RoomShow extends React.Component{
           </div>
           <Link to="/homes">Back to Roomes Index</Link>
           <div className="single-room-map">
-            <RoomMap
+            <RoomMap2
               rooms={rooms}
               roomId={roomId}
               singleRoom={true}
@@ -51,8 +58,21 @@ class RoomShow extends React.Component{
 
           <div className='bottom-part'>
             <div className="reviews">
-              <h3>Reviews</h3>
-                <ul>
+              <div className='top'>
+                <h3>{room.reviews.length}  {room.reviews.length>1? 'Reviews':'Review'}</h3>
+                  <Rating
+                    className="review-form-stars"
+                    empty={<img height="22" width="22" src="images/star_empty.png"/>}
+                    full={<img height="22" width="22" src="images/star_full.png"/>}
+                    start={0}
+                    stop={5}
+                    fractions={10}
+                    initialRate={room.total_rating/room.reviews.length}
+                    readonly={true}
+                  />
+              </div>
+
+            <ul className='review-body'>
                   {reviewPart}
                 </ul>
             </div>

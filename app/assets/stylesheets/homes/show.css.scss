@@ -29,10 +29,10 @@
       }
     }
     .middle-part{
-      padding-left: 64px;
-      padding-right: 64px;
+      width:60%;
+      margin: 0 auto;
       border:5px solid blue;
-      height:2000px;
+      // height:2000px;
       display:flex;
       flex-direction: row;
       justify-content: space-between;
@@ -44,10 +44,207 @@
         height:100%;
 
         .left-top-nav{
-          height:50px;
+          height:40px;
           margin-top: 25px;
-          border:solid
+          border-bottom:1px solid grey;
+          div{
+            width:50%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            a{
+              font-weight: normal;
+              font-size: 19px;
+              line-height: 24px;
+              font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+              cursor: pointer;
+              padding-bottom: 13px;
+            }
+            a{
+              color:green;
+              border-bottom: 3px solid green;
+            }
+          }
+
         }
+        .basic-info{
+          // height:483px;
+          // background: red;
+          padding-top: 20px;
+          padding-left: 15px;
+          padding-right: 15px;
+          // padding-bottom: 20px;
+          border-bottom: 1px solid grey;
+
+          h1 {
+            margin-top: 15px;
+            font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+            cursor: pointer;
+            margin-bottom: 6px;
+            font-size: 36px;
+            font-weight: 700px;
+            letter-spacing: -0.6px;
+            line-height: 44px;
+            padding-bottom: 6px;
+            word-wrap: break-word;
+            color: #484848;
+          }
+          div.rating{
+            margin-top: 15px;
+            height:60px;
+            // background: red;
+            padding-bottom: 15px;
+            border-bottom: 1px solid grey;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            .review-form-stars{
+              color:lightgrey;
+              font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+                margin-right: 20px;
+            }
+            div{
+              color:grey;
+              font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+              margin-right: 20px;
+              text-align: center;
+            }
+          }
+          div.icons{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            text-align: center;
+            padding:20px;
+            border-bottom: 1px solid grey;
+            div.qq{
+              font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+              margin-right: 20px;
+              margin-top: 10px;
+              text-align: center;
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
+              text-align: center;
+              vertical-align: middle;
+              // background: red;
+              width:80px;
+
+              i.fa{
+                display: relative;
+                margin-left: 25px;
+                text-align: center;
+                align-items: center;
+                margin-bottom: 15px;
+                width:20px!important;
+                height:20px;
+                font-size: 20px;
+
+              }
+              div{
+                text-align: center;
+              }
+            }
+
+          }
+          div.icon2{
+            display: block;
+            justify-content: space-around;
+            text-align: left;
+            padding:20px;
+            height:130px;
+            // border-bottom: 1px solid grey;
+            h2{
+              margin-top: 10px;
+              font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+              margin-right: 20px;
+              font-size: 22px;
+              line-height: 28px;
+              margin-bottom: 25px;
+            }
+            a{
+              font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+              color:rgb(0,132,137);
+            }
+          }
+
+        }
+
+        ul.room-detail-list{
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          // background-color: red;
+          padding-right: 20px;
+
+          li{
+            min-height:100px;
+            list-style: none;
+            display: flex;
+            flex-direction: row;
+            .left-half{
+              font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+              width:300px;
+              padding-top:20px;
+            }
+            .right-half{
+              padding-left: 20px;
+              width:100%;
+              border-bottom: 1px solid grey;
+              div.Amen{
+
+                display: inline-block;
+                // border:2px solid red;
+                width: 50%;
+                height:40px;
+                vertical-align: middle;
+                padding-top: 9px;
+                padding-bottom: 12px;
+                i{
+                  height:50px;
+                  margin-right: 10px;
+                }
+              }
+
+              div.right-top{
+                div.Amen{height:30px;}
+                height:80px;
+                // background: red;
+                padding-bottom: 20px;
+                font-size: 15px;
+                font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+              }
+              div.right-down{
+                height:70px;
+                h5{
+
+                  font-size: 15px;
+                  font-weight: bold;
+                  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+                }
+                p{
+                  font-size: 15px;
+                  font-weight: normal;
+                  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+                }
+              }
+
+              div.des{
+                font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+                padding-top: 10px;
+                height:  40px;
+              }
+
+            }
+
+
+          }
+        }
+
+
+
+
+
       }
       .right{
         right:0;
@@ -69,9 +266,9 @@
 
 
   .single-room-map{
-    width:80%;
+    width:60%;
     margin:0 auto;
-    height:300px;
+    height:500px;
     border:5px solid yellow;
   }
 
@@ -83,6 +280,52 @@
     .map{
       height:100%;
       width: 100%;
+    }
+  }
+}
+
+
+div.main{
+
+
+  div.bottom-part{
+    width:60%;
+    border:2px solid red;
+    margin: 0 auto;
+
+    .reviews{
+
+      .top{
+        padding-top: 60px;
+        padding-left: 50px;
+        height:120px;
+        // background: red;
+        display: flex;
+        flex-direction: row;
+        border-bottom: 1px solid grey;
+        h3{
+          font-size: 28px;
+          font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+        }
+        .review-form-stars{
+          margin-left: 20px;
+          margin-top: 4px;
+        }
+      }
+
+
+      .review-body{
+        li{
+          list-style: none;
+        }
+      }
+
+
+
+
+
+
+
     }
   }
 }

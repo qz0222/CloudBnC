@@ -11,7 +11,7 @@ import {hashHistory} from 'react-router';
 import RoomIndexContainer from './room_index_container';
 
 
-class RoomMap extends React.Component{
+class RoomMap2 extends React.Component{
 
   constructor(props){
     super(props);
@@ -30,17 +30,22 @@ class RoomMap extends React.Component{
 
     const mapOptions = {
       center: {lat: this.state.currentlat, lng: this.state.currentlng},
-      zoom: 12,
+      zoom: 18,
       streetViewControl: false,
       clickableIcons: false,
       disableDefaultUI: true,
+      scrollwheel: false,
+    navigationControl: false,
+    mapTypeControl: false,
+    scaleControl: false,
+    draggable: false,
     };
 
 
     this.map = new google.maps.Map(mapDOMNode, mapOptions);
 
 
-this.props.updateFilter('bounds', null);
+
     this.updateMarkers(this.props.rooms);
 
     // this._searchLocationListener();
@@ -52,24 +57,7 @@ this.props.updateFilter('bounds', null);
 
   }
 
-  componentDidUpdate() {
-    this.updateMarkers(this.props.rooms);
 
-    if (window.searchlng && window.searchlat){
-      if (this.state.currentlat != window.searchlat || this.state.currentlng != window.searchlng){
-        this.setState({
-          currentlat:window.searchlat,
-          currentlng:window.searchlng,
-        });
-        let map = this.map;
-        let center = {lat: window.searchlat, lng: window.searchlng};
-        let latlng = new google.maps.LatLng(center);
-        map.setCenter(latlng);
-        map.setZoom(12);
-      }
-    }
-
-  }
 
 
 
@@ -152,4 +140,4 @@ this.props.updateFilter('bounds', null);
   }
 }
 
-export default RoomMap;
+export default RoomMap2;

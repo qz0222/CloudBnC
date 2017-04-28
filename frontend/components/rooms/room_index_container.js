@@ -9,7 +9,6 @@ import { updateFilter } from '../../actions/filter_actions';
 import { allRooms } from '../../reducers/selectors';
 
 const mapStateToProps = function(state, ownProps){
-
     return(
       {
         rooms: allRooms(state),

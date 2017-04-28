@@ -14,6 +14,7 @@ class RoomIndex extends React.Component {
   }
   componentWillMount() {
     // debugger
+    
     if (this.props.location.pathname.includes('my')){
       this.props.requestMyRooms();
     }else{

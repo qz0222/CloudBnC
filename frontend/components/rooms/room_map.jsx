@@ -17,7 +17,7 @@ class RoomMap extends React.Component{
       currentlat:this.props.lat,
       currentlng:this.props.lng,
     };
-
+    this.boundfilters=this.boundfilters.bind(this);
   }
 
   componentDidMount(){
@@ -72,7 +72,16 @@ class RoomMap extends React.Component{
 
   }
 
+  boundfilters(){
+    const { north, south, east, west } = this.map.getBounds().toJSON();
+    const bounds = {
+      northEast: { lat:north, lng: east },
+      southWest: { lat: south, lng: west } };
+      if( !this.props.singleRoom){
 
+        this.props.updateFilter('bounds', bounds);
+      }
+  }
 
   _registerListeners() {
    google.maps.event.addListener(this.map, 'idle', () => {
