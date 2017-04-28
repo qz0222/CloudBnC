@@ -6,16 +6,26 @@
     padding-left: 16px;
     width:100%;
     height:64px;
-    background: aliceblue;
+    text-align: center;
+    background: white;
     display: flex;
     flex-direction: row;
     position: fixed;
     z-index: 10;
     top:105px;
     div{
+      font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
       width:118px;
-      border:1px solid green;
+      // border:1px solid green;
       height:32.5px;
+      padding-top: 5px;
+      font-size: 13px;
+      color:grey;
+    }
+    div:hover{
+      background: rgb(222,222,222);
+      transition: 0.5s;
+      cursor: pointer;
     }
   }
 

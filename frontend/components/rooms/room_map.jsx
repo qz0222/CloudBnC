@@ -120,7 +120,7 @@ class RoomMap extends React.Component{
     const marker = new google.maps.Marker({
       position,
       map: this.map,
-      icon:image,
+      // icon:image,
       roomId: room.id,
     });
 

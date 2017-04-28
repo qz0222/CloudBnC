@@ -94,7 +94,8 @@ handleConflict(date){
     } else {
       return (
         <div>
-          <div className="top-booking-message"> Write a Booking!</div>
+          <div className='blacktop'><span className='q'>${this.props.price}</span><span className='w'>per night</span></div>
+          <div className="top-booking-message"><span className='e'>Check In</span><span className='r'>Check Out</span></div>
           <form className="booking-submit-form" onSubmit={this.handleSubmit}>
             <DateRangePicker
               startDate={this.state.current_start_date}
@@ -105,7 +106,7 @@ handleConflict(date){
               displayFormat="MMM DD YYYY"
               isDayBlocked={this.handleConflict}
             />
-            <input className="booking-submit-button cursor-pointer" type="submit" value="Post Booking" />
+          <input className="booking-submit-button cursor-pointer" type="submit" value="Book" />
           </form>
         </div>
       );

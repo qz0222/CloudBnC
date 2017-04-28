@@ -44,7 +44,7 @@ class RoomShow extends React.Component{
           <div className="top-room-details">
             <RoomDetail  room={room} />
           </div>
-          <Link to="/homes">Back to Roomes Index</Link>
+          <Link className="hide" to="/homes">Back to Roomes Index</Link>
           <div className="single-room-map">
             <RoomMap2
               rooms={rooms}

@@ -45,7 +45,7 @@ class RoomIndexItem extends React.Component {
                     fractions={10}
                     initialRate={room.total_rating/room.reviews.length}
                     readonly={true}
-                  />   {room.reviews.length? (room.total_rating/room.reviews.length).toFixed(2) : "No review yet"}</span>
+                  />   {room.reviews.length? room.reviews.length : "No review yet"}</span>
                 </div>
               </div>
               <div className="right">
@@ -82,7 +82,7 @@ class RoomIndexItem extends React.Component {
                 fractions={10}
                 initialRate={room.total_rating/room.reviews.length}
                 readonly={true}
-              />   {room.reviews.length? (room.total_rating/room.reviews.length).toFixed(2) : "No review yet"}</span>
+              />   {room.reviews.length>1 ? room.reviews.length +  '  reviews' : room.reviews.length+ " review"}</span>
             </div>
           </div>
         </div>

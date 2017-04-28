@@ -162,11 +162,12 @@ class RoomDetail extends React.Component{
         </ul>
           </div>
           <div className="right">
-
+            <div className='top-placeholder'/>
             <div className='right-booking-form '>
 
-              <BookingForm roomId={room.id}/>
+              <BookingForm roomId={room.id} price={room.price}/>
             </div>
+            <div className='bottom-placeholder'/>
           </div>
         </div>
 
