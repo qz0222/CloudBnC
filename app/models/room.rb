@@ -42,6 +42,11 @@ class Room < ActiveRecord::Base
     foreign_key: :room_id,
     class_name: "Review"
 
+  has_many :bookings,
+    primary_key: :id,
+    foreign_key: :room_id,
+    class_name: "Booking"
+
   def self.in_bounds(bounds)
     self.where("lat < ?", bounds[:northEast][:lat])
         .where("lat > ?", bounds[:southWest][:lat])

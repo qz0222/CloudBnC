@@ -72,12 +72,12 @@ import { fetchRoom } from '../../actions/room_actions';
 
 
 const mapStateToProps = ( state ) => {
-  // let checkCurrentUser = 0;
-  // if (state.session.currentUser === null) {
-  //   checkCurrentUser = 0;
-  // } else {
-  //   checkCurrentUser = state.session.currentUser.id;
-  // }
+  let checkCurrentUser = 0;
+  if (state.session.currentUser === null) {
+    checkCurrentUser = 0;
+  } else {
+    checkCurrentUser = state.session.currentUser.id;
+  }
   return ({
     room_id:Object.values(state.rooms)[0].id
     // currentParkId: state.parks.park.id,
@@ -88,7 +88,7 @@ const mapStateToProps = ( state ) => {
 const mapDispatchToProps = ( dispatch ) => {
   return ({
     createReview: review => dispatch(createReview(review)),
-    fetchReviews: (currentParkId) => dispatch(fetchReviews(currentParkId)),
+
     fetchRoom: id => dispatch(fetchRoom(id)),
   });
 };

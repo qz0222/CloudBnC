@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router';
 import Rating from 'react-rating';
 
+import BookingForm from '../../bookings/booking_form.jsx';
+
 // import ReviewShow from './review_show.jsx';
 
 // const reviewList = (reviews = []) => (
@@ -46,7 +48,10 @@ class RoomDetail extends React.Component{
           </div>
           <div className="right">
 
-            <div className='right-booking-form '></div>
+            <div className='right-booking-form '>
+
+              <BookingForm />
+            </div>
           </div>
         </div>
 

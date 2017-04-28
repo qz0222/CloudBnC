@@ -8,7 +8,7 @@
 
 
 User.create(email:"guest@sample.com",password:"password12345",f_name:"Tom",l_name:"Hanks",birthday:"2017-01-01")
-
+User.create(email:"test@sample.com",password:"password12345",f_name:"哈哈",l_name:"嘿嘿",birthday:"2017-01-01")
 
 
 User.find_by_email("guest@sample.com").rooms.create(
@@ -85,4 +85,11 @@ price:"190",
 lat:42,
 lng:-72,
 picture_url:"http://res.cloudinary.com/qz0222/image/upload/v1493160048/hotel-majestic-prague-double-room-01_m0epm4.jpg"
+)
+
+
+User.find_by_email("test@sample.com").bookings.create(
+room_id:1,
+booking_start:'2017-05-02',
+booking_end:'2017-05-10'
 )

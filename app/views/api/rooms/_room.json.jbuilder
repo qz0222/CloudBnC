@@ -25,11 +25,12 @@ json.extract! room,
 
 json.extract! room.user, :f_name
 
-
-
 json.reviews room.reviews do |review|
-
-    json.extract! review.author, :f_name
+    json.extract! review.author, :f_name, :l_name
     json.extract! review, :id, :body, :created_at, :rating, :room_id
+end
 
+json.bookings room.bookings do |booking|
+    json.extract! booking.user, :f_name, :l_name
+    json.extract! booking, :booking_start, :booking_end, :created_at
 end

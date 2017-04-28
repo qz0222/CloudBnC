@@ -23,13 +23,13 @@ class RoomForm2 extends React.Component{
       beds:undefined,
       city:"",
       personal_belongings:"true",
-
+      name:"",
       focus: "",
       datepicker:{
         focusedInput: null,
       },
-      start_date: null,
-      end_date: null,
+      current_start_date: null,
+      current_end_date: null,
 
     };
     this.handleNewFocusedInput = this.handleNewFocusedInput.bind(this);
@@ -51,6 +51,8 @@ class RoomForm2 extends React.Component{
 
     if (this.props.room){
       this.setState(this.props.room);
+      this.setState({current_end_date: moment(this.props.room.end_date),
+        current_start_date:moment(this.props.room.start_date) });
     }
 
     if (this.props.location.pathname.includes('edit') && !this.props.room){
@@ -70,14 +72,32 @@ class RoomForm2 extends React.Component{
 
   _handleSubmit(e){
     e.preventDefault();
+    const paramstate={
+      name:this.state.name,
+      lat: this.state.lat,
+      lng: this.state.lng,
+      room_type: this.state.room_type,
+      property_type:this.state.property_type,
+      listing_type:this.state.listing_type,
+      guests:this.state.guests,
+      price:this.state.price,
+      bedrooms:this.state.bedrooms,
+      picture_url: this.state.picture_url,
+      beds:this.state.beds,
+      city:this.state.city,
+      personal_belongings:this.state.personal_belongings,
+      start_date: this.state.start_date.split(' ').join('-'),
+      end_date: this.state.end_date.split(' ').join('-'),
+
+    };
     if (this.props.location.pathname.includes('edit')){
-      this.props.updateRoom(this.state).then(
+      this.props.updateRoom(paramstate).then(
         ()=>{
           hashHistory.push('/rooms/my');
           alert('Success! Your room has been updated');
         });
     } else {
-      this.props.createRoom(this.state).then(
+      this.props.createRoom(paramstate).then(
         ()=>{
           hashHistory.push('/rooms/my');
           alert('Success! Your room has been uploaded');
@@ -111,10 +131,12 @@ class RoomForm2 extends React.Component{
 
 
   handleNewDates(data){
-
-  this.setState({ start_date: data.startDate,
-                  end_date: data.endDate});
-                  console.log(this.state.startDate);
+  this.setState({ current_start_date: data.startDate,
+                  start_date: data.startDate? data.startDate.format('YYYY MM DD'):"",
+                  current_end_date: data.endDate,
+                end_date: data.endDate? data.endDate.format('YYYY MM DD'):"",});
+                  console.log(this.state.start_date);
+                  console.log(this.state.end_date);
 
 }
 
@@ -306,8 +328,8 @@ handleNewFocusedInput(newFocusedInput){
             <label>Set up your calendar</label>
             <div className='calendar-on-form'>
               <DateRangePicker
-                startDate={this.state.startDate}
-                endDate={this.state.endDate}
+                startDate={this.state.current_start_date}
+                endDate={this.state.current_end_date}
                 onDatesChange={this.handleNewDates}
                 focusedInput={this.state.datepicker.focusedInput}
                 onFocusChange={this.handleNewFocusedInput}

@@ -15,7 +15,7 @@ class RoomShow extends React.Component{
   componentDidMount(){
     this.props.fetchRoom(this.props.roomId);
   }
-  
+
   render(){
     const { room, roomId, fetchRoom, children } = this.props;
     const rooms = [room];
