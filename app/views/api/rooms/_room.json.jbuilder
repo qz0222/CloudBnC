@@ -16,7 +16,11 @@ json.extract! room,
 :listing_type,
 :bathrooms,
 :personal_belongings,
-:picture_url
+:picture_url,
+:total_rating,
+:start_date,
+:end_date,
+:total_rating
 
 
 json.extract! room.user, :f_name

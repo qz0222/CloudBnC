@@ -3,6 +3,10 @@ import {hashHistory} from 'react-router';
 import UploadButton from "../../UploadButton";
 // import UploadButton from './upload_button';
 
+import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'react-dates';
+// import Moment from 'react-moment';
+import moment from 'moment';
+
 class RoomForm2 extends React.Component{
   constructor(props){
     super(props);
@@ -18,11 +22,20 @@ class RoomForm2 extends React.Component{
       picture_url: "",
       beds:undefined,
       city:"",
-      personal_belongings:"true"
-    };
+      personal_belongings:"true",
 
+      focus: "",
+      datepicker:{
+        focusedInput: null,
+      },
+      start_date: null,
+      end_date: null,
+
+    };
+    this.handleNewFocusedInput = this.handleNewFocusedInput.bind(this);
     this.postImage=this.postImage.bind(this);
     this._handleSubmit=this._handleSubmit.bind(this);
+    this.handleNewDates = this.handleNewDates.bind(this);
   }
 
 
@@ -95,6 +108,21 @@ class RoomForm2 extends React.Component{
   postImage(image) {
     this.setState({ picture_url: image.url });
   }
+
+
+  handleNewDates(data){
+
+  this.setState({ start_date: data.startDate,
+                  end_date: data.endDate});
+                  console.log(this.state.startDate);
+
+}
+
+handleNewFocusedInput(newFocusedInput){
+  const newProps = Object.assign({}, this.state.datepicker);
+  newProps.focusedInput = newFocusedInput;
+  this.setState({ datepicker: newProps });
+}
 
 
   render(){
@@ -275,6 +303,18 @@ class RoomForm2 extends React.Component{
             <h3 className="step">STEP 5</h3>
             <h2 className="question">Get ready for guests?</h2>
 
+            <label>Set up your calendar</label>
+            <div className='calendar-on-form'>
+              <DateRangePicker
+                startDate={this.state.startDate}
+                endDate={this.state.endDate}
+                onDatesChange={this.handleNewDates}
+                focusedInput={this.state.datepicker.focusedInput}
+                onFocusChange={this.handleNewFocusedInput}
+                displayFormat="MMM DD YYYY"
+              />
+            </div>
+
             <label>Name your place</label>
             <input
               type='text'
@@ -293,6 +333,7 @@ class RoomForm2 extends React.Component{
               className='roomFormInput'
             />
           </div>
+
           <div className='right'>
             <div className='title'>Show travelers what your space looks like</div>
             <div className="upload">

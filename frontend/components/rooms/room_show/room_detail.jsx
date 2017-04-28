@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import Rating from 'react-rating';
 
 // import ReviewShow from './review_show.jsx';
 
@@ -26,7 +27,17 @@ class RoomDetail extends React.Component{
           <div className='left'>
             <div className='left-top-nav'></div>
             <ul className="room-detail-list">
-              <li>Rating: {room.rating || "No reviews yet"}</li>
+              <Rating
+                className="review-form-stars"
+                empty={<img height="40" width="40" src="images/star_empty.png"/>}
+                full={<img height="40" width="40" src="images/star_full.png"/>}
+                start={0}
+                stop={5}
+                fractions={10}
+                initialRate={room.total_rating/room.reviews.length}
+                readonly={true}
+              />
+            <li>Rating: {(room.total_rating/room.reviews.length).toFixed(2) || "No reviews yet"}</li>
               <li>Description: {room.description}</li>
               <li>Price: {room.price}</li>
               <li>Latitude: {room.lat}</li>

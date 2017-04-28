@@ -23,6 +23,9 @@
 #  bathrooms           :float
 #  listing_type        :string
 #  personal_belongings :string
+#  start_date          :date
+#  end_date            :date
+#  total_rating        :float
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

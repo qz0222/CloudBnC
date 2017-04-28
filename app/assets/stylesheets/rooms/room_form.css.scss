@@ -78,7 +78,7 @@
       margin-left: 6px;
       margin-right: 6px;
       padding-left: 8px;
-
+      font-size: 14px;
     }
     div .roomFormInput{
       width:185px;
@@ -223,6 +223,7 @@
       width: 470px;
       display: flex;
       flex-direction: column;
+
       .roomFormInput{
         width:383px;
         margin-right: 100px;
@@ -247,6 +248,58 @@
       width: 470px;
       display: flex;
       flex-direction: column;
+      .DateRangePicker__picker.DateRangePicker__picker--direction-left.DateRangePicker__picker--horizontal{
+        top:50px;
+        margin-left: -10px;
+      }
+      .calendar-on-form{
+        top:0;
+        border:1px solid rgba(72,72,72,0.3);
+        margin-left: 6px;
+        margin-bottom: 15px;
+        width:383px;
+        height:40px;
+        input{
+          font-size: 15px;
+          font-weight: normal;
+        }
+        .DateRangePicker{
+          height: 36px;
+          width:381px;
+          .DateRangePickerInput{
+            width:381px;
+            height:38px;
+            border:0;
+            display: flex;
+            flex-direction: row;
+            padding-left: 10px;
+            padding-right: 10px;
+            justify-content: space-around;
+            .DateInput{
+              display: flex;
+              height:38px;
+            }
+            .DateRangePickerInput__arrow{
+              padding-top: 10px;
+              display: flex;
+            }
+            .DateInput__input{
+              display: flex;
+              height:38px;
+              padding:0;
+            }
+
+            .DateInput__display-text{
+              font-size: 15px;
+              font-weight: normal;
+              text-align: center;
+              display: flex;
+              padding-top: 0;
+              padding-bottom: 0;
+            }
+          }
+        }
+      }
       .roomFormInput{
         width:383px;
         margin-right: 100px;
@@ -260,7 +313,7 @@
       width: 100%;
 
       .upload{
-        padding-top: 50px;
+        padding-top: 80px;
         border: 1px dashed grey;
         width:100%;
         height: 80%;
