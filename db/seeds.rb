@@ -104,6 +104,129 @@ price:"33",
 lat:40.8589,
 lng:-74.0851,
 start_date:'2017-05-01',
+end_date:'2019-06-01',
+picture_url:"http://res.cloudinary.com/qz0222/image/upload/v1493401825/9985d114-0467-44be-90b9-b5390ec4217f_itlnrb.webp"
+)
+
+
+User.find_by_email("test@sample.com").rooms.create(
+room_type:"Private room",
+
+guests:2,
+property_type:"Apartment",
+listing_type:"Home",
+personal_belongings:"false",
+bedrooms:2,
+beds:2,
+bathrooms:2,
+name:"Beautiful Bed-Stuy Room",
+price:"33",
+lat:40.8589,
+lng:-72.0851,
+start_date:'2017-05-01',
+end_date:'2018-06-01',
+picture_url:"http://res.cloudinary.com/qz0222/image/upload/v1493402895/cloudbnc/nkijyzzencruwwpwztep.jpg"
+)
+
+
+User.find_by_email("test@sample.com").rooms.create(
+room_type:"Private room",
+
+guests:2,
+property_type:"Apartment",
+listing_type:"Home",
+personal_belongings:"false",
+bedrooms:2,
+beds:2,
+bathrooms:2,
+name:"Clean cozy room :-)",
+price:"33",
+lat:43.8589,
+lng:-74.0851,
+start_date:'2017-05-01',
 end_date:'2017-06-01',
 picture_url:"http://res.cloudinary.com/qz0222/image/upload/v1493401825/9985d114-0467-44be-90b9-b5390ec4217f_itlnrb.webp"
+)
+
+
+User.find_by_email("test@sample.com").rooms.create(
+room_type:"Private room",
+
+guests:1,
+property_type:"Apartment",
+listing_type:"Home",
+personal_belongings:"false",
+bedrooms:2,
+beds:2,
+bathrooms:2,
+name:"Delightful, Cozy and Convenient Room",
+price:"33",
+lat:40.8589,
+lng:-72.0851,
+start_date:'2017-05-01',
+end_date:'2018-06-01',
+picture_url:"http://res.cloudinary.com/qz0222/image/upload/v1493401825/9985d114-0467-44be-90b9-b5390ec4217f_itlnrb.webp"
+)
+
+
+
+User.find_by_email("test@sample.com").rooms.create(
+room_type:"Private room",
+
+guests:1,
+property_type:"Apartment",
+listing_type:"Home",
+personal_belongings:"false",
+bedrooms:2,
+beds:2,
+bathrooms:2,
+name:"Clean cozy room :-)",
+price:"33",
+lat:40.8589,
+lng:-75.0851,
+start_date:'2017-05-01',
+end_date:'2018-06-01',
+picture_url:"http://res.cloudinary.com/qz0222/image/upload/v1493401825/9985d114-0467-44be-90b9-b5390ec4217f_itlnrb.webp"
+)
+
+
+
+User.find_by_email("test@sample.com").rooms.create(
+room_type:"Private room",
+
+guests:2,
+property_type:"Apartment",
+listing_type:"Home",
+personal_belongings:"false",
+bedrooms:2,
+beds:2,
+bathrooms:2,
+name:"Clean cozy room :-)",
+price:"33",
+lat:41.8589,
+lng:-74.0851,
+start_date:'2017-05-01',
+end_date:'2018-06-01',
+picture_url:"http://res.cloudinary.com/qz0222/image/upload/v1493401825/9985d114-0467-44be-90b9-b5390ec4217f_itlnrb.webp"
+)
+
+
+
+User.find_by_email("guest@sample.com").rooms.create(
+room_type:"Entire place",
+guests:1,
+property_type:"Apartment",
+
+listing_type:"Home",
+personal_belongings:"false",
+bedrooms:1,
+beds:2,
+bathrooms:1,
+start_date:'2017-10-01',
+end_date:'2017-12-01',
+name:"Stylish 1 Bedroom w/terrace perfect location",
+price:"199",
+lat:41,
+lng:-72,
+picture_url:"http://res.cloudinary.com/qz0222/image/upload/v1493160046/Corner_room_rirr8b.jpg"
 )

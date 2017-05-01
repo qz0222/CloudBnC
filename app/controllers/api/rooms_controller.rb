@@ -1,6 +1,6 @@
 class Api::RoomsController < ApplicationController
   def index
-    @rooms=Room.includes(:reviews).all
+    @rooms=Room.includes(:reviews,[{reviews: :author}]).all
     if(params[:filters] && params[:filters][:bounds])
       @rooms = Room.in_bounds(bounds)
     end
