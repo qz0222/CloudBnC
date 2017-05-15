@@ -19,9 +19,9 @@ class RoomForm2 extends React.Component{
       guests:1,
       price:undefined,
       bedrooms:undefined,
+      bathrooms:undefined,
       picture_url: "",
       beds:undefined,
-      city:"",
       personal_belongings:"true",
       name:"",
       focus: "",
@@ -71,6 +71,7 @@ class RoomForm2 extends React.Component{
 
 
   _handleSubmit(e){
+    debugger
     e.preventDefault();
     const paramstate={
       name:this.state.name,
