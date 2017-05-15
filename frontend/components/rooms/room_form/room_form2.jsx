@@ -91,6 +91,8 @@ class RoomForm2 extends React.Component{
 
     };
     if (this.props.location.pathname.includes('edit')){
+      paramstate.id = this.props.room.id;
+      debugger
       this.props.updateRoom(paramstate).then(
         ()=>{
           hashHistory.push('/rooms/my');
@@ -166,23 +168,23 @@ handleNewFocusedInput(newFocusedInput){
               <option value="Shared rooms" >Shared room</option>
             </select>
 
-          <select onChange={this._handleUpdate("guests")} className="roomFormInput">
-            <option value={1} selected={this.state.guests===1 ? true:false}>for 1 guest</option>
-            <option value={2} selected={this.state.guests===2 ? true:false}>for 2 guest</option>
-            <option value={3} selected={this.state.guests===3 ? true:false}>for 3 guest</option>
-            <option value={4} selected={this.state.guests===4 ? true:false}>for 4 guest</option>
-            <option value={5} selected={this.state.guests===5 ? true:false}>for 5 guest</option>
-            <option value={6} selected={this.state.guests===6 ? true:false}>for 6 guest</option>
-            <option value={7} selected={this.state.guests===7 ? true:false}>for 7 guest</option>
-            <option value={8} selected={this.state.guests===8 ? true:false}>for 8 guest</option>
-            <option value={9} selected={this.state.guests===9 ? true:false}>for 9 guest</option>
-            <option value={10} selected={this.state.guests===10 ? true:false}>for 10 guest</option>
-            <option value={11} selected={this.state.guests===11 ? true:false}>for 11 guest</option>
-            <option value={12} selected={this.state.guests===12 ? true:false}>for 12 guest</option>
-            <option value={13} selected={this.state.guests===13 ? true:false}>for 13 guest</option>
-            <option value={14} selected={this.state.guests===14 ? true:false}>for 14 guest</option>
-            <option value={15} selected={this.state.guests===15 ? true:false}>for 15 guest</option>
-            <option value={16} selected={this.state.guests===16 ? true:false}>for 16 guest</option>
+          <select onChange={this._handleUpdate("guests")} value={this.state.guests} className="roomFormInput">
+            <option value={1} >for 1 guest</option>
+            <option value={2} >for 2 guest</option>
+            <option value={3} >for 3 guest</option>
+            <option value={4} >for 4 guest</option>
+            <option value={5} >for 5 guest</option>
+            <option value={6} >for 6 guest</option>
+            <option value={7} >for 7 guest</option>
+            <option value={8} >for 8 guest</option>
+            <option value={9} >for 9 guest</option>
+            <option value={10} >for 10 guest</option>
+            <option value={11} >for 11 guest</option>
+            <option value={12} >for 12 guest</option>
+            <option value={13} >for 13 guest</option>
+            <option value={14} >for 14 guest</option>
+            <option value={15} >for 15 guest</option>
+            <option value={16} >for 16 guest</option>
           </select>
         </div>
 
@@ -207,17 +209,17 @@ handleNewFocusedInput(newFocusedInput){
             <h2 className="question">What kind of place are you listing?</h2>
 
             <label>What type of property is this?</label>
-            <select onChange={this._handleUpdate('property_type')} className="roomFormInput">
-              <option value="Apartment"  selected={this.state.property_type==="Apartment" ? true:false}>Apartment</option>
-              <option value="Bed and Breakfast" selected={this.state.property_type==="Bed and Breakfast" ? true:false}>Bed and Breakfast</option>
-              <option value="Cave"  selected={this.state.property_type==="Cave" ? true:false}>Cave</option>
+            <select onChange={this._handleUpdate('property_type')} value={this.state.property_type} className="roomFormInput">
+              <option value="Apartment">Apartment</option>
+              <option value="Bed and Breakfast">Bed and Breakfast</option>
+              <option value="Cave">Cave</option>
             </select>
 
             <label>What type of listing is this?</label>
-            <select onChange={this._handleUpdate('listing_type')} className="roomFormInput">
-              <option value="Home"  selected={this.state.listing_type==="Home" ? true:false}>Home</option>
-              <option value="Hotel"  selected={this.state.listing_type==="Hotel" ? true:false}>Hotel</option>
-              <option value="Something else"  selected={this.state.listing_type==="Something else" ? true:false}>Something else</option>
+            <select onChange={this._handleUpdate('listing_type')} value={this.state.listing_type} className="roomFormInput">
+              <option value="Home"  >Home</option>
+              <option value="Hotel"  >Hotel</option>
+              <option value="Something else"  >Something else</option>
             </select>
 
             <label>Do you keep personal belongings here?</label>
