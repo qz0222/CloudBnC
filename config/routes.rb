@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   end
 
   get 'api/myrooms', :to => 'api/rooms#my',:defaults => { :format => 'json' }
+  get 'api/featurerooms', :to => 'api/rooms#feature',:defaults => { :format => 'json' }
 end

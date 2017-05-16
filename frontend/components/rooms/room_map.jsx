@@ -18,6 +18,7 @@ class RoomMap extends React.Component{
       currentlng:this.props.lng,
     };
     this.boundfilters=this.boundfilters.bind(this);
+    this.mapBoundEvent=this.mapBoundEvent.bind(this);
   }
 
   componentDidMount(){
@@ -32,7 +33,6 @@ class RoomMap extends React.Component{
       streetViewControl: false,
       clickableIcons: false
     };
-
 
     this.map = new google.maps.Map(mapDOMNode, mapOptions);
 
@@ -72,6 +72,10 @@ class RoomMap extends React.Component{
 
   }
 
+  componentWillUnmount(){
+    google.maps.event.removeListener(this.maplistenr);
+  }
+
   boundfilters(){
     const { north, south, east, west } = this.map.getBounds().toJSON();
     const bounds = {
@@ -82,18 +86,19 @@ class RoomMap extends React.Component{
         this.props.updateFilter('bounds', bounds);
       }
   }
+  mapBoundEvent(){
+    const { north, south, east, west } = this.map.getBounds().toJSON();
+    const bounds = {
+      northEast: { lat:north, lng: east },
+      southWest: { lat: south, lng: west } };
+      if( !this.props.singleRoom){
+
+        this.props.updateFilter('bounds', bounds).then(this.props.showRooms());
+      }
+  }
 
   _registerListeners() {
-   google.maps.event.addListener(this.map, 'idle', () => {
-     const { north, south, east, west } = this.map.getBounds().toJSON();
-     const bounds = {
-       northEast: { lat:north, lng: east },
-       southWest: { lat: south, lng: west } };
-       if( !this.props.singleRoom){
-
-         this.props.updateFilter('bounds', bounds);
-       }
-   });
+   this.maplistenr = google.maps.event.addListener(this.map, 'idle', this.mapBoundEvent);
 
  }
 

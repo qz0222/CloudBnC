@@ -43,6 +43,14 @@ export const fetchMyRooms = () => {
   };
 };
 
+export const fetchFeatureRooms = () => {
+  return (dispatch) => {
+    return RoomAPIUtil.fetchFeatureRooms().then(
+      (rooms) => (dispatch(receiveRooms(rooms)))
+    );
+  };
+};
+
 export const fetchRoom = (id) => {
   return (dispatch) => {
     return RoomAPIUtil.fetchRoom(id).then(

@@ -64,6 +64,8 @@ class RoomMap2 extends React.Component{
 
 
 
+
+
   updateMarkers(rooms){
     const roomsObj = {};
     rooms.forEach(room => roomsObj[room.id] = room);

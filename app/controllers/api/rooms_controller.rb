@@ -21,9 +21,14 @@ class Api::RoomsController < ApplicationController
     render :index
   end
 
+  def feature
+    # @rooms = Room.joins(:reviews).group('rooms.id').having('count(reviews) > ?', 3).order('total_rating/count(reviews)').limit(6)
+    @rooms = Room.all
+    render :index
+  end
+
 
   def create
-    debugger
     @room = current_user.rooms.new(room_params)
     if @room.save
       render :show

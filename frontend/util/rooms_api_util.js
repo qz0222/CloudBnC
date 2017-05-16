@@ -14,6 +14,13 @@ export const fetchMyRooms = () => {
   });
 };
 
+export const fetchFeatureRooms = () => {
+  return $.ajax({
+    method: "GET",
+    url: "/api/featurerooms",
+  });
+};
+
 export const fetchRoom = (id) => {
   return $.ajax({
     method: "GET",

@@ -8,13 +8,15 @@ class RoomIndex extends React.Component {
   constructor(props){
     super(props);
     this.handleDelete=this.handleDelete.bind(this);
+    this.showRooms = this.showRooms.bind(this);
+    this.show = false;
     this.state={
       currentguests:1
     };
   }
   componentWillMount() {
     // debugger
-    
+    this.show = false;
     if (this.props.location.pathname.includes('my')){
       this.props.requestMyRooms();
     }else{
@@ -69,6 +71,10 @@ class RoomIndex extends React.Component {
 
   }
 
+  showRooms(){
+    this.show = true;
+  }
+
   render() {
     const { rooms, createRoom, updateRoom, errors } = this.props;
 
@@ -116,20 +122,26 @@ class RoomIndex extends React.Component {
             <RoomMap
               updateFilter={this.props.updateFilter}
               rooms= {rooms}
+              showRooms = {this.showRooms}
               lat={window.searchlat? window.searchlat : 40.7128}
               lng={window.searchlng? window.searchlng : -74.0059} />
         </div>
       </div>
       );
     }else {
-      roomItems = rooms.map(room => (
-          <RoomIndexItem
+      if (this.show === false){
+        roomItems = [<li>loading...</li>];
+      } else {
+        roomItems = rooms.map(room => (
+            <RoomIndexItem
 
-            key={ room.id }
-            room={ room }
-            updateRoom={ updateRoom } />
-        )
-      );
+              key={ room.id }
+              room={ room }
+              updateRoom={ updateRoom } />
+          )
+        );
+      }
+
 
       return(
         <div className='main'>
@@ -148,6 +160,7 @@ class RoomIndex extends React.Component {
             </ul>
           </div>
             <RoomMap
+              showRooms = {this.showRooms}
               updateFilter={this.props.updateFilter}
               rooms= {rooms}
               lat={window.searchlat? window.searchlat : 40.7128}
