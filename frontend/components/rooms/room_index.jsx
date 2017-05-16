@@ -130,7 +130,7 @@ class RoomIndex extends React.Component {
       );
     }else {
       if (this.show === false){
-        roomItems = [<li>loading...</li>];
+        roomItems = [<li key={-1}>loading...</li>];
       } else {
         roomItems = rooms.map(room => (
             <RoomIndexItem

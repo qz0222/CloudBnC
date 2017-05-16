@@ -143,6 +143,7 @@ class Search extends React.Component{
               </div>
               <span className="this-span"><input
                 type="text"
+                onChange={console.log()}
                 value={this.handleTime()}
                 onFocus={this.handleFocusChange}
                 onBlur={this.handleFocusChange}
@@ -169,6 +170,7 @@ class Search extends React.Component{
               </div>
               <span className="this-span"><input
                 type="text"
+                onChange={console.log()}
                 value={this.showGuests()}
                 placeholder='1 guest'/></span>
               <div className='head-dropdown-content'>

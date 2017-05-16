@@ -1,3 +1,7 @@
+
+
+
+
 div.feature-room-list-item {
   display: inline-block;
   width:calc(100%/3);
@@ -123,3 +127,33 @@ div.feature-room-list-item {
     }
   }
 }
+div.slick-initialized.slick-slider{
+  width:90%;
+  margin:0 auto;
+  margin-top:30px;
+
+  button{
+    // border:2px solid red;
+    color:grey;
+  }
+}
+
+div.main{
+  h1{
+    font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    margin-left: 5%;
+    margin-top: 30px;
+  }
+}
+
+// .slick-slide{
+//   border: 2px solid blue;
+// }
+// .slick-active{
+//   border: 2px solid blue;
+// }
+// .slick-center{
+//   border:2px solid red;
+// }

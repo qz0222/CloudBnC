@@ -233,6 +233,7 @@ handleNewFocusedInput(newFocusedInput){
               </div>
               <span className="this-span"><input
                 type="text"
+                onChange={()=>console.log()}
                 value={this.showGuests()}
                 placeholder='1 guest'/></span>
               <div className='head-dropdown-content'>

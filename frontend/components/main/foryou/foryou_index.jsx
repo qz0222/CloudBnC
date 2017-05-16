@@ -16,7 +16,7 @@ class ForyouIndex extends React.Component{
     let roomItems;
     if (rooms.length > 0){
       roomItems = rooms.map(room => (
-          <div className='feature'><RoomIndexItem
+          <div key={ room.id } className='feature'><RoomIndexItem
             type='feature'
             key={ room.id }
             room={ room }
@@ -32,10 +32,15 @@ class ForyouIndex extends React.Component{
     infinite: true,
     speed: 500,
     slidesToShow: 3,
-    slidesToScroll: 1
+    slidesToScroll: 1,
+    centerMode:true,
+    arrows:true,
+    autoplay:true,
+    // autoplaySpeed:100,
   };
     return(
       <div className='main'>
+        <h1>Featured Rooms</h1>
         <Slider {...settings}>
 
           { roomItems }

@@ -110,12 +110,10 @@ class App2 extends React.Component{
             <li>
               <Link onClick={this.currentNav(2)} className='clickable-nav nav-homes'>HOMES</Link>
             </li>
-            <li>
-              <Link onClick={this.currentNav(3)} className='clickable-nav nav-experiences'>EXPERIENCES</Link>
-            </li>
-            <li>
-              <Link onClick={this.currentNav(4)} className='clickable-nav nav-places'>PLACES</Link>
-            </li>
+          <li>
+            <Link className='clickable-nav nav-experiences'> </Link>
+          </li>
+          <li/>
           </ul>
         </div>
     </div>
@@ -126,6 +124,12 @@ class App2 extends React.Component{
 );}
 }
 
+// <li>
+//   <Link onClick={this.currentNav(3)} className='clickable-nav nav-experiences'>EXPERIENCES</Link>
+// </li>
+// <li>
+//   <Link onClick={this.currentNav(4)} className='clickable-nav nav-places'>PLACES</Link>
+// </li>
 
 
 
