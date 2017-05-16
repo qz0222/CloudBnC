@@ -61,7 +61,7 @@ class RoomIndexItem extends React.Component {
     if (this.props.type==='feature'){
       return(
         <div className="feature-room-list-item">
-          <div  className="room-list-item-container">
+          <div  onClick={()=>{hashHistory.push(detailPath);}} className="room-list-item-container">
             <div className="index-image-container">
                 <img src={room.picture_url}/>
             </div>
