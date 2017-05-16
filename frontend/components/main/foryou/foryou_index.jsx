@@ -29,17 +29,33 @@ class ForyouIndex extends React.Component{
     // debugger
     var settings = {
     dots: true,
+    dotsClass: 'slick-dots slick-thumb',
     infinite: true,
     speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1,
+    // slidesToShow: 1.001,
     centerMode:true,
+    slidesToScroll: 1,
+    accessibility:true,
     arrows:true,
     autoplay:true,
-    // autoplaySpeed:100,
+    autoplaySpeed:100,
+    responsive: [
+                  { breakpoint: 1000,
+                    settings: { slidesToShow: 1 , centerMode:true, infinite: true, fade:true,} },
+                  { breakpoint: 1400,
+                    settings: { slidesToShow: 2 ,centerMode:true, infinite: true, } },
+                  { breakpoint: 10000,
+                    settings: { slidesToShow: 3 ,centerMode:true, infinite: true,} }]
   };
     return(
       <div className='main'>
+        <h1>Featured Destinations</h1>
+        <Slider {...settings}>
+
+          { roomItems }
+
+
+        </Slider>
         <h1>Featured Rooms</h1>
         <Slider {...settings}>
 

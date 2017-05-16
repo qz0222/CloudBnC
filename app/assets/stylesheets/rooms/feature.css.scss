@@ -5,7 +5,7 @@
 div.feature-room-list-item {
   display: inline-block;
   width:calc(100%/3);
-  min-width: 300px;
+  min-width: 400px;
   padding-left: 8px;
   padding-right: 8px;
   list-style: none;
@@ -128,9 +128,24 @@ div.feature-room-list-item {
   }
 }
 div.slick-initialized.slick-slider{
+  height: 320px;
+  // overflow: hidden;
   width:90%;
+  min-width:500px;
   margin:0 auto;
   margin-top:30px;
+  div.slick-slide.feature{
+    // border: blue solid 2px;
+    // min-width:450px;
+    // max-width: 350px;
+    div.feature-room-list-item{
+      display: block;
+      margin:0 auto;
+      // border: red solid 2px;
+    }
+  }
+
+
 
   button{
     // border:2px solid red;
@@ -146,6 +161,10 @@ div.main{
     margin-left: 5%;
     margin-top: 30px;
   }
+}
+
+.slick-next:before, .slick-prev:before{
+  color:black !important;
 }
 
 // .slick-slide{
