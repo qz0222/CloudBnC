@@ -1,6 +1,8 @@
 
 var path = require("path");
 var webpack = require("webpack");
+var plugins = []; // if using any plugins for both dev and production
+var devPlugins = []; // if using any plugins for development
 
 var prodPlugins = [
   new webpack.DefinePlugin({
