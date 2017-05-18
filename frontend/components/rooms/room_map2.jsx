@@ -82,7 +82,7 @@ class RoomMap2 extends React.Component{
   createMarkerFromRoom(room) {
     const position = new google.maps.LatLng(room.lat, room.lng);
     var image = {
-      url:'./images/download.png',
+      url:'./images/little-house-icon.png',
       scaledSize : new google.maps.Size(50, 50)
     };
     const marker = new google.maps.Marker({

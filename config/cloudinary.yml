@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: qz0222
+  api_key: '856374357633988'
+  api_secret: SxFLPCmj3kkUkIRzKSpyfoLtJ50
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: qz0222
+  api_key: '856374357633988'
+  api_secret: SxFLPCmj3kkUkIRzKSpyfoLtJ50
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: qz0222
+  api_key: '856374357633988'
+  api_secret: SxFLPCmj3kkUkIRzKSpyfoLtJ50
+  enhance_image_tag: true
+  static_image_support: false

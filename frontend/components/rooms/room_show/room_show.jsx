@@ -33,11 +33,11 @@ class RoomShow extends React.Component{
 
     if(room.name === undefined){
       return(
-        <div>loading</div>
+        <div className = 'loading'>loading...</div>
       );
     }else{
       const reviewsarray = Object.values(room.reviews);
-      const reviewPart = reviewsarray.map(review=>(<ReviewItem fetchRoom={fetchRoom} currentReview={review}/>));
+      const reviewPart = reviewsarray.map(review=>(<ReviewItem key={review.id} fetchRoom={fetchRoom} currentReview={review}/>));
     return(
       <div className="main">
         <div className="maptest2">
